@@ -7,6 +7,10 @@ class World {
         new PufferFish(),
     ];
 
+    light = new Light();
+    floor = new Floor();
+    water = new Water();
+
     canvas;
     ctx;
 
@@ -23,6 +27,9 @@ class World {
         this.enemies.forEach(enemy => {
             this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.width, enemy.height);
         });
+        this.ctx.drawImage(this.light.img, this.light.x, this.light.y, this.light.width, this.light.height);
+        this.ctx.drawImage(this.floor.img, this.floor.x, this.floor.y, this.floor.width, this.floor.height);
+        // this.ctx.drawImage(this.water.img, this.water.x, this.water.y, this.water.width, this.water.height);
 
         let self = this;
         requestAnimationFrame(function() {
