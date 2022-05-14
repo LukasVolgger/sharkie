@@ -7,6 +7,10 @@ class World {
         new PufferFish(),
     ];
 
+    backgroundObjects = [
+        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0, 100)
+    ]
+
     light = new Light();
     floor = new Floor();
     water = new Water();
@@ -21,19 +25,35 @@ class World {
     }
 
     draw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.clearCanvas();
 
-        this.ctx.drawImage(this.character.img, this.character.x, this.character.y, this.character.width, this.character.height);
-        this.enemies.forEach(enemy => {
-            this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.width, enemy.height);
-        });
-        this.ctx.drawImage(this.light.img, this.light.x, this.light.y, this.light.width, this.light.height);
-        this.ctx.drawImage(this.floor.img, this.floor.x, this.floor.y, this.floor.width, this.floor.height);
-        // this.ctx.drawImage(this.water.img, this.water.x, this.water.y, this.water.width, this.water.height);
+        // Character & Enemies
+        this.addToWorld(this.character);
+        this.addObjectsToWorld(this.enemies);
+
+        // Background 
+        this.addObjectsToWorld(this.backgroundObjects);
+        this.addToWorld(this.light);
+        this.addToWorld(this.floor);
+        // this.addToWorld(this.water);
 
         let self = this;
         requestAnimationFrame(function() {
             self.draw();
         })
+    }
+
+    addToWorld(movableObject) {
+        this.ctx.drawImage(movableObject.img, movableObject.x, movableObject.y, movableObject.width, movableObject.height);
+    }
+
+    addObjectsToWorld(objects) {
+        objects.forEach(object => {
+            this.ctx.drawImage(object.img, object.x, object.y, object.width, object.height);
+        });
+    }
+
+    clearCanvas() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
