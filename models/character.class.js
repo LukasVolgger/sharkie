@@ -1,9 +1,9 @@
 class Character extends MovableObject {
-    width = 100;
-    height = 100;
+    width = 300;
+    height = 300;
     constructor() {
         super().loadImage('img/1._Sharkie/3._Swim/1.png');
-        this.x = 250;
-        this.y = 300;
+        this.x = 50;
+        this.y = 100;
     }
 }

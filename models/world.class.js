@@ -17,21 +17,18 @@ class World {
     ];
 
     backgroundObjects = [
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0)
+        new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0),
+        new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 0),
+        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0),
+        new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0),
+        new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 100)
     ]
-
-    light = new Light();
-    floor = new Floor();
-    water = new Water();
 
     draw() {
         this.clearCanvas();
 
         // Background 
-        this.addToWorld(this.water);
         this.addObjectsToWorld(this.backgroundObjects);
-        this.addToWorld(this.light);
-        this.addToWorld(this.floor);
 
         // Character & Enemies
         this.addToWorld(this.character);
