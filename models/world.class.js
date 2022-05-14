@@ -1,20 +1,4 @@
 class World {
-    character = new Character();
-
-    enemies = [
-        new PufferFish(),
-        new PufferFish(),
-        new PufferFish(),
-    ];
-
-    backgroundObjects = [
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0, 100)
-    ]
-
-    light = new Light();
-    floor = new Floor();
-    water = new Water();
-
     canvas;
     ctx;
 
@@ -24,18 +8,34 @@ class World {
         this.draw();
     }
 
+    character = new Character();
+
+    enemies = [
+        new PufferFish(),
+        new PufferFish(),
+        new PufferFish(),
+    ];
+
+    backgroundObjects = [
+        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0)
+    ]
+
+    light = new Light();
+    floor = new Floor();
+    water = new Water();
+
     draw() {
         this.clearCanvas();
+
+        // Background 
+        this.addToWorld(this.water);
+        this.addObjectsToWorld(this.backgroundObjects);
+        this.addToWorld(this.light);
+        this.addToWorld(this.floor);
 
         // Character & Enemies
         this.addToWorld(this.character);
         this.addObjectsToWorld(this.enemies);
-
-        // Background 
-        this.addObjectsToWorld(this.backgroundObjects);
-        this.addToWorld(this.light);
-        this.addToWorld(this.floor);
-        // this.addToWorld(this.water);
 
         let self = this;
         requestAnimationFrame(function() {
