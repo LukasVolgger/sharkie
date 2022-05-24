@@ -22,11 +22,11 @@ class World {
     }
 
     /**
-     * Passes a reference to the world.class.js to subobjects
+     * Passes a reference to the world.class.js to sub-objects
      * This means that all sub-objects can access the variables of the world class (important for keyboard)
      */
     setWorld() {
-        this.character.world = this; // 
+        this.character.world = this;
     }
 
     // ################################################### Create Objects ###################################################
