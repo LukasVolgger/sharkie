@@ -6,7 +6,6 @@ class Character extends MovableObject {
     height = 300;
     x = 50;
     y = 100;
-    currentImage = 0;
     IMAGES_IDLE = [
         'img/1._Sharkie/1._IDLE/1.png',
         'img/1._Sharkie/1._IDLE/2.png',
