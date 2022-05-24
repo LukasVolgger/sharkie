@@ -5,6 +5,7 @@
 class MovableObject {
     x;
     y;
+    speed = 0.15;
     img;
     width = 100;
     height = 100;
@@ -46,6 +47,8 @@ class MovableObject {
      * Function to move objects left
      */
     moveLeft() {
-        console.log('Moving left');
+        setInterval(() => {
+            this.x -= this.speed;
+        }, 1000 / 60);
     };
 }
