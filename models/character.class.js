@@ -5,7 +5,7 @@ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
-    x = 50;
+    x = 0;
     y = 100;
     speed = 5;
     imgMirrored = false;
@@ -69,6 +69,8 @@ class Character extends MovableObject {
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
             }
+
+            this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
         }, 1000 / 60)
 
         // Animation

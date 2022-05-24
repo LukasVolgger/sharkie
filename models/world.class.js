@@ -6,6 +6,7 @@
 class World {
     canvas;
     ctx;
+    camera_x = 0;
     keyboard;
 
     // The canvas was passed from init() in game.js
@@ -57,12 +58,19 @@ class World {
         // Clear the canvas to prevent objects from being drawn over other objects
         this.clearCanvas();
 
+        // Every time the draw() method is called, the camera moves x pixels of the camera_x variable 
+        // Bound on character
+        this.ctx.translate(this.camera_x, 0);
+
         // Add background  objects
         this.addObjectsToWorld(this.backgroundObjects);
 
         // Add character & enemies
         this.addToWorld(this.character);
         this.addObjectsToWorld(this.enemies);
+
+        // Reset translate (camera_x)
+        this.ctx.translate(-this.camera_x, 0);
 
         // Needed to call the draw() method on every request from requestAnimationFrame()
         // The keyword "this" is not working in the method. This assignment therefore references the draw() method within the class (i.e. this).
