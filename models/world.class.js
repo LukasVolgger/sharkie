@@ -78,7 +78,22 @@ class World {
      * @param {*} movableObject Any object which is extends MovableObject
      */
     addToWorld(movableObject) {
+        // Check if object is mirrored
+        if (movableObject.imgMirrored) {
+            this.ctx.save(); // Save current context
+            this.ctx.translate(movableObject.width, 0);
+            this.ctx.scale(-1, 1);
+            movableObject.x = movableObject.x * -1;
+        }
+
+        // Draw image on context
         this.ctx.drawImage(movableObject.img, movableObject.x, movableObject.y, movableObject.width, movableObject.height);
+
+        // Check if object is mirrored
+        if (movableObject.imgMirrored) {
+            movableObject.x = movableObject.x * -1;
+            this.ctx.restore(); // Restore context
+        }
     }
 
     /**

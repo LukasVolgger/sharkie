@@ -8,6 +8,7 @@ class Character extends MovableObject {
     x = 50;
     y = 100;
     speed = 5;
+    imgMirrored = false;
     IMAGES_IDLE = [
         'img/1._Sharkie/1._IDLE/1.png',
         'img/1._Sharkie/1._IDLE/2.png',
@@ -53,10 +54,12 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.world.keyboard.LEFT) {
                 this.x -= this.speed;
+                this.imgMirrored = true;
             }
 
             if (this.world.keyboard.RIGHT) {
                 this.x += this.speed;
+                this.imgMirrored = false;
             }
 
             if (this.world.keyboard.UP) {
