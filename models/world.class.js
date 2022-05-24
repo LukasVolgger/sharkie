@@ -6,17 +6,27 @@
 class World {
     canvas;
     ctx;
+    keyboard;
 
     // The canvas was passed from init() in game.js
-    constructor(canvas) {
-        // Make the canvas reachable within the world class
-        this.canvas = canvas;
+    constructor(canvas, keyboard) {
+        this.canvas = canvas; // Make the canvas reachable within the world class
+        this.keyboard = keyboard; // Make the keyboard reachable within the world class
 
         // The canvas element is the actual DOM node that's embedded in the HTML page  
         // The canvas context is an object with properties and methods that can be used to render graphics inside the canvas element 
         // The context can be 2d or webgl (3d)
         this.ctx = canvas.getContext('2d');
         this.draw();
+        this.setWorld();
+    }
+
+    /**
+     * Passes a reference to the world.class.js to subobjects
+     * This means that all sub-objects can access the variables of the world class (important for keyboard)
+     */
+    setWorld() {
+        this.character.world = this; // 
     }
 
     // ################################################### Create Objects ###################################################
