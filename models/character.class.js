@@ -52,14 +52,16 @@ class Character extends MovableObject {
     animate() {
         // Move character
         setInterval(() => {
-            if (this.world.keyboard.LEFT) {
+            // this.x = to avoid that the character moves out of map
+            if (this.world.keyboard.LEFT && this.x > 0) {
                 this.x -= this.speed;
                 this.imgMirrored = true;
             }
 
-            if (this.world.keyboard.RIGHT) {
+            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.x += this.speed;
                 this.imgMirrored = false;
+                console.log(this.x);
             }
 
             if (this.world.keyboard.UP) {

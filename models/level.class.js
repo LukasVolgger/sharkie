@@ -5,6 +5,7 @@
 class Level {
     backgroundObjects;
     enemies;
+    level_end_x = 2150; // x-coordinate where level ends
 
     // The paremeters are passed from the individual level_x.js
     // Then the values ​​are assigned to the variables of this class

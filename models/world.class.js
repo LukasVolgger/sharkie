@@ -33,8 +33,7 @@ class World {
 
     // ################################################### Create objects ###################################################
 
-    backgroundObjects = level_1.backgroundObjects;
-    enemies = level_1.enemies;
+    level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
 
     // ################################################### Create background objects ###################################################
@@ -79,11 +78,11 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         // Add background  objects
-        this.addObjectsToWorld(this.backgroundObjects);
+        this.addObjectsToWorld(this.level.backgroundObjects);
 
         // Add character & enemies
         this.addToWorld(this.character);
-        this.addObjectsToWorld(this.enemies);
+        this.addObjectsToWorld(this.level.enemies);
 
         // Reset translate (camera_x)
         this.ctx.translate(-this.camera_x, 0);
