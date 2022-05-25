@@ -30,7 +30,7 @@ class World {
         this.character.world = this;
     }
 
-    // ################################################### Create Objects ###################################################
+    // ################################################### Create objects ###################################################
 
     character = new Character();
 
@@ -40,35 +40,32 @@ class World {
         new PufferFish(),
     ];
 
+    // ################################################### Create background objects ###################################################
+
     // The order in which the objects are rendered determines their position on the z-index
-    backgroundObjects = [
-        new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0), // Shown first
-        new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 0), // Appears as the second and above the first object
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 100),
+    backgroundObjects = [];
 
-        new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719), // Shown first
-        new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L2.png', 719), // Appears as the second and above the first object
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 819),
+    createBackground() {
+        let levelLength = 4;
 
-        new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 719 * 2), // Shown first
-        new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 719 * 2), // Appears as the second and above the first object
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 819 * 2),
+        for (let i = 0; i < (1438 * levelLength); i += 1438) {
+            // First section
+            this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 0 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 0 + i)),
 
-        new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719 * 3), // Shown first
-        new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L2.png', 719 * 3), // Appears as the second and above the first object
-        new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 819 * 3)
+                // Second section
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L2.png', 719 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L2.png', 719 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719 + i)),
+                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 + i))
+        }
+    }
 
-    ]
-
-    // ################################################### Main Functions ###################################################
+    // ################################################### Main functions ###################################################
 
     /**
      * Draw objects on the 
@@ -140,4 +137,5 @@ class World {
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+
 }
