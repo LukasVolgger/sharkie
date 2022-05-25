@@ -20,6 +20,7 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.draw();
         this.setWorld();
+        this.createBackground();
     }
 
     /**
