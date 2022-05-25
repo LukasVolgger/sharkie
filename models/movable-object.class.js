@@ -51,4 +51,15 @@ class MovableObject {
             this.x -= this.speed;
         }, 1000 / 60);
     };
+
+    /**
+     * Animates the images within an interval
+     * @param {array} images 
+     */
+    playAnimation(images) {
+        let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
+        let path = images[i]; // Temporary store the path of each img
+        this.img = this.imageCache[path]; // Change img from class
+        this.currentImage++;
+    }
 }

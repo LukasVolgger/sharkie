@@ -101,16 +101,10 @@ class Character extends MovableObject {
     }
 
     idleAnimation() {
-        let i = this.currentImage % this.IMAGES_IDLE.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
-        let path = this.IMAGES_IDLE[i]; // Temporary store the path of each img
-        this.img = this.imageCache[path]; // Change img from class
-        this.currentImage++;
+        this.playAnimation(this.IMAGES_IDLE);
     }
 
     swimAnimation() {
-        let i = this.currentImage % this.IMAGES_SWIM.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
-        let path = this.IMAGES_SWIM[i]; // Temporary store the path of each img
-        this.img = this.imageCache[path]; // Change img from class
-        this.currentImage++;
+        this.playAnimation(this.IMAGES_SWIM);
     }
 }
