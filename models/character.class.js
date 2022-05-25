@@ -37,6 +37,7 @@ class Character extends MovableObject {
         'img/1._Sharkie/3._Swim/5.png',
         'img/1._Sharkie/3._Swim/6.png'
     ];
+    swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
         // super() is needed to call the constructor of its parent class to access the parent's properties and methods
@@ -52,24 +53,38 @@ class Character extends MovableObject {
     animate() {
         // Move character
         setInterval(() => {
-            // this.x = to avoid that the character moves out of map
+            this.swim_sound.pause();
+
+            // this.x > 0 = to avoid that the character moves out of map
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.x -= this.speed;
                 this.imgMirrored = true;
+
+                this.swim_sound.play();
+            } else if (this.world.keyboard.LEFT) {
+                this.swim_sound.play();
             }
 
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.x += this.speed;
                 this.imgMirrored = false;
                 console.log(this.x);
+
+                this.swim_sound.play();
+            } else if (this.world.keyboard.RIGHT) {
+                this.swim_sound.play();
             }
 
             if (this.world.keyboard.UP) {
                 this.y -= this.speed;
+
+                this.swim_sound.play();
             }
 
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
+
+                this.swim_sound.play();
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
