@@ -20,7 +20,7 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.draw();
         this.setWorld();
-        this.createBackground();
+        // this.createBackground();
     }
 
     /**
@@ -33,38 +33,37 @@ class World {
 
     // ################################################### Create objects ###################################################
 
+    backgroundObjects = level_1.backgroundObjects;
+    enemies = level_1.enemies;
     character = new Character();
-
-    enemies = [
-        new PufferFish(),
-        new PufferFish(),
-        new PufferFish(),
-    ];
 
     // ################################################### Create background objects ###################################################
 
     // The order in which the objects are rendered determines their position on the z-index
-    backgroundObjects = [];
 
-    createBackground() {
-        let levelLength = 4;
 
-        for (let i = 0; i < (1438 * levelLength); i += 1438) {
-            // First section
-            this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 0 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 0 + i)),
+    /**
+     * Creates the background objects and pushes it in backgroundObjects array
+     */
+    // createBackground() {
+    //     let levelLength = 4;
 
-                // Second section
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L2.png', 719 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L2.png', 719 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719 + i)),
-                this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 + i))
-        }
-    }
+    //     for (let i = 0; i < (1438 * levelLength); i += 1438) {
+    //         // First section
+    //         this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L1.png', 0 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L1.png', 0 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 0 + i)),
+
+    //             // Second section
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/4._Fondo_2/L2.png', 719 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/3._Fondo_1/L2.png', 719 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719 + i)),
+    //             this.backgroundObjects.push(new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 + i))
+    //     }
+    // }
 
     // ################################################### Main functions ###################################################
 
