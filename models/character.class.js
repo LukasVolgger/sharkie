@@ -53,6 +53,7 @@ class Character extends MovableObject {
     animate() {
         // Move character
         setInterval(() => {
+            // TODO Re-enable sound
             // this.swim_sound.pause();
 
             // this.x > 0 = to avoid that the character moves out of map
@@ -60,9 +61,11 @@ class Character extends MovableObject {
                 this.x -= this.speed;
                 this.imgMirrored = true;
 
+                // TODO Re-enable sound
                 // this.swim_sound.play();
             } else if (this.world.keyboard.LEFT) {
-                // this.swim_sound.play();
+                // TODO Re-enable sound
+                // this.swim_sound.play(); 
             }
 
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -70,20 +73,24 @@ class Character extends MovableObject {
                 this.imgMirrored = false;
                 console.log(this.x);
 
+                // TODO Re-enable sound
                 // this.swim_sound.play();
             } else if (this.world.keyboard.RIGHT) {
+                // TODO Re-enable sound
                 // this.swim_sound.play();
             }
 
             if (this.world.keyboard.UP) {
                 this.y -= this.speed;
 
+                // TODO Re-enable sound
                 // this.swim_sound.play();
             }
 
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
 
+                // TODO Re-enable sound
                 // this.swim_sound.play();
             }
 

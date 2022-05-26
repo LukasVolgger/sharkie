@@ -2,7 +2,7 @@
 // Here 2 parameters (arrays) are passed to the level.class.js
 const level_1 = new Level(
 
-    // ########################################################### Background objects ###########################################################
+    // ############################################### Background objects ###############################################
 
     [
         new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0),
@@ -30,7 +30,7 @@ const level_1 = new Level(
         new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 * 3)
     ],
 
-    // ########################################################### Enemies ###########################################################
+    // ############################################### Enemies ###############################################
 
     [
         new PufferFish(),

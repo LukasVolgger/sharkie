@@ -13,14 +13,12 @@ class PufferFish extends MovableObject {
     ];
 
     constructor() {
-        // super() is needed to call the constructor of its parent class to access the parent's properties and methods
-        super().loadImage('img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
+        super().loadImages(this.IMAGES_SWIM);
 
         this.x = 300 + Math.random() * 500;
         this.y = 20 + Math.random() * 200;
         this.speed = 0.15 + Math.random() * 0.25;
 
-        this.loadImages(this.IMAGES_SWIM);
         this.animate();
     }
 

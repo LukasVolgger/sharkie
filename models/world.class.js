@@ -74,10 +74,7 @@ class World {
     addToWorld(movableObject) {
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
-            this.ctx.save(); // Save current context
-            this.ctx.translate(movableObject.width, 0);
-            this.ctx.scale(-1, 1);
-            movableObject.x = movableObject.x * -1;
+            this.flipImage(movableObject);
         }
 
         // Draw image on context
@@ -86,8 +83,7 @@ class World {
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
-            movableObject.x = movableObject.x * -1;
-            this.ctx.restore(); // Restore context
+            this.undoFlipImage(movableObject);
         }
     }
 
@@ -108,6 +104,24 @@ class World {
      */
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    /**
+     * Mirrors the image of an object
+     */
+    flipImage(movableObject) {
+        this.ctx.save(); // Save current context
+        this.ctx.translate(movableObject.width, 0);
+        this.ctx.scale(-1, 1);
+        movableObject.x = movableObject.x * -1;
+    }
+
+    /**
+     * Undoes the mirroring of the object
+     */
+    undoFlipImage(movableObject) {
+        movableObject.x = movableObject.x * -1;
+        this.ctx.restore(); // Restore context
     }
 
     /**
