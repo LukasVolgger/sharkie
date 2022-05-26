@@ -62,7 +62,7 @@ class Character extends MovableObject {
 
                 // this.swim_sound.play();
             } else if (this.world.keyboard.LEFT) {
-                this.swim_sound.play();
+                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
