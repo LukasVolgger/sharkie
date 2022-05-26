@@ -111,6 +111,7 @@ class World {
 
         // Draw image on context
         this.ctx.drawImage(movableObject.img, movableObject.x, movableObject.y, movableObject.width, movableObject.height);
+        this.drawCollisionDetectionFrame(movableObject);
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
@@ -126,6 +127,7 @@ class World {
     addObjectsToWorld(objects) {
         objects.forEach(object => {
             this.ctx.drawImage(object.img, object.x, object.y, object.width, object.height);
+            this.drawCollisionDetectionFrame(object);
         });
     }
 
@@ -135,6 +137,18 @@ class World {
      */
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    /**
+     * Draws a frame around objects for collision detection
+     * @param {object} object 
+     */
+    drawCollisionDetectionFrame(object) {
+        this.ctx.beginPath();
+        this.ctx.lineWidth = "4";
+        this.ctx.strokeStyle = "blue";
+        this.ctx.rect(object.x, object.y, object.width, object.height);
+        this.ctx.stroke();
     }
 
 }

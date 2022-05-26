@@ -1,3 +1,6 @@
+/**
+ * Endboss enemy object
+ */
 class Endboss extends MovableObject {
     width = 300;
     height = 300;

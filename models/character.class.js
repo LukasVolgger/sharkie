@@ -53,14 +53,14 @@ class Character extends MovableObject {
     animate() {
         // Move character
         setInterval(() => {
-            this.swim_sound.pause();
+            // this.swim_sound.pause();
 
             // this.x > 0 = to avoid that the character moves out of map
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.x -= this.speed;
                 this.imgMirrored = true;
 
-                this.swim_sound.play();
+                // this.swim_sound.play();
             } else if (this.world.keyboard.LEFT) {
                 this.swim_sound.play();
             }
@@ -70,21 +70,21 @@ class Character extends MovableObject {
                 this.imgMirrored = false;
                 console.log(this.x);
 
-                this.swim_sound.play();
+                // this.swim_sound.play();
             } else if (this.world.keyboard.RIGHT) {
-                this.swim_sound.play();
+                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.UP) {
                 this.y -= this.speed;
 
-                this.swim_sound.play();
+                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
 
-                this.swim_sound.play();
+                // this.swim_sound.play();
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
@@ -100,10 +100,16 @@ class Character extends MovableObject {
         }, 200)
     }
 
+    /**
+     * Animate idle images
+     */
     idleAnimation() {
         this.playAnimation(this.IMAGES_IDLE);
     }
 
+    /**
+     * Animate swim images
+     */
     swimAnimation() {
         this.playAnimation(this.IMAGES_SWIM);
     }
