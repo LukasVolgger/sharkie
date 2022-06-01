@@ -62,4 +62,24 @@ class MovableObject {
         this.img = this.imageCache[path]; // Change img from class
         this.currentImage++;
     }
+
+    /**
+     * Draw image on context
+     * @param {*} ctx The context of the canvas
+     */
+    draw(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
+
+    /**
+     * Draws a frame around objects for collision detection
+     * @param {object} object 
+     */
+    drawCollisionDetectionFrame(ctx) {
+        ctx.beginPath();
+        ctx.lineWidth = "4";
+        ctx.strokeStyle = "blue";
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.stroke();
+    }
 }
