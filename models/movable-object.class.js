@@ -84,4 +84,23 @@ class MovableObject {
             ctx.stroke();
         }
     }
+
+    // if (character.x + character.width > chicken.x &&
+    //     character.y + character.height > chicken.y &&
+    //     character.x < chicken.x &&
+    //     character.y < chicken.y + chicken.height) 
+
+    /**
+     * Checks if 2 objects collide and returns a boolean
+     * @param {*} movableObject 
+     * @returns True / False
+     */
+    isColliding(movableObject) {
+        return this.x + this.width > movableObject.x &&
+            this.y + this.height > movableObject.y &&
+            this.x < movableObject.x &&
+            this.y < movableObject.y + movableObject.height;
+    }
+
+
 }

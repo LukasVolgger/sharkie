@@ -20,6 +20,7 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.draw();
         this.setWorld();
+        this.checkCollisions();
     }
 
     /**
@@ -123,4 +124,16 @@ class World {
         this.ctx.restore(); // Restore context
     }
 
+    /**
+     * Check in an interval whether the character collides with an enemy
+     */
+    checkCollisions() {
+        setInterval(() => {
+            this.level.enemies.forEach(enemy => {
+                if (this.character.isColliding(enemy)) {
+                    console.log('Colliding with: ', enemy);
+                }
+            });
+        }, 200);
+    }
 }
