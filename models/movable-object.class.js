@@ -6,6 +6,7 @@ class MovableObject {
     x;
     y;
     speed = 0.15;
+    energy = 100;
     img;
     width = 100;
     height = 100;
@@ -100,6 +101,26 @@ class MovableObject {
             this.y + this.height > movableObject.y &&
             this.x < movableObject.x &&
             this.y < movableObject.y + movableObject.height;
+    }
+
+    /**
+     * Reduces the character's energy after colliding with an enemy
+     */
+    hit() {
+        this.energy -= 5;
+
+        // Prevent the energy from going negative
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
+    }
+
+    /**
+     * Returns true if the energy drops to 0
+     * @returns true/false
+     */
+    isDead() {
+        return this.energy == 0;
     }
 
 

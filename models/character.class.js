@@ -37,6 +37,20 @@ class Character extends MovableObject {
         'img/1._Sharkie/3._Swim/5.png',
         'img/1._Sharkie/3._Swim/6.png'
     ];
+    IMAGES_DIE_POISONED = [
+        'img/1._Sharkie/6._Dead/1._Poisoned/1.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/2.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/3.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/4.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/5.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/6.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/7.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/8.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/9.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/10.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/11.png',
+        'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
+    ];
     swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
@@ -44,6 +58,7 @@ class Character extends MovableObject {
         super().loadImage('img/1._Sharkie/1._IDLE/1.png');
         this.loadImages(this.IMAGES_IDLE);
         this.loadImages(this.IMAGES_SWIM);
+        this.loadImages(this.IMAGES_DIE_POISONED);
         this.animate();
     }
 
@@ -99,7 +114,9 @@ class Character extends MovableObject {
 
         // Animation
         setInterval(() => {
-            if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
+            if (this.isDead()) {
+                this.dieAnimationPoisoned();
+            } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
                 this.swimAnimation();
             } else {
                 this.idleAnimation();
@@ -119,5 +136,12 @@ class Character extends MovableObject {
      */
     swimAnimation() {
         this.playAnimation(this.IMAGES_SWIM);
+    }
+
+    /**
+     * Animate die images
+     */
+    dieAnimationPoisoned() {
+        this.playAnimation(this.IMAGES_DIE_POISONED);
     }
 }
