@@ -7,6 +7,7 @@ class MovableObject {
     y;
     speed = 0.15;
     energy = 100;
+    lastHit = 0;
     img;
     width = 100;
     height = 100;
@@ -112,7 +113,19 @@ class MovableObject {
         // Prevent the energy from going negative
         if (this.energy < 0) {
             this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime(); // Saves the time when the character was last hit by an enemy
         }
+    }
+
+    /**
+     * If the difference in the last hit on the character is less than x s, true is returned
+     * @returns true/false
+     */
+    isHurt() {
+        let timePassed = new Date().getTime() - this.lastHit; // Difference in ms
+        timePassed = timePassed / 1000; // Difference in s
+        return timePassed < 1;
     }
 
     /**
