@@ -41,4 +41,18 @@ class DrawableObject {
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
+
+    /**
+     * Draws a frame around objects for collision detection
+     * @param {object} object 
+     */
+    drawCollisionDetectionFrame(ctx) {
+        if (this instanceof Character || this instanceof PufferFish || this instanceof Endboss) { // Only draw frames on Character and Enemies
+            ctx.beginPath();
+            ctx.lineWidth = "4";
+            ctx.strokeStyle = "blue";
+            ctx.rect(this.x, this.y, this.width, this.height);
+            ctx.stroke();
+        }
+    }
 }

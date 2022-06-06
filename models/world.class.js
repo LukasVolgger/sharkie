@@ -35,6 +35,7 @@ class World {
 
     level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
+    statusBar = new StatusBar();
 
     // ################################################### Main functions ###################################################
 
@@ -49,12 +50,12 @@ class World {
         // Bound on character
         this.ctx.translate(this.camera_x, 0);
 
-        // Add background  objects
+        // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
-
-        // Add character & enemies
-        this.addToWorld(this.character);
         this.addObjectsToWorld(this.level.enemies);
+        this.addToWorld(this.statusBar);
+        this.addToWorld(this.character);
+
 
         // Reset translate (camera_x)
         this.ctx.translate(-this.camera_x, 0);

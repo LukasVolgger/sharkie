@@ -35,20 +35,6 @@ class MovableObject extends DrawableObject {
     }
 
     /**
-     * Draws a frame around objects for collision detection
-     * @param {object} object 
-     */
-    drawCollisionDetectionFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish || this instanceof Endboss) { // Only draw frames on Character and Enemies
-            ctx.beginPath();
-            ctx.lineWidth = "4";
-            ctx.strokeStyle = "blue";
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        }
-    }
-
-    /**
      * Checks if 2 objects collide and returns a boolean
      * @param {*} movableObject 
      * @returns True / False
