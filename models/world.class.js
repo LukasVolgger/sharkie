@@ -53,9 +53,15 @@ class World {
         // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
         this.addObjectsToWorld(this.level.enemies);
-        this.addToWorld(this.statusBar);
         this.addToWorld(this.character);
 
+        // ----------------- FIXED OBJECTS START -----------------
+        this.ctx.translate(-this.camera_x, 0);
+
+        this.addToWorld(this.statusBar);
+
+        this.ctx.translate(this.camera_x, 0);
+        // ----------------- FIXED OBJECTS END -----------------
 
         // Reset translate (camera_x)
         this.ctx.translate(-this.camera_x, 0);
@@ -133,6 +139,7 @@ class World {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
+                    this.statusBar.setPercentage(this.character.energy); // Reduce status bar life
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
                 }
             });
