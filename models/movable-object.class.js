@@ -7,10 +7,10 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     offset = {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0
     }
 
     /**
@@ -46,10 +46,10 @@ class MovableObject extends DrawableObject {
      * @returns True / False
      */
     isColliding(movableObject) {
-        return this.x + this.width - this.offset.right > movableObject.x + movableObject.offset.left &&
-            this.y + this.height - this.offset.bottom > movableObject.y + movableObject.offset.top &&
-            this.x + this.offset.left < movableObject.x - movableObject.offset.right &&
-            this.y + this.offset.top < movableObject.y + movableObject.height - movableObject.offset.bottom;
+        return this.x + this.width - this.offset.width > movableObject.x + movableObject.offset.x &&
+            this.y + this.height - this.offset.height > movableObject.y + movableObject.offset.y &&
+            this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width &&
+            this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height;
     }
 
     /**
