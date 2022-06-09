@@ -7,6 +7,12 @@ class Character extends MovableObject {
     height = 300;
     x = 0;
     y = 100;
+    offset = {
+        top: 120,
+        right: 50,
+        bottom: 170,
+        left: 100
+    }
     speed = 5;
     imgMirrored = false;
     IMAGES_IDLE = [
@@ -93,7 +99,7 @@ class Character extends MovableObject {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.x += this.speed;
                 this.imgMirrored = false;
-                console.log(this.x);
+                console.log('Character x-position: ', this.x);
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();

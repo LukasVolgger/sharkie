@@ -6,6 +6,12 @@ class Endboss extends MovableObject {
     height = 300;
     x = 400;
     y = 50;
+    // offset = {
+    //     top: 90,
+    //     right: 10,
+    //     bottom: 120,
+    //     left: 20
+    // }
 
     IMAGES_INTRODUCE = [
         'img/2._Enemy/3._Final_Enemy/1._Introduce/1.png',
