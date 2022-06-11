@@ -24,10 +24,9 @@ class MovableObject extends DrawableObject {
     /**
      * Function to move objects left
      */
-    move(direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
+    move(direction, startPoint, endPoint, speed) {
         setInterval(() => {
-
-            if (direction == 1) { // 1 = Horizontal
+            if (direction == 'horizontal') {
                 if (this.x > endPoint) {
                     this.waypointReached = true;
                     this.imgMirrored = false;
@@ -41,7 +40,7 @@ class MovableObject extends DrawableObject {
                 } else if (!this.waypointReached) {
                     this.x += speed;
                 }
-            } else if (direction == 2) { // 2 = Vertical
+            } else if (direction == 'vertical') {
                 if (this.y > endPoint) {
                     this.waypointReached = true;
                 } else if (this.y < startPoint) {
