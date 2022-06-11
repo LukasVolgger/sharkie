@@ -18,22 +18,26 @@ class PufferFish extends MovableObject {
         'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_5.png'
     ];
 
-    constructor() {
+    constructor(x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         super().loadImage('img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
         this.loadImages(this.IMAGES_SWIM);
+        this.x = x;
+        this.y = y;
 
-        this.x = 300 + Math.random() * 500;
-        this.y = 20 + Math.random() * 200;
-        this.speed = 0.15 + Math.random() * 0.25;
+        if (imgInitiallyMirrored == 1) {
+            this.imgMirrored = true;
+        } else {
+            this.imgMirrored = false;
+        }
 
-        this.animate();
+        this.animate(direction, startPoint, endPoint, speed, imgInitiallyMirrored);
     }
 
     /**
      * Animate puffer-fish 
      */
-    animate() {
-        this.moveLeft();
+    animate(direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
+        this.move(direction, startPoint, endPoint, speed, imgInitiallyMirrored);
 
         setInterval(() => {
             this.playAnimation(this.IMAGES_SWIM);

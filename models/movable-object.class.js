@@ -12,6 +12,7 @@ class MovableObject extends DrawableObject {
         width: 0,
         height: 0
     }
+    waypointReached = false;
 
     /**
      * Function to move objects right
@@ -23,9 +24,36 @@ class MovableObject extends DrawableObject {
     /**
      * Function to move objects left
      */
-    moveLeft() {
+    move(direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         setInterval(() => {
-            this.x -= this.speed;
+
+            if (direction == 1) { // 1 = Horizontal
+                if (this.x > endPoint) {
+                    this.waypointReached = true;
+                    this.imgMirrored = false;
+                } else if (this.x < startPoint) {
+                    this.waypointReached = false;
+                    this.imgMirrored = true;
+                }
+
+                if (this.waypointReached) {
+                    this.x -= speed;
+                } else if (!this.waypointReached) {
+                    this.x += speed;
+                }
+            } else if (direction == 2) { // 2 = Vertical
+                if (this.y > endPoint) {
+                    this.waypointReached = true;
+                } else if (this.y < startPoint) {
+                    this.waypointReached = false;
+                }
+
+                if (this.waypointReached) {
+                    this.y -= speed;
+                } else if (!this.waypointReached) {
+                    this.y += speed;
+                }
+            }
         }, 1000 / 60);
     };
 
@@ -83,6 +111,4 @@ class MovableObject extends DrawableObject {
     isDead() {
         return this.energy == 0;
     }
-
-
 }

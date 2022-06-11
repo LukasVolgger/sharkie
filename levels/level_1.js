@@ -33,9 +33,9 @@ const level_1 = new Level(
     // ############################################### Enemies ###############################################
 
     [
-        new PufferFish(),
-        new PufferFish(),
-        new PufferFish(),
+        new PufferFish(400, 200, 2, 50, 200, .5, 1),
+        new PufferFish(500, 300, 2, 100, 400, .5, 0),
+        new PufferFish(100, 100, 1, 100, 600, .5, 1),
         new Endboss()
     ]
 );
