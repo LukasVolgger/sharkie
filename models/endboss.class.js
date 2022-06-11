@@ -7,12 +7,11 @@ class Endboss extends MovableObject {
     x = 400;
     y = 50;
     offset = {
-        x: 0,
-        y: 0,
-        width: 0,
-        height: 0
+        x: 15,
+        y: 90,
+        width: 20,
+        height: 45
     }
-
     IMAGES_INTRODUCE = [
         'img/2._Enemy/3._Final_Enemy/1._Introduce/1.png',
         'img/2._Enemy/3._Final_Enemy/1._Introduce/2.png',

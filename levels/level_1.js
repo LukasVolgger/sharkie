@@ -33,10 +33,9 @@ const level_1 = new Level(
     // ############################################### Enemies ###############################################
 
     [
-        // TODO Re-enable puffer fish enemies
-        // new PufferFish(),
-        // new PufferFish(),
-        // new PufferFish(),
+        new PufferFish(),
+        new PufferFish(),
+        new PufferFish(),
         new Endboss()
     ]
 );

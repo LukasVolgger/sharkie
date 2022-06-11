@@ -8,10 +8,10 @@ class Character extends MovableObject {
     x = 0;
     y = 100;
     offset = {
-        x: 50,
+        x: 55,
         y: 140,
-        width: 60,
-        height: 70
+        width: 55,
+        height: 65
     }
     speed = 5;
     imgMirrored = false;

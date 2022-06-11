@@ -6,9 +6,9 @@ class PufferFish extends MovableObject {
     height = 100;
     offset = {
         x: 0,
-        y: 0,
-        width: 0,
-        height: 0
+        y: 3,
+        width: 5,
+        height: 24
     }
     IMAGES_SWIM = [
         'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png',
