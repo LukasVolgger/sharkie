@@ -12,6 +12,87 @@ class StatusBar extends DrawableObject {
         'img/4._Marks/Status_Bars/Life/Green/100.png'
     ];
 
+    IMAGES_NEW = {
+        'coins': {
+            'green': [
+                'img/4._Marks/Status_Bars/Coins/Green/0.png',
+                'img/4._Marks/Status_Bars/Coins/Green/20.png',
+                'img/4._Marks/Status_Bars/Coins/Green/40.png',
+                'img/4._Marks/Status_Bars/Coins/Green/60.png',
+                'img/4._Marks/Status_Bars/Coins/Green/80.png',
+                'img/4._Marks/Status_Bars/Coins/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Coins/Orange/0.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/20.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/40.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/60.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/80.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Coins/Purple/0.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/20.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/40.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/60.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/80.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/100.png'
+            ]
+        },
+        'life': {
+            'green': [
+                'img/4._Marks/Status_Bars/Life/Green/0.png',
+                'img/4._Marks/Status_Bars/Life/Green/20.png',
+                'img/4._Marks/Status_Bars/Life/Green/40.png',
+                'img/4._Marks/Status_Bars/Life/Green/60.png',
+                'img/4._Marks/Status_Bars/Life/Green/80.png',
+                'img/4._Marks/Status_Bars/Life/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Life/Orange/0.png',
+                'img/4._Marks/Status_Bars/Life/Orange/20.png',
+                'img/4._Marks/Status_Bars/Life/Orange/40.png',
+                'img/4._Marks/Status_Bars/Life/Orange/60.png',
+                'img/4._Marks/Status_Bars/Life/Orange/80.png',
+                'img/4._Marks/Status_Bars/Life/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Life/Purple/0.png',
+                'img/4._Marks/Status_Bars/Life/Purple/20.png',
+                'img/4._Marks/Status_Bars/Life/Purple/40.png',
+                'img/4._Marks/Status_Bars/Life/Purple/60.png',
+                'img/4._Marks/Status_Bars/Life/Purple/80.png',
+                'img/4._Marks/Status_Bars/Life/Purple/100.png'
+            ]
+        },
+        'poison': {
+            'green': [
+                'img/4._Marks/Status_Bars/Poison/Green/0.png',
+                'img/4._Marks/Status_Bars/Poison/Green/20.png',
+                'img/4._Marks/Status_Bars/Poison/Green/40.png',
+                'img/4._Marks/Status_Bars/Poison/Green/60.png',
+                'img/4._Marks/Status_Bars/Poison/Green/80.png',
+                'img/4._Marks/Status_Bars/Poison/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Poison/Orange/0.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/20.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/40.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/60.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/80.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Poison/Purple/0.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/20.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/40.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/60.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/80.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/100.png'
+            ]
+        }
+    };
+
     constructor() {
         super();
         this.loadImages(this.IMAGES);
