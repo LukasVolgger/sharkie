@@ -1,5 +1,5 @@
 // A new instance of a level
-// Here 2 parameters (arrays) are passed to the level.class.js
+// Pass 3 parameters for object initialization: backgroundObjects, enemies, level_end_x
 const level_1 = new Level(
 
     // ############################################### Background objects ###############################################
@@ -36,7 +36,11 @@ const level_1 = new Level(
         new PufferFish('red', 100, 50, 'horizontal', 100, 600, 1, 1),
         new PufferFish('green', 300, 300, 'vertical', 300, 400, .5, 0),
         new PufferFish('orange', 100, 100, 'horizontal', 100, 600, .5, 1),
-        new JellyFish('regular_damage', 'lila', 200, 100, 'vertical', 100, 300, .5, 0),
+        new JellyFish('regular_damage', 'lila', 400, 100, 'vertical', 100, 300, .5, 0),
         new Endboss()
-    ]
+    ],
+
+    // ############################################### Level_end_x ###############################################
+    2150
+
 );
