@@ -39,7 +39,12 @@ class DrawableObject {
      * @param {*} ctx The context of the canvas
      */
     draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        try {
+            ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+        } catch (error) {
+            console.error(error);
+            console.warn('Failed to load image: ', this.img);
+        }
     }
 
     /**
@@ -47,7 +52,7 @@ class DrawableObject {
      * @param {object} object 
      */
     drawCollisionDetectionFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish || this instanceof Endboss) { // Only draw frames on Character and Enemies
+        if (this instanceof Character || this instanceof PufferFish || this instanceof JellyFish || this instanceof Endboss) { // Only draw frames on Character and Enemies
             ctx.beginPath();
             ctx.lineWidth = "4";
             ctx.strokeStyle = "blue";

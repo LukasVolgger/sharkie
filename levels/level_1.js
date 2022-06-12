@@ -33,9 +33,10 @@ const level_1 = new Level(
     // ############################################### Enemies ###############################################
 
     [
-        new PufferFish('red', 400, 200, 'vertical', 50, 200, .5, 1),
-        new PufferFish('green', 500, 300, 'vertical', 100, 400, .5, 0),
+        new PufferFish('red', 100, 50, 'horizontal', 100, 600, 1, 1),
+        new PufferFish('green', 300, 300, 'vertical', 300, 400, .5, 0),
         new PufferFish('orange', 100, 100, 'horizontal', 100, 600, .5, 1),
+        new JellyFish('regular_damage', 'lila', 200, 100, 'vertical', 100, 300, .5, 0),
         new Endboss()
     ]
 );

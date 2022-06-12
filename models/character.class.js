@@ -99,7 +99,7 @@ class Character extends MovableObject {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.x += this.speed;
                 this.imgMirrored = false;
-                console.log('Character x-position: ', this.x);
+                console.log('Character position: ', this.x, ', ', this.y);
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();

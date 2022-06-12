@@ -81,11 +81,11 @@ class PufferFish extends MovableObject {
     /**
      * Animate puffer-fish
      * @param {string} color The color of the enemy
-     * @param {string} direction 'horizontal', 'vertical'
+     * @param {string} direction 'horizontal' or 'vertical'
      * @param {integer} startPoint The start point of the movement
-     * @param {*} endPoint The end point of the movement
-     * @param {*} speed The speed of the enemy
-     * @param {*} imgInitiallyMirrored 1 = mirrored, 0 = not mirrored (Necessary for horizontal movement)
+     * @param {integer} endPoint The end point of the movement
+     * @param {float} speed The speed of the enemy
+     * @param {integer} imgInitiallyMirrored 1 = mirrored, 0 = not mirrored (Necessary for horizontal movement)
      */
     animate(color, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         this.move(direction, startPoint, endPoint, speed, imgInitiallyMirrored);
