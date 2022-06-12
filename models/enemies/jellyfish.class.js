@@ -13,35 +13,35 @@ class JellyFish extends MovableObject {
     IMAGES = {
         'regular_damage': {
             'lila': [
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Lila_1.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Lila_2.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Lila_3.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Lila_4.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_2.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_3.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_4.png',
             ],
             'yellow': [
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Yellow_1.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Yellow_2.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Yellow_3.png',
-                'img/2._Enemy/2._Jelly_Fish/Regular_Damage/Yellow_4.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_1.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_2.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_3.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_4.png',
             ]
         },
         'super_dangerous': {
             'green': [
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Green_1.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Green_2.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Green_3.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Green_4.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_1.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_2.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_3.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_4.png',
             ],
             'pink': [
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Pink_1.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Pink_2.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Pink_3.png',
-                'img/2._Enemy/2._Jelly_Fish/Super_Dangerous/Pink_4.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_1.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_2.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_3.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_4.png',
             ]
         }
     }
     constructor(type, color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
-        super().loadImage('img/2._Enemy/2._Jelly_Fish/Regular_Damage/Lila_1.png');
+        super().loadImage('img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png');
         this.loadImages(this.IMAGES[type][color]);
         this.x = x;
         this.y = y;
