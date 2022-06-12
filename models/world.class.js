@@ -35,7 +35,9 @@ class World {
 
     level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
-    statusBar = new StatusBar();
+    statusBarLife = new StatusBar('life', 'green', 20, 0);
+    statusBarCoins = new StatusBar('coins', 'green', 240, 0);
+    statusBarPoison = new StatusBar('poison', 'green', 460, 0);
 
     // ################################################### Main functions ###################################################
 
@@ -58,7 +60,9 @@ class World {
         // ----------------- FIXED OBJECTS START -----------------
         this.ctx.translate(-this.camera_x, 0);
 
-        this.addToWorld(this.statusBar);
+        this.addToWorld(this.statusBarLife);
+        this.addToWorld(this.statusBarCoins);
+        this.addToWorld(this.statusBarPoison);
 
         this.ctx.translate(this.camera_x, 0);
         // ----------------- FIXED OBJECTS END -----------------
@@ -139,7 +143,7 @@ class World {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
-                    this.statusBar.setPercentage(this.character.energy); // Reduce status bar life
+                    this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color); // Reduce status bar life
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
                 }
             });

@@ -3,16 +3,7 @@
  */
 class StatusBar extends DrawableObject {
     percentage = 100;
-    IMAGES = [
-        'img/4._Marks/Status_Bars/Life/Green/0.png',
-        'img/4._Marks/Status_Bars/Life/Green/20.png',
-        'img/4._Marks/Status_Bars/Life/Green/40.png',
-        'img/4._Marks/Status_Bars/Life/Green/60.png',
-        'img/4._Marks/Status_Bars/Life/Green/80.png',
-        'img/4._Marks/Status_Bars/Life/Green/100.png'
-    ];
-
-    IMAGES_NEW = {
+    IMAGES = {
         'coins': {
             'green': [
                 'img/4._Marks/Status_Bars/Coins/Green/0.png',
@@ -93,23 +84,27 @@ class StatusBar extends DrawableObject {
         }
     };
 
-    constructor() {
+    constructor(type, color, x, y) {
         super();
-        this.loadImages(this.IMAGES);
-        this.setPercentage(100);
-        this.x = 20;
-        this.y = 0;
+        this.loadImages(this.IMAGES[type][color]);
+        this.setPercentage(100, type, color);
+        this.x = x;
+        this.y = y;
         this.width = 200;
         this.height = 60;
+        this.type = type;
+        this.color = color;
     }
 
     /**
      * Sets the percent of the object
-     * @param {integer} percentage 
+     * @param {integer} percentage 0-100
+     * @param {string} type 'life', 'coins', 'poison'
+     * @param {string} color 'green', 'orange', 'purple'
      */
-    setPercentage(percentage) {
+    setPercentage(percentage, type, color) {
         this.percentage = percentage;
-        let path = this.IMAGES[this.resolveImageIndex()];
+        let path = this.IMAGES[type][color][this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
