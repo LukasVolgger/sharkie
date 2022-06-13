@@ -35,9 +35,9 @@ class World {
 
     level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
-    statusBarLife = new StatusBar('life', 'green', 20, 0);
-    statusBarCoins = new StatusBar('coins', 'green', 240, 0);
-    statusBarPoison = new StatusBar('poison', 'green', 460, 0);
+    statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
+    statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
+    statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
 
     // ################################################### Main functions ###################################################
 
@@ -55,6 +55,7 @@ class World {
         // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
         this.addObjectsToWorld(this.level.enemies);
+        this.addObjectsToWorld(this.level.coins);
         this.addToWorld(this.character);
 
         // ----------------- FIXED OBJECTS START -----------------
@@ -140,11 +141,24 @@ class World {
      */
     checkCollisions() {
         setInterval(() => {
+            // Check collision with enemies
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color); // Reduce status bar life
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
+                }
+            });
+
+            // Check collisions with coins
+            this.level.coins.forEach(coin => {
+                if (this.character.isColliding(coin)) {
+                    let coinIndex = this.level.coins.indexOf(coin); // Index of the coins just collected (Necessary to delete exactly this after collecting)
+                    const totalCoins = this.level.coins.length + this.character.coins; // Necessary because every time you collect a coin, the length of the array this.level.coins is reduced by one
+                    this.character.coins++;
+                    this.statusBarCoins.setPercentage(this.character.coins * ((this.character.coins * 100) / totalCoins), this.statusBarCoins.type, this.statusBarCoins.color);
+                    this.level.coins.splice(coinIndex, 1);
+                    console.log('Colliding with: ', coin, 'Coins collected: ', this.character.coins);
                 }
             });
         }, 200);

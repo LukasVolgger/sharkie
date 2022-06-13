@@ -2,7 +2,7 @@
  * Status bars for the game
  */
 class StatusBar extends DrawableObject {
-    percentage = 100;
+    percentage;
     IMAGES = {
         'coins': {
             'green': [
@@ -84,10 +84,10 @@ class StatusBar extends DrawableObject {
         }
     };
 
-    constructor(type, color, x, y) {
+    constructor(type, color, percentage, x, y) {
         super();
         this.loadImages(this.IMAGES[type][color]);
-        this.setPercentage(100, type, color);
+        this.setPercentage(percentage, type, color);
         this.x = x;
         this.y = y;
         this.width = 200;
@@ -112,7 +112,7 @@ class StatusBar extends DrawableObject {
      * Calculates the index based on the percent of the status bar for the given image 
      */
     resolveImageIndex() {
-        if (this.percentage == 100) {
+        if (this.percentage >= 100) {
             return 5;
         } else if (this.percentage > 80) {
             return 4;

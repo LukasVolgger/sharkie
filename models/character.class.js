@@ -15,6 +15,7 @@ class Character extends MovableObject {
     }
     speed = 5;
     imgMirrored = false;
+    coins = 0;
     IMAGES_IDLE = [
         'img/1._Sharkie/1._IDLE/1.png',
         'img/1._Sharkie/1._IDLE/2.png',
