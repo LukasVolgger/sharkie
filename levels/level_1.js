@@ -1,5 +1,4 @@
 // A new instance of a level
-// Pass 3 parameters for object initialization: backgroundObjects, enemies, level_end_x
 const level_1 = new Level(
 
     // ############################################### Background objects ###############################################
@@ -39,16 +38,24 @@ const level_1 = new Level(
         new JellyFish('regular_damage', 'lila', 400, 100, 'vertical', 100, 300, .5, 0),
         //new Endboss()
     ],
-
-    // ############################################### Coins ###############################################
-
-    [
-        new Coin(200, 400),
-        new Coin(580, 400),
-    ],
+	
+	// ############################################### Coins ###############################################
+	
+	[
+		new Coin(200, 400),
+		new Coin(580, 400)
+	],
+	
+	// ############################################### Poison ###############################################
+	
+	[
+		new Poison('animated', 300, 390),
+		new Poison('light_right', 380, 390),
+		new Poison('dark_left', 460, 390)
+	],
 
     // ############################################### Level_end_x ###############################################
-
+	
     2150
 
 );

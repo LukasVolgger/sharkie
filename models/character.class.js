@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
-class Character extends MovableObject {
+ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -15,7 +15,8 @@ class Character extends MovableObject {
     }
     speed = 5;
     imgMirrored = false;
-    coins = 0;
+	coins = 0;
+	poison = 0;
     IMAGES_IDLE = [
         'img/1._Sharkie/1._IDLE/1.png',
         'img/1._Sharkie/1._IDLE/2.png',

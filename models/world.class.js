@@ -3,7 +3,7 @@
  * Every object shown in the game is generated here (Backgrounds, character, enemies,... )
  * To access an object from world in the console: world.<object>.<properties>/<method>...
  */
-class World {
+ class World {
     canvas;
     ctx;
     camera_x = 0;
@@ -55,7 +55,8 @@ class World {
         // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
         this.addObjectsToWorld(this.level.enemies);
-        this.addObjectsToWorld(this.level.coins);
+		this.addObjectsToWorld(this.level.coins);
+		this.addObjectsToWorld(this.level.poison);
         this.addToWorld(this.character);
 
         // ----------------- FIXED OBJECTS START -----------------
@@ -141,7 +142,7 @@ class World {
      */
     checkCollisions() {
         setInterval(() => {
-            // Check collision with enemies
+			// Check collision with enemies
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
@@ -149,18 +150,30 @@ class World {
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
                 }
             });
-
-            // Check collisions with coins
-            this.level.coins.forEach(coin => {
-                if (this.character.isColliding(coin)) {
-                    let coinIndex = this.level.coins.indexOf(coin); // Index of the coins just collected (Necessary to delete exactly this after collecting)
-                    const totalCoins = this.level.coins.length + this.character.coins; // Necessary because every time you collect a coin, the length of the array this.level.coins is reduced by one
-                    this.character.coins++;
-                    this.statusBarCoins.setPercentage(this.character.coins * ((this.character.coins * 100) / totalCoins), this.statusBarCoins.type, this.statusBarCoins.color);
-                    this.level.coins.splice(coinIndex, 1);
+			
+			// Check collisions with coins
+			this.level.coins.forEach(coin => {
+				if (this.character.isColliding(coin)) {
+					let coinIndex = this.level.coins.indexOf(coin); // Index of the coins just collected (Necessary to delete exactly this after collecting)
+					let totalCoins = this.level.coins.length + this.character.coins; // Necessary because every time you collect a coin, the length of the array this.level.coins is reduced by one
+					this.character.coins ++;
+					this.statusBarCoins.setPercentage((this.character.coins / totalCoins) * 100, this.statusBarCoins.type, this.statusBarCoins.color);
+					this.level.coins.splice(coinIndex, 1);
                     console.log('Colliding with: ', coin, 'Coins collected: ', this.character.coins);
                 }
-            });
+			});
+			
+			// Check collisions with poison
+			this.level.poison.forEach(poison => {
+				if (this.character.isColliding(poison)) {
+					let poisonIndex = this.level.poison.indexOf(poison);
+					let totalPoison = this.level.poison.length + this.character.poison;
+					this.character.poison ++;
+					this.statusBarPoison.setPercentage((this.character.poison / totalPoison) * 100, this.statusBarPoison.type, this.statusBarPoison.color);
+					this.level.poison.splice(poisonIndex, 1);
+                    console.log('Colliding with: ', poison, 'Poison collected: ', this.character.poison);
+                }
+			});
         }, 200);
     }
 }
