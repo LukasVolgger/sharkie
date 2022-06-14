@@ -15,6 +15,8 @@ class Character extends MovableObject {
     }
     speed = 5;
     imgMirrored = false;
+    lastMove = new Date().getTime();
+    secondsUntilLongIdle = 10;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -36,6 +38,22 @@ class Character extends MovableObject {
         'img/1._Sharkie/1._Idle/16.png',
         'img/1._Sharkie/1._Idle/17.png',
         'img/1._Sharkie/1._Idle/18.png'
+    ];
+    IMAGES_LONG_IDLE = [
+        'img/1._Sharkie/2._Long_Idle/1.png',
+        'img/1._Sharkie/2._Long_Idle/2.png',
+        'img/1._Sharkie/2._Long_Idle/3.png',
+        'img/1._Sharkie/2._Long_Idle/4.png',
+        'img/1._Sharkie/2._Long_Idle/5.png',
+        'img/1._Sharkie/2._Long_Idle/6.png',
+        'img/1._Sharkie/2._Long_Idle/7.png',
+        'img/1._Sharkie/2._Long_Idle/8.png',
+        'img/1._Sharkie/2._Long_Idle/9.png',
+        'img/1._Sharkie/2._Long_Idle/10.png',
+        'img/1._Sharkie/2._Long_Idle/11.png',
+        'img/1._Sharkie/2._Long_Idle/12.png',
+        'img/1._Sharkie/2._Long_Idle/13.png',
+        'img/1._Sharkie/2._Long_Idle/14.png'
     ];
     IMAGES_SWIM = [
         'img/1._Sharkie/3._Swim/1.png',
@@ -71,6 +89,7 @@ class Character extends MovableObject {
         // super() is needed to call the constructor of its parent class to access the parent's properties and methods
         super().loadImage('img/1._Sharkie/1._Idle/1.png');
         this.loadImages(this.IMAGES_IDLE);
+        this.loadImages(this.IMAGES_LONG_IDLE);
         this.loadImages(this.IMAGES_SWIM);
         this.loadImages(this.IMAGES_HURT_POISONED);
         this.loadImages(this.IMAGES_DIE_POISONED);
@@ -90,6 +109,7 @@ class Character extends MovableObject {
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.x -= this.speed;
                 this.imgMirrored = true;
+                this.lastMove = new Date().getTime();
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
@@ -101,6 +121,7 @@ class Character extends MovableObject {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.x += this.speed;
                 this.imgMirrored = false;
+                this.lastMove = new Date().getTime();
                 console.log('Character position: ', this.x, ', ', this.y);
 
                 // TODO Re-enable sound
@@ -112,6 +133,7 @@ class Character extends MovableObject {
 
             if (this.world.keyboard.UP) {
                 this.y -= this.speed;
+                this.lastMove = new Date().getTime();
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
@@ -119,6 +141,7 @@ class Character extends MovableObject {
 
             if (this.world.keyboard.DOWN) {
                 this.y += this.speed;
+                this.lastMove = new Date().getTime();
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
@@ -135,6 +158,8 @@ class Character extends MovableObject {
                 this.hurtAnimationPoisoned();
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
                 this.swimAnimation();
+            } else if (this.isLongIdle()) {
+                this.longIdleAnimation();
             } else {
                 this.IdleAnimation();
             }
@@ -146,6 +171,13 @@ class Character extends MovableObject {
      */
     IdleAnimation() {
         this.playAnimation(this.IMAGES_IDLE);
+    }
+
+    /**
+     * Animate long idle images
+     */
+    longIdleAnimation() {
+        this.playAnimation(this.IMAGES_LONG_IDLE);
     }
 
     /**
@@ -167,5 +199,14 @@ class Character extends MovableObject {
      */
     dieAnimationPoisoned() {
         this.playAnimation(this.IMAGES_DIE_POISONED);
+    }
+
+    /**
+     * Animate long idle images
+     */
+    isLongIdle() {
+        let timePassed = new Date().getTime() - this.lastMove; // Difference in ms
+        timePassed = timePassed / 1000; // Difference in s
+        return timePassed > this.secondsUntilLongIdle;
     }
 }
