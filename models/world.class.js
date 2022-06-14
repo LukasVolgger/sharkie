@@ -56,6 +56,7 @@ class World {
         this.addObjectsToWorld(this.level.backgroundObjects);
         this.addObjectsToWorld(this.level.enemies);
         this.addObjectsToWorld(this.level.coins);
+        this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
         this.addToWorld(this.character);
 
@@ -146,7 +147,7 @@ class World {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
-                    this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color); // Reduce status bar life
+                    this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
                 }
             });
@@ -160,6 +161,19 @@ class World {
                     this.statusBarCoins.setPercentage((this.character.coins / totalCoins) * 100, this.statusBarCoins.type, this.statusBarCoins.color);
                     this.level.coins.splice(coinIndex, 1);
                     console.log('Colliding with: ', coin, 'Coins collected: ', this.character.coins);
+                }
+            });
+
+            // Check collisions with life
+            this.level.life.forEach(life => {
+                if (this.character.isColliding(life)) {
+                    let lifeIndex = this.level.life.indexOf(life);
+                    if (this.character.energy < 100) {
+                        this.character.energy += 5;
+                    }
+                    this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
+                    this.level.life.splice(lifeIndex, 1);
+                    console.log('Colliding with: ', life, 'Energy: ', this.character.life);
                 }
             });
 
