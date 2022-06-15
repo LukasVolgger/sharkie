@@ -164,54 +164,19 @@
         // Animation
         setInterval(() => {
             if (this.isDead()) {
-                this.dieAnimationPoisoned();
+                this.playAnimation(this.IMAGES_DIE_POISONED);
             } else if (this.isHurt()) {
-                this.hurtAnimationPoisoned();
+                this.playAnimation(this.IMAGES_HURT_POISONED);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
-                this.swimAnimation();
+                this.playAnimation(this.IMAGES_SWIM);
             } else if (this.world.keyboard.SPACE) { 
 				this.playAnimation(this.IMAGES_FIN_SLAP);
 			} else if (this.isLongIdle()) {
-                this.longIdleAnimation();
+                this.playAnimation(this.IMAGES_LONG_IDLE);
             } else {
-                this.IdleAnimation();
+                this.playAnimation(this.IMAGES_IDLE);
             }
         }, 200)
-    }
-
-    /**
-     * Animate idle images
-     */
-    IdleAnimation() {
-        this.playAnimation(this.IMAGES_IDLE);
-    }
-
-    /**
-     * Animate long idle images
-     */
-    longIdleAnimation() {
-        this.playAnimation(this.IMAGES_LONG_IDLE);
-    }
-
-    /**
-     * Animate swim images
-     */
-    swimAnimation() {
-        this.playAnimation(this.IMAGES_SWIM);
-    }
-
-    /**
-     * Animate hurt images
-     */
-    hurtAnimationPoisoned() {
-        this.playAnimation(this.IMAGES_HURT_POISONED);
-    }
-
-    /**
-     * Animate die images
-     */
-    dieAnimationPoisoned() {
-        this.playAnimation(this.IMAGES_DIE_POISONED);
     }
 
     /**
