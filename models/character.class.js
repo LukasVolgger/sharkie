@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
- class Character extends MovableObject {
+class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -16,7 +16,9 @@
     speed = 5;
     imgMirrored = false;
     lastMove = new Date().getTime();
-	secondsUntilLongIdle = 10;
+    secondsUntilLongIdle = 10;
+    checkAlreadyRunning = false;
+    started = false;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -84,16 +86,16 @@
         'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
     ];
     IMAGES_FIN_SLAP = [
-		'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/3.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/4.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/5.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/6.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/7.png',
-		'img/1._Sharkie/4._Attack/Fin_Slap/8.png'
-	];
-	swim_sound = new Audio('audio/swim.mp3');
+        'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/3.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/4.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/5.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/6.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/7.png',
+        'img/1._Sharkie/4._Attack/Fin_Slap/8.png'
+    ];
+    swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
         // super() is needed to call the constructor of its parent class to access the parent's properties and methods
@@ -169,9 +171,10 @@
                 this.playAnimation(this.IMAGES_HURT_POISONED);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
                 this.playAnimation(this.IMAGES_SWIM);
-            } else if (this.world.keyboard.SPACE) { 
-				this.playAnimation(this.IMAGES_FIN_SLAP);
-			} else if (this.isLongIdle()) {
+            } else if (this.world.keyboard.SPACE) {
+                this.activateSpace();
+                this.playAnimation(this.IMAGES_FIN_SLAP);
+            } else if (this.isLongIdle()) {
                 this.playAnimation(this.IMAGES_LONG_IDLE);
             } else {
                 this.playAnimation(this.IMAGES_IDLE);
@@ -181,11 +184,30 @@
 
     /**
      * Checks how long ago the character last moved and returns true if it is longer than x seconds
-	 * @returns True / False
+     * @returns True / False
      */
     isLongIdle() {
         let timePassed = new Date().getTime() - this.lastMove; // Difference in ms
         timePassed = timePassed / 1000; // Difference in s
         return timePassed > this.secondsUntilLongIdle;
+    }
+
+    /**
+     * Activates the SPACE key event until the fin slap animation is finished
+     */
+    activateSpace() {
+        if (!this.checkAlreadyRunning) {
+            this.currentImage = 0; // To start with the first img of the animation
+            let spacePressed = setInterval(() => {
+                this.world.keyboard.SPACE = true;
+                this.checkAlreadyRunning = true;
+            }, 100);
+
+            setTimeout(() => {
+                this.world.keyboard.SPACE = false;
+                this.checkAlreadyRunning = false;
+                clearInterval(spacePressed);
+            }, 800);
+        }
     }
 }
