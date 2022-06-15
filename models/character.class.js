@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
-class Character extends MovableObject {
+ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -16,7 +16,7 @@ class Character extends MovableObject {
     speed = 5;
     imgMirrored = false;
     lastMove = new Date().getTime();
-    secondsUntilLongIdle = 10;
+	secondsUntilLongIdle = 10;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -83,7 +83,17 @@ class Character extends MovableObject {
         'img/1._Sharkie/6._Dead/1._Poisoned/11.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
     ];
-    swim_sound = new Audio('audio/swim.mp3');
+    IMAGES_FIN_SLAP = [
+		'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/3.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/4.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/5.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/6.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/7.png',
+		'img/1._Sharkie/4._Attack/Fin_Slap/8.png'
+	];
+	swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
         // super() is needed to call the constructor of its parent class to access the parent's properties and methods
@@ -93,6 +103,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_SWIM);
         this.loadImages(this.IMAGES_HURT_POISONED);
         this.loadImages(this.IMAGES_DIE_POISONED);
+        this.loadImages(this.IMAGES_FIN_SLAP);
         this.animate();
     }
 
@@ -153,56 +164,24 @@ class Character extends MovableObject {
         // Animation
         setInterval(() => {
             if (this.isDead()) {
-                this.dieAnimationPoisoned();
+                this.playAnimation(this.IMAGES_DIE_POISONED);
             } else if (this.isHurt()) {
-                this.hurtAnimationPoisoned();
+                this.playAnimation(this.IMAGES_HURT_POISONED);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
-                this.swimAnimation();
-            } else if (this.isLongIdle()) {
-                this.longIdleAnimation();
+                this.playAnimation(this.IMAGES_SWIM);
+            } else if (this.world.keyboard.SPACE) { 
+				this.playAnimation(this.IMAGES_FIN_SLAP);
+			} else if (this.isLongIdle()) {
+                this.playAnimation(this.IMAGES_LONG_IDLE);
             } else {
-                this.IdleAnimation();
+                this.playAnimation(this.IMAGES_IDLE);
             }
         }, 200)
     }
 
     /**
-     * Animate idle images
-     */
-    IdleAnimation() {
-        this.playAnimation(this.IMAGES_IDLE);
-    }
-
-    /**
-     * Animate long idle images
-     */
-    longIdleAnimation() {
-        this.playAnimation(this.IMAGES_LONG_IDLE);
-    }
-
-    /**
-     * Animate swim images
-     */
-    swimAnimation() {
-        this.playAnimation(this.IMAGES_SWIM);
-    }
-
-    /**
-     * Animate hurt images
-     */
-    hurtAnimationPoisoned() {
-        this.playAnimation(this.IMAGES_HURT_POISONED);
-    }
-
-    /**
-     * Animate die images
-     */
-    dieAnimationPoisoned() {
-        this.playAnimation(this.IMAGES_DIE_POISONED);
-    }
-
-    /**
-     * Animate long idle images
+     * Checks how long ago the character last moved and returns true if it is longer than x seconds
+	 * @returns True / False
      */
     isLongIdle() {
         let timePassed = new Date().getTime() - this.lastMove; // Difference in ms

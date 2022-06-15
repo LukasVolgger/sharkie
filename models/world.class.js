@@ -169,7 +169,7 @@ class World {
                 if (this.character.isColliding(life)) {
                     let lifeIndex = this.level.life.indexOf(life);
                     if (this.character.energy < 100) {
-                        this.character.energy += 5;
+                        this.character.energy += 10;
                     }
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     this.level.life.splice(lifeIndex, 1);
