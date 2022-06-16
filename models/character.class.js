@@ -18,6 +18,7 @@ class Character extends MovableObject {
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
     checkAlreadyRunning = false;
+    endbossAlreadyTriggered = false;
     started = false;
     coins = 0;
     poison = 0;
@@ -165,6 +166,14 @@ class Character extends MovableObject {
 
             if (this.world.keyboard.SPACE) {
                 this.lastMove = new Date().getTime();
+            }
+
+            // Trigger endboss introduce animation
+            if (this.x > this.world.level.trigger_endboss_x && !this.endbossAlreadyTriggered) {
+                console.log('Endboss triggered!');
+                this.endbossAlreadyTriggered = true;
+                this.world.endboss.endbossTriggered = true;
+                this.world.endboss.currentImage = 0;
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate

@@ -2,10 +2,13 @@
  * Endboss enemy object
  */
 class Endboss extends MovableObject {
+    world;
     width = 300;
     height = 300;
-    x = 400;
+    x; // Assigned here => calculateEndbossX()
     y = 50;
+    endbossTriggered = false; // True if character crosses the trigger_endboss_x from level.class.js
+    endbossIntroduced = false; // True if enboss animation is finished
     offset = {
         x: 15,
         y: 90,
@@ -42,14 +45,39 @@ class Endboss extends MovableObject {
     ];
 
     constructor() {
-        super().loadImage('img/2._Enemy/3._Final_Enemy/2._Floating/1.png');
+        super().loadImage(''); // Empty because Endboss has introduce animation. Otherwise an image would be displayed permanently
         this.loadImages(this.IMAGES_FLOATING);
+        this.loadImages(this.IMAGES_INTRODUCE);
         this.animate();
+        this.calculateEndbossX();
     }
 
+    /**
+     * Animate endboss
+     */
     animate() {
         setInterval(() => {
-            this.playAnimation(this.IMAGES_FLOATING);
+            if (this.endbossTriggered) {
+                this.playAnimation(this.IMAGES_INTRODUCE);
+
+                setTimeout(() => {
+                    this.endbossTriggered = false;
+                    this.endbossIntroduced = true;
+                }, 2490); // Normally 2500ms => 10ms before the animation ends so that a smooth transition takes place
+
+            } else if (this.endbossIntroduced) {
+                this.playAnimation(this.IMAGES_FLOATING);
+            }
         }, 250)
+    }
+
+    /**
+     * Calculates the x-coordinate based on the trigger coordinate
+     */
+    calculateEndbossX() {
+        setInterval(() => {
+            this.x = this.world.level.trigger_endboss_x + 300;
+        }, 100)
+
     }
 }
