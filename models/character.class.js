@@ -123,6 +123,7 @@ class Character extends MovableObject {
                 this.x -= this.speed;
                 this.imgMirrored = true;
                 this.lastMove = new Date().getTime();
+                console.log('Character position: ', this.x, ', ', this.y);
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
@@ -144,20 +145,26 @@ class Character extends MovableObject {
                 // this.swim_sound.play();
             }
 
-            if (this.world.keyboard.UP) {
+            if (this.world.keyboard.UP && this.y > -135) {
                 this.y -= this.speed;
                 this.lastMove = new Date().getTime();
+                console.log('Character position: ', this.x, ', ', this.y);
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
             }
 
-            if (this.world.keyboard.DOWN) {
+            if (this.world.keyboard.DOWN && this.y < 240) {
                 this.y += this.speed;
                 this.lastMove = new Date().getTime();
+                console.log('Character position: ', this.x, ', ', this.y);
 
                 // TODO Re-enable sound
                 // this.swim_sound.play();
+            }
+
+            if (this.world.keyboard.SPACE) {
+                this.lastMove = new Date().getTime();
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
