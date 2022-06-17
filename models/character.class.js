@@ -109,13 +109,6 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_FIN_SLAP);
         this.animate();
         this.characterEvents();
-        this.characterEvents();
-    }
-
-    test() {
-        if (this.world.keyboard.SPACE) {
-            console.log('Test');
-        }
     }
 
     /**
@@ -174,6 +167,7 @@ class Character extends MovableObject {
             }
 
             // Trigger endboss introduce animation
+            // let level_x = this.world.level.level_end_x;
             if (this.x > this.world.level.trigger_endboss_x && !this.endbossAlreadyTriggered) {
                 console.log('Endboss triggered!');
                 this.endbossAlreadyTriggered = true;

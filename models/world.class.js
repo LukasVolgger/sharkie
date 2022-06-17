@@ -9,6 +9,15 @@ class World {
     camera_x = 0;
     keyboard;
 
+    // ################################################### Create objects ###################################################
+
+    level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
+    character = new Character();
+    endboss = new Endboss();
+    statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
+    statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
+    statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
+
     // The canvas was passed from init() in game.js
     constructor(canvas, keyboard) {
         this.canvas = canvas; // Make the canvas reachable within the world class
@@ -32,14 +41,6 @@ class World {
         this.endboss.world = this;
     }
 
-    // ################################################### Create objects ###################################################
-
-    level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
-    character = new Character();
-    endboss = new Endboss();
-    statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
-    statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
-    statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
 
     // ################################################### Main functions ###################################################
 

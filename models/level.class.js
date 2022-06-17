@@ -22,4 +22,11 @@ class Level {
         this.trigger_endboss_x = trigger_endboss_x;
         this.level_end_x = level_end_x;
     }
+
+    /**
+     * returns Endboss
+     */
+    getEndboss() {
+        return this.enemies.find(e => e instanceof Endboss);
+    }
 }
