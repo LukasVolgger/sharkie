@@ -108,38 +108,62 @@
         this.loadImages(this.IMAGES_DIE_POISONED);
         this.loadImages(this.IMAGES_FIN_SLAP);
         this.animate();
+		this.characterEvents();
     }
 
     /**
      * Animate character 
      */
     animate() {
-        // Move character
         setInterval(() => {
+            if (this.isDead()) {
+                this.playAnimation(this.IMAGES_DIE_POISONED);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.IMAGES_HURT_POISONED);
+            } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
+                this.playAnimation(this.IMAGES_SWIM);
+            } else if (this.world.keyboard.SPACE) {
+                this.activateSpace();
+                this.playAnimation(this.IMAGES_FIN_SLAP);
+				this.lastMove = new Date().getTime();
+            } else if (this.isLongIdle()) {
+                this.playAnimation(this.IMAGES_LONG_IDLE);
+            } else {
+                this.playAnimation(this.IMAGES_IDLE);
+            }
+        }, 200)
+    }
+	
+	/**
+     * Help function to record all events of the character
+	 * Movement, endboss trigger, camera etc...
+     */
+	characterEvents() {
+		setInterval(() => {
 			// Swim sound	
 			if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
 				// TODO Re-enable sound
 				// this.swim_sound.play();
 			}
-
-            if (this.world.keyboard.LEFT && this.x > 0) {
-               this.moveCharacter('left');
-            }
-
-            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.moveCharacter('right');
-            }
-
+			
+			// Moving UP
             if (this.world.keyboard.UP && this.y > -135) {
                 this.moveCharacter('up');
             }
-
+			
+			// Moving RIGHT
+            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
+                this.moveCharacter('right');
+            }
+			
+			// Moving DOWN
             if (this.world.keyboard.DOWN && this.y < 240) {
                 this.moveCharacter('down');
             }
-
-            if (this.world.keyboard.SPACE) {
-                this.lastMove = new Date().getTime();
+			
+			// Moving LEFT
+            if (this.world.keyboard.LEFT && this.x > 0) {
+               this.moveCharacter('left');
             }
 
             // Trigger endboss introduce animation
@@ -152,25 +176,7 @@
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
         }, 1000 / 60)
-
-        // Animation
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DIE_POISONED);
-            } else if (this.isHurt()) {
-                this.playAnimation(this.IMAGES_HURT_POISONED);
-            } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
-                this.playAnimation(this.IMAGES_SWIM);
-            } else if (this.world.keyboard.SPACE) {
-                this.activateSpace();
-                this.playAnimation(this.IMAGES_FIN_SLAP);
-            } else if (this.isLongIdle()) {
-                this.playAnimation(this.IMAGES_LONG_IDLE);
-            } else {
-                this.playAnimation(this.IMAGES_IDLE);
-            }
-        }, 200)
-    }
+	}
 	
 	/**
      * Moves character
