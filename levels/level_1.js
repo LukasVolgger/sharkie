@@ -32,34 +32,36 @@ const level_1 = new Level(
     // ############################################### enemies ###############################################
 
     [
-        //new PufferFish('red', 100, 50, 'horizontal', 100, 600, 1, 1),
-        //new PufferFish('green', 300, 300, 'vertical', 300, 400, .5, 0),
-        // new PufferFish('orange', 100, 100, 'horizontal', 100, 600, .5, 1),
+		new PufferFish('green', 0, 380, 'horizontal', 0, 200, .5, 1),
         new JellyFish('regular_damage', 'lila', 400, 100, 'vertical', 100, 300, .5, 0),
+		new PufferFish('red', 600, 100, 'horizontal', 600, 800, .5, 1),
+		new PufferFish('orange', 1060, 350, 'horizontal', 1060, 1300, 1.5, 1),
+		new JellyFish('regular_damage', 'yellow', 1250, 100, 'vertical', 100, 200, 1, 0),
     ],
 
     // ############################################### coins ###############################################
 
     [
-        new Coin(200, 400),
-        new Coin(580, 400)
+        new Coin(300, 390),
+        new Coin(580, 200),
+        new Coin(850, 100),
+        new Coin(1350, 200),
+        new Coin(1900, 350)
     ],
 
     // ############################################### life ###############################################
 
     [
-        new Life(500, 100),
-        new Life(560, 100),
-        new Life(620, 100),
-        new Life(680, 100)
+        new Life(850, 300),
+        new Life(1450, 300),
+        new Life(2100, 0)
     ],
 
     // ############################################### poison ###############################################
 
     [
-        new Poison('animated', 300, 390),
-        new Poison('light_right', 380, 390),
-        new Poison('dark_left', 460, 390)
+		new Poison('animated', 640, 400),
+		new Poison('animated', 1060, 400)
     ],
 
     // ############################################### trigger_endboss_x ###############################################
