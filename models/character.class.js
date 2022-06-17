@@ -13,7 +13,7 @@ class Character extends MovableObject {
         width: 55,
         height: 65
     }
-    speed = 2;
+    speed = 3.5;
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
