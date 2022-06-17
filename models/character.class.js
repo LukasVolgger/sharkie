@@ -213,12 +213,18 @@ class Character extends MovableObject {
      */
     activateSpace() {
         if (!this.checkAlreadyRunning) {
+            
             this.currentImage = 0; // To start with the first img of the animation
-            this.world.keyboard.SPACE = true;
-            this.checkAlreadyRunning = true;
+            
+            let spacePressed = setInterval(() => {
+                this.world.keyboard.SPACE = true;
+                this.checkAlreadyRunning = true;
+            }, 100);
+            
             setTimeout(() => {
                 this.world.keyboard.SPACE = false;
                 this.checkAlreadyRunning = false;
+                clearInterval(spacePressed);
             }, 800);
         }
     }
