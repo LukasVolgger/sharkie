@@ -123,29 +123,19 @@
 			}
 
             if (this.world.keyboard.LEFT && this.x > 0) {
-                this.x -= this.speed;
-                this.imgMirrored = true;
-                this.lastMove = new Date().getTime();
-                console.log('Character position: ', this.x, ', ', this.y);
+               this.moveCharacter('left');
             }
 
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-                this.x += this.speed;
-                this.imgMirrored = false;
-                this.lastMove = new Date().getTime();
-                console.log('Character position: ', this.x, ', ', this.y);
+                this.moveCharacter('right');
             }
 
             if (this.world.keyboard.UP && this.y > -135) {
-                this.y -= this.speed;
-                this.lastMove = new Date().getTime();
-                console.log('Character position: ', this.x, ', ', this.y);
+                this.moveCharacter('up');
             }
 
             if (this.world.keyboard.DOWN && this.y < 240) {
-                this.y += this.speed;
-                this.lastMove = new Date().getTime();
-                console.log('Character position: ', this.x, ', ', this.y);
+                this.moveCharacter('down');
             }
 
             if (this.world.keyboard.SPACE) {
@@ -181,10 +171,31 @@
             }
         }, 200)
     }
+	
+	/**
+     * Moves character
+     * @param {string} direction 'up', 'right', 'down', 'left'
+     */
+	moveCharacter(direction) {
+		console.log('Character position: ', this.x, ', ', this.y);
+		this.lastMove = new Date().getTime();
+		
+		if (direction == 'up') {
+			this.y -= this.speed;
+		} else if (direction == 'right') {
+			this.x += this.speed;
+            this.imgMirrored = false;
+		} else if (direction == 'down') {
+			this.y += this.speed;
+		} else if (direction == 'left') {
+			this.x -= this.speed;
+			this.imgMirrored = true;
+		}
+	}
 
     /**
      * Checks how long ago the character last moved and returns true if it is longer than x seconds
-     * @returns True / False
+     * @returns true / false
      */
     isLongIdle() {
         let timePassed = new Date().getTime() - this.lastMove; // Difference in ms
