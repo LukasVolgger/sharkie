@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
- class Character extends MovableObject {
+class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -13,7 +13,7 @@
         width: 55,
         height: 65
     }
-    speed = 5;
+    speed = 2;
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
@@ -108,7 +108,14 @@
         this.loadImages(this.IMAGES_DIE_POISONED);
         this.loadImages(this.IMAGES_FIN_SLAP);
         this.animate();
-		this.characterEvents();
+        this.characterEvents();
+        this.characterEvents();
+    }
+
+    test() {
+        if (this.world.keyboard.SPACE) {
+            console.log('Test');
+        }
     }
 
     /**
@@ -125,7 +132,7 @@
             } else if (this.world.keyboard.SPACE) {
                 this.activateSpace();
                 this.playAnimation(this.IMAGES_FIN_SLAP);
-				this.lastMove = new Date().getTime();
+                this.lastMove = new Date().getTime();
             } else if (this.isLongIdle()) {
                 this.playAnimation(this.IMAGES_LONG_IDLE);
             } else {
@@ -133,37 +140,37 @@
             }
         }, 200)
     }
-	
-	/**
+
+    /**
      * Help function to record all events of the character
-	 * Movement, endboss trigger, camera etc...
+     * Movement, endboss trigger, camera etc...
      */
-	characterEvents() {
-		setInterval(() => {
-			// Swim sound	
-			if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
-				// TODO Re-enable sound
-				// this.swim_sound.play();
-			}
-			
-			// Moving UP
+    characterEvents() {
+        setInterval(() => {
+            // Swim sound	
+            if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+                // TODO Re-enable sound
+                // this.swim_sound.play();
+            }
+
+            // Moving UP
             if (this.world.keyboard.UP && this.y > -135) {
                 this.moveCharacter('up');
             }
-			
-			// Moving RIGHT
+
+            // Moving RIGHT
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveCharacter('right');
             }
-			
-			// Moving DOWN
+
+            // Moving DOWN
             if (this.world.keyboard.DOWN && this.y < 240) {
                 this.moveCharacter('down');
             }
-			
-			// Moving LEFT
+
+            // Moving LEFT
             if (this.world.keyboard.LEFT && this.x > 0) {
-               this.moveCharacter('left');
+                this.moveCharacter('left');
             }
 
             // Trigger endboss introduce animation
@@ -176,28 +183,28 @@
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
         }, 1000 / 60)
-	}
-	
-	/**
+    }
+
+    /**
      * Moves character
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
-	moveCharacter(direction) {
-		console.log('Character position: ', this.x, ', ', this.y);
-		this.lastMove = new Date().getTime();
-		
-		if (direction == 'up') {
-			this.y -= this.speed;
-		} else if (direction == 'right') {
-			this.x += this.speed;
+    moveCharacter(direction) {
+        console.log('Character position: ', this.x, ', ', this.y);
+        this.lastMove = new Date().getTime();
+
+        if (direction == 'up') {
+            this.y -= this.speed;
+        } else if (direction == 'right') {
+            this.x += this.speed;
             this.imgMirrored = false;
-		} else if (direction == 'down') {
-			this.y += this.speed;
-		} else if (direction == 'left') {
-			this.x -= this.speed;
-			this.imgMirrored = true;
-		}
-	}
+        } else if (direction == 'down') {
+            this.y += this.speed;
+        } else if (direction == 'left') {
+            this.x -= this.speed;
+            this.imgMirrored = true;
+        }
+    }
 
     /**
      * Checks how long ago the character last moved and returns true if it is longer than x seconds
@@ -214,14 +221,14 @@
      */
     activateSpace() {
         if (!this.checkAlreadyRunning) {
-            
+
             this.currentImage = 0; // To start with the first img of the animation
-            
+
             let spacePressed = setInterval(() => {
                 this.world.keyboard.SPACE = true;
                 this.checkAlreadyRunning = true;
             }, 100);
-            
+
             setTimeout(() => {
                 this.world.keyboard.SPACE = false;
                 this.checkAlreadyRunning = false;
