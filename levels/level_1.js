@@ -29,7 +29,31 @@ const level_1 = new Level(
         new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 * 3)
     ],
 
-    // ############################################### enemies ###############################################
+    // ############################################### Enemies ###############################################
+	// ### new PufferFish(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) 
+	// #######################################################################################################
+	// ### color = 'green', 'orange', 'red'
+	// ### x = coordinate
+	// ### y = coordinate
+	// ### direction = 'horizontal', 'vertical'
+	// ### startPoint = coordinate for waypoint start (Should be same as x/y, depending on 'horizontal'/'vertical')
+	// ### endPoint = coordinate for waypoint end
+	// ### speed = 0 - 5
+	// ### imgInitiallyMirrored = 0, 1 (off/on)
+	// #######################################################################################################
+	// ### new JellyFish(type, color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
+	// #######################################################################################################
+	// ### type = 'regular_damage', 'super_dangerous'
+	// ### color (regular_damage) = 'lila', 'yellow'
+	// ### color (super_dangerous) = 'green', 'pink'
+	// ### x = coordinate
+	// ### y = coordinate
+	// ### direction = 'horizontal', 'vertical'
+	// ### startPoint = coordinate for waypoint start (Should be same as x/y, depending on 'horizontal'/'vertical')
+	// ### endPoint = coordinate for waypoint end
+	// ### speed = 0 - 5
+	// ### imgInitiallyMirrored = 0, 1 (off/on)
+	// #######################################################################################################
 
     [
 		new PufferFish('green', 0, 380, 'horizontal', 0, 200, .5, 1),
@@ -39,8 +63,12 @@ const level_1 = new Level(
 		new JellyFish('regular_damage', 'yellow', 1250, 100, 'vertical', 100, 200, 1, 0),
     ],
 
-    // ############################################### coins ###############################################
-
+    // ############################################### Coins ###############################################
+	// ### new Coin(x, y)
+	// #####################################################################################################
+	// ### x = coordinate
+	// ### y = coordinate
+	// #####################################################################################################
     [
         new Coin(300, 390),
         new Coin(580, 200),
@@ -49,7 +77,12 @@ const level_1 = new Level(
         new Coin(1900, 350)
     ],
 
-    // ############################################### life ###############################################
+    // ############################################### Life ###############################################
+	// ### new Life(x, y)
+	// ####################################################################################################
+	// ### x = coordinate
+	// ### y = coordinate
+	// ####################################################################################################
 
     [
         new Life(850, 300),
@@ -57,10 +90,16 @@ const level_1 = new Level(
         new Life(2100, 0)
     ],
 
-    // ############################################### poison ###############################################
+    // ############################################### Poison ###############################################
+	// ### new Poison(type, x, y)
+	// ######################################################################################################
+	// ### type = 'animated', 'light_left', 'light_right', 'dark_left', 'dark_right'
+	// ### x = coordinate
+	// ### y = coordinate
+	// #######################################################################################################
 
     [
-		new Poison('animated', 640, 400),
+		new Poison('animated', 700, 400),
 		new Poison('animated', 1060, 400)
     ],
 
