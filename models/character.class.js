@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
-class Character extends MovableObject {
+ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -116,21 +116,17 @@ class Character extends MovableObject {
     animate() {
         // Move character
         setInterval(() => {
-            // TODO Re-enable sound
-            // this.swim_sound.pause();
+			// Swim sound	
+			if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+				// TODO Re-enable sound
+				// this.swim_sound.play();
+			}
 
-            // this.x > 0 = to avoid that the character moves out of map
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.x -= this.speed;
                 this.imgMirrored = true;
                 this.lastMove = new Date().getTime();
                 console.log('Character position: ', this.x, ', ', this.y);
-
-                // TODO Re-enable sound
-                // this.swim_sound.play();
-            } else if (this.world.keyboard.LEFT) {
-                // TODO Re-enable sound
-                // this.swim_sound.play(); 
             }
 
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -138,30 +134,18 @@ class Character extends MovableObject {
                 this.imgMirrored = false;
                 this.lastMove = new Date().getTime();
                 console.log('Character position: ', this.x, ', ', this.y);
-
-                // TODO Re-enable sound
-                // this.swim_sound.play();
-            } else if (this.world.keyboard.RIGHT) {
-                // TODO Re-enable sound
-                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.UP && this.y > -135) {
                 this.y -= this.speed;
                 this.lastMove = new Date().getTime();
                 console.log('Character position: ', this.x, ', ', this.y);
-
-                // TODO Re-enable sound
-                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.DOWN && this.y < 240) {
                 this.y += this.speed;
                 this.lastMove = new Date().getTime();
                 console.log('Character position: ', this.x, ', ', this.y);
-
-                // TODO Re-enable sound
-                // this.swim_sound.play();
             }
 
             if (this.world.keyboard.SPACE) {
