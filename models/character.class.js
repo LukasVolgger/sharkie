@@ -13,7 +13,7 @@ class Character extends MovableObject {
         width: 55,
         height: 65
     }
-    speed = 3.5;
+    speed = 4;
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
@@ -121,16 +121,21 @@ class Character extends MovableObject {
                 this.playAnimation(this.IMAGES_HURT_POISONED);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
                 this.playAnimation(this.IMAGES_SWIM);
-            } else if (this.world.keyboard.SPACE) {
-                this.activateSpace();
-                this.playAnimation(this.IMAGES_FIN_SLAP);
-                this.lastMove = new Date().getTime();
             } else if (this.isLongIdle()) {
                 this.playAnimation(this.IMAGES_LONG_IDLE);
             } else {
                 this.playAnimation(this.IMAGES_IDLE);
             }
         }, 200)
+
+        // Faster animation
+        setInterval(() => {
+            if (this.world.keyboard.SPACE) {
+                this.activateSpace();
+                this.playAnimation(this.IMAGES_FIN_SLAP);
+                this.lastMove = new Date().getTime();
+            }
+        }, 100)
     }
 
     /**
@@ -217,7 +222,7 @@ class Character extends MovableObject {
                 this.world.keyboard.SPACE = false;
                 this.checkAlreadyRunning = false;
                 clearInterval(spacePressed);
-            }, 800);
+            }, 600);
         }
     }
 }
