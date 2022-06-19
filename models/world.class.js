@@ -154,9 +154,9 @@ class World {
                 }
             });
 
-            // Check collision with enemies & fin slap attack
+            // Check collision with puffer fish & fin slap attack 
             this.level.enemies.forEach(enemy => {
-                if (this.character.isColliding(enemy) && this.character.isFinSlapping) {
+                if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof PufferFish) {
                     enemy.hit();
                     enemy.floatAway();
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);

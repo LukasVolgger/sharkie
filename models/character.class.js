@@ -19,6 +19,7 @@ class Character extends MovableObject {
     secondsUntilLongIdle = 10;
     checkAlreadyRunning = false;
     isFinSlapping = false;
+    isBubbleTrapping = false;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -95,6 +96,16 @@ class Character extends MovableObject {
         'img/1._Sharkie/4._Attack/Fin_Slap/7.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/8.png'
     ];
+    IMAGES_BUBBLE_TRAP = [
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/1.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/2.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/3.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/4.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/5.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/6.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/7.png',
+        'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/8.png'
+    ];
     swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
@@ -106,6 +117,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_HURT_POISONED);
         this.loadImages(this.IMAGES_DIE_POISONED);
         this.loadImages(this.IMAGES_FIN_SLAP);
+        this.loadImages(this.IMAGES_BUBBLE_TRAP);
         this.animate();
         this.characterEvents();
     }
@@ -128,11 +140,13 @@ class Character extends MovableObject {
             }
         }, 200)
 
-        // Faster animation
         setInterval(() => {
             if (this.world.keyboard.SPACE) {
                 this.finSlapAttack();
                 this.playAnimation(this.IMAGES_FIN_SLAP);
+            } else if (this.world.keyboard.D) {
+                this.bubbleTrapAttack();
+                this.playAnimation(this.IMAGES_BUBBLE_TRAP);
             }
         }, 100)
     }
@@ -208,15 +222,15 @@ class Character extends MovableObject {
      * Fin slap attack 
      */
     finSlapAttack() {
-        this.activateSpace();
+        this.activateSPACE();
         this.lastMove = new Date().getTime();
         this.isFinSlapping = true;
     }
 
     /**
-     * Activates the SPACE key event until the fin slap animation is finished
+     * Activates the SPACE-key event until the fin slap animation is finished
      */
-    activateSpace() {
+    activateSPACE() {
         if (!this.checkAlreadyRunning) {
 
             this.currentImage = 0; // To start with the first img of the animation
@@ -231,6 +245,37 @@ class Character extends MovableObject {
                 this.checkAlreadyRunning = false;
                 clearInterval(spacePressed);
                 this.isFinSlapping = false;
+            }, 600);
+        }
+    }
+
+    /**
+     * Bubble trap attack
+     */
+    bubbleTrapAttack() {
+        this.activateD();
+        this.lastMove = new Date().getTime();
+        this.isBubbleTrapping = true;
+    }
+
+    /**
+     * Activates the D-key event until the fin slap animation is finished
+     */
+    activateD() {
+        if (!this.checkAlreadyRunning) {
+
+            this.currentImage = 0; // To start with the first img of the animation
+
+            let dPressed = setInterval(() => {
+                this.world.keyboard.D = true;
+                this.checkAlreadyRunning = true;
+            }, 100);
+
+            setTimeout(() => {
+                this.world.keyboard.D = false;
+                this.checkAlreadyRunning = false;
+                clearInterval(dPressed);
+                this.isBubbleTrapping = false;
             }, 600);
         }
     }

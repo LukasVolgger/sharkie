@@ -1,10 +1,11 @@
 /**
  * Keyboard object
  */
- class Keyboard {
+class Keyboard {
     LEFT;
     RIGHT;
     UP;
     DOWN;
     SPACE;
+    D;
 }
