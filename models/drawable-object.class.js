@@ -52,7 +52,7 @@ class DrawableObject {
      * @param {object} object 
      */
     drawCollisionDetectionFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish || this instanceof JellyFish || this instanceof Endboss || this instanceof Coin || this instanceof Life || this instanceof Poison) { // Only draw frames on Character and Enemies
+        if (this instanceof Character || this instanceof PufferFish || this instanceof JellyFish || this instanceof EndBoss || this instanceof Coin || this instanceof Life || this instanceof Poison) { // Only draw frames on Character and Enemies
             ctx.beginPath();
             ctx.lineWidth = "4";
             ctx.strokeStyle = "blue";

@@ -13,7 +13,6 @@ class World {
 
     level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
-    endboss = new Endboss();
     statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
@@ -38,7 +37,7 @@ class World {
      */
     setWorld() {
         this.character.world = this;
-        this.endboss.world = this;
+        this.level.getEndBoss().world = this;
     }
 
 
@@ -61,7 +60,6 @@ class World {
         this.addObjectsToWorld(this.level.coins);
         this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
-        this.addToWorld(this.endboss);
         this.addToWorld(this.character);
 
         // ----------------- FIXED OBJECTS START -----------------

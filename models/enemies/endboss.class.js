@@ -1,14 +1,14 @@
 /**
- * Endboss enemy object
+ * Final enemy object
  */
-class Endboss extends MovableObject {
+class EndBoss extends MovableObject {
     world;
     width = 300;
     height = 300;
-    x; // Assigned here => calculateEndbossX()
-    y = 50;
-    endbossTriggered = false; // True if character crosses the trigger_endboss_x from level.class.js
-    endbossIntroduced = false; // True if enboss animation is finished
+    endBossTriggered = false;
+    endBossIntroduced = false;
+    endBossAlreadyTriggered = false;
+    triggerDistance = 500;
     offset = {
         x: 15,
         y: 90,
@@ -44,12 +44,14 @@ class Endboss extends MovableObject {
         'img/2._Enemy/3._Final_Enemy/2._Floating/13.png',
     ];
 
-    constructor() {
-        super().loadImage(''); // Empty because Endboss has introduce animation. Otherwise an image would be displayed permanently
+    constructor(x, y) {
+        super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
         this.loadImages(this.IMAGES_FLOATING);
         this.loadImages(this.IMAGES_INTRODUCE);
         this.animate();
-        this.calculateEndbossX();
+        this.triggerEndBoss();
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -57,27 +59,41 @@ class Endboss extends MovableObject {
      */
     animate() {
         setInterval(() => {
-            if (this.endbossTriggered) {
-                this.playAnimation(this.IMAGES_INTRODUCE);
-
-                setTimeout(() => {
-                    this.endbossTriggered = false;
-                    this.endbossIntroduced = true;
-                }, 2490); // Normally 2500ms => 10ms before the animation ends so that a smooth transition takes place
-
-            } else if (this.endbossIntroduced) {
+            if (this.endBossIntroduced) {
                 this.playAnimation(this.IMAGES_FLOATING);
             }
         }, 250)
+
+        // Faster animation
+        setInterval(() => {
+            if (this.endBossTriggered) {
+                this.introduceEndBoss();
+            }
+        }, 150)
     }
 
     /**
-     * Calculates the x-coordinate based on the trigger coordinate
+     * Checks if EndBoss has been triggered
      */
-    calculateEndbossX() {
+    triggerEndBoss() {
         setInterval(() => {
-            this.x = this.world.level.trigger_endboss_x + 300;
-        }, 100)
+            if (this.world.character.x > this.x - this.triggerDistance && !this.endBossAlreadyTriggered) {
+                this.endBossTriggered = true;
+            }
+        }, 1000)
+    }
+
+    /**
+     * EndBoss introduce animation
+     */
+    introduceEndBoss() {
+        this.playAnimation(this.IMAGES_INTRODUCE);
+        this.endBossAlreadyTriggered = true;
+
+        setTimeout(() => {
+            this.endBossTriggered = false;
+            this.endBossIntroduced = true;
+        }, 1490); // Normally 1500ms => 10ms before the animation ends so that a smooth transition takes place
 
     }
 }

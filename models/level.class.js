@@ -8,25 +8,24 @@ class Level {
     coins;
     life;
     poison;
-    trigger_endboss_x; // When character passes this coordinate, the endboss will be triggered
     level_end_x; // x-coordinate where level ends
 
-    // The paremeters are passed from the individual level_x.js
+    // The parameters are passed from the individual level_x.js
     // Then the values ​​are assigned to the variables of this class
-    constructor(backgroundObjects, enemies, coins, life, poison, trigger_endboss_x, level_end_x) {
+    constructor(backgroundObjects, enemies, coins, life, poison, level_end_x) {
         this.backgroundObjects = backgroundObjects;
         this.enemies = enemies;
         this.coins = coins;
         this.life = life;
         this.poison = poison;
-        this.trigger_endboss_x = trigger_endboss_x;
         this.level_end_x = level_end_x;
+        this.getEndBoss();
     }
 
     /**
-     * returns Endboss
+     * returns EndBoss object
      */
-    getEndboss() {
-        return this.enemies.find(e => e instanceof Endboss);
+    getEndBoss() {
+        return this.enemies.find(e => e instanceof EndBoss);
     }
 }

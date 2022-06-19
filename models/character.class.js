@@ -17,8 +17,7 @@ class Character extends MovableObject {
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
-    checkAlreadyRunning = false;
-    endbossAlreadyTriggered = false;
+    checkAlreadyRunningcheckAlreadyRunning = false;
     started = false;
     coins = 0;
     poison = 0;
@@ -164,15 +163,6 @@ class Character extends MovableObject {
             // Moving LEFT
             if (this.world.keyboard.LEFT && this.x > 0) {
                 this.moveCharacter('left');
-            }
-
-            // Trigger endboss introduce animation
-            // let level_x = this.world.level.level_end_x;
-            if (this.x > this.world.level.trigger_endboss_x && !this.endbossAlreadyTriggered) {
-                console.log('Endboss triggered!');
-                this.endbossAlreadyTriggered = true;
-                this.world.endboss.endbossTriggered = true;
-                this.world.endboss.currentImage = 0;
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
