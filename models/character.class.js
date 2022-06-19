@@ -11,7 +11,9 @@ class Character extends MovableObject {
         x: 55,
         y: 140,
         width: 55,
-        height: 65
+        height: 65,
+        bubbleX: 220,
+        bubbleY: 165
     }
     speed = 4;
     imgMirrored = false;
@@ -256,6 +258,12 @@ class Character extends MovableObject {
         this.activateD();
         this.lastMove = new Date().getTime();
         this.isBubbleTrapping = true;
+
+        if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
+            setTimeout(() => { // Wait until animation is finished
+                this.world.bubble = new Bubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY);
+            }, 600)
+        }
     }
 
     /**

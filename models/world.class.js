@@ -8,6 +8,7 @@ class World {
     ctx;
     camera_x = 0;
     keyboard;
+    bubble;
 
     // ################################################### Create objects ###################################################
 
@@ -61,6 +62,9 @@ class World {
         this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
         this.addToWorld(this.character);
+        if (this.bubble) {
+            this.addToWorld(this.bubble);
+        }
 
         // ----------------- FIXED OBJECTS START -----------------
         this.ctx.translate(-this.camera_x, 0);
