@@ -4,6 +4,8 @@
 class PufferFish extends MovableObject {
     width = 100;
     height = 100;
+    energy = 5;
+    speed = 2;
     offset = {
         x: 0,
         y: 3,
@@ -63,10 +65,22 @@ class PufferFish extends MovableObject {
             'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
         ]
     };
+    IMAGES_DEAD = {
+        'green': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/1._Dead_1.png'
+        ],
+        'orange': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/2._Dead_1.png'
+        ],
+        'red': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/3._Dead_1.png'
+        ]
+    };
 
     constructor(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         super().loadImage('img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
         this.loadImages(this.IMAGES_SWIM[color]);
+        this.loadImages(this.IMAGES_DEAD[color]);
         this.x = x;
         this.y = y;
 
@@ -91,7 +105,11 @@ class PufferFish extends MovableObject {
         this.move(direction, startPoint, endPoint, speed, imgInitiallyMirrored);
 
         setInterval(() => {
-            this.playAnimation(this.IMAGES_SWIM[color]);
+            if (this.isDead()) {
+                this.playAnimation(this.IMAGES_DEAD[color]);
+            } else {
+                this.playAnimation(this.IMAGES_SWIM[color]);
+            }
         }, 250)
     }
 }

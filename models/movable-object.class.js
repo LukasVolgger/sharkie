@@ -94,6 +94,16 @@ class MovableObject extends DrawableObject {
     }
 
     /**
+     * Move the dead enemy out of the world at the top left 
+     */
+    floatAway() {
+        setInterval(() => {
+            this.x -= this.speed;
+            this.y -= this.speed;
+        }, 1000 / 60)
+    }
+
+    /**
      * If the difference in the last hit on the character is less than x s, true is returned
      * @returns true/false
      */

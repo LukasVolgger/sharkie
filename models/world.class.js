@@ -147,10 +147,19 @@ class World {
         setInterval(() => {
             // Check collision with enemies
             this.level.enemies.forEach(enemy => {
-                if (this.character.isColliding(enemy)) {
+                if (this.character.isColliding(enemy) && !enemy.isDead() && !this.character.isFinSlapping) {
                     this.character.hit();
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
+                }
+            });
+
+            // Check collision with enemies & fin slap attack
+            this.level.enemies.forEach(enemy => {
+                if (this.character.isColliding(enemy) && this.character.isFinSlapping) {
+                    enemy.hit();
+                    enemy.floatAway();
+                    console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
             });
 

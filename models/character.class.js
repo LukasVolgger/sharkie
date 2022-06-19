@@ -17,8 +17,8 @@ class Character extends MovableObject {
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
-    checkAlreadyRunningcheckAlreadyRunning = false;
-    started = false;
+    checkAlreadyRunning = false;
+    isFinSlapping = false;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -131,9 +131,8 @@ class Character extends MovableObject {
         // Faster animation
         setInterval(() => {
             if (this.world.keyboard.SPACE) {
-                this.activateSpace();
+                this.finSlapAttack();
                 this.playAnimation(this.IMAGES_FIN_SLAP);
-                this.lastMove = new Date().getTime();
             }
         }, 100)
     }
@@ -179,7 +178,7 @@ class Character extends MovableObject {
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
     moveCharacter(direction) {
-        console.log('Character position: ', this.x, ', ', this.y);
+        // console.log('Character position: ', this.x, ', ', this.y);
         this.lastMove = new Date().getTime();
 
         if (direction == 'up') {
@@ -206,6 +205,15 @@ class Character extends MovableObject {
     }
 
     /**
+     * Fin slap attack 
+     */
+    finSlapAttack() {
+        this.activateSpace();
+        this.lastMove = new Date().getTime();
+        this.isFinSlapping = true;
+    }
+
+    /**
      * Activates the SPACE key event until the fin slap animation is finished
      */
     activateSpace() {
@@ -222,7 +230,9 @@ class Character extends MovableObject {
                 this.world.keyboard.SPACE = false;
                 this.checkAlreadyRunning = false;
                 clearInterval(spacePressed);
+                this.isFinSlapping = false;
             }, 600);
         }
     }
+
 }
