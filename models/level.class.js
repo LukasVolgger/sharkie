@@ -2,12 +2,14 @@
  * In this class, the objects that are different depending on the level are stored
  * Each level has different background objects and enemies
  */
-class Level {
+ class Level {
     backgroundObjects;
     enemies;
-    coins;
-    life;
-    poison;
+    coins = 0;
+    life = 0;
+    poison = 0;
+	totalPoison = 0;
+	collectedPoison = 0;
     level_end_x; // x-coordinate where level ends
 
     // The parameters are passed from the individual level_x.js

@@ -215,10 +215,11 @@
             this.level.poison.forEach(poison => {
                 if (this.character.isColliding(poison)) {
                     let poisonIndex = this.level.poison.indexOf(poison);
-                    let totalPoison = this.level.poison.length + this.character.poison;
+                    this.level.totalPoison = this.level.poison.length + this.level.collectedPoison;
                     this.character.poison++;
-                    this.statusBarPoison.setPercentage((this.character.poison / totalPoison) * 100, this.statusBarPoison.type, this.statusBarPoison.color);
+                    this.statusBarPoison.setPercentage((this.character.poison / this.level.totalPoison) * 100, this.statusBarPoison.type, this.statusBarPoison.color);
                     this.level.poison.splice(poisonIndex, 1);
+					this.level.collectedPoison += 1;
                     console.log('Colliding with: ', poison, 'Poison collected: ', this.character.poison);
                 }
             });

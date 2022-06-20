@@ -158,7 +158,10 @@
             } else if (this.world.keyboard.D) {
                 this.bubbleTrapAttack();
                 this.playAnimation(this.IMAGES_BUBBLE_TRAP);
-            }
+            } else if (this.world.keyboard.F && this.poison > 0) {
+				this.bubbleTrapAttackPoison();
+                this.playAnimation(this.IMAGES_BUBBLE_TRAP);
+			}
         }, 100)
     }
 
@@ -297,6 +300,53 @@
                 this.world.keyboard.D = false;
                 this.checkAlreadyRunning = false;
                 clearInterval(dPressed);
+                this.isBubbleTrapping = false;
+            }, 600);
+        }
+    }
+	
+	/**
+     * Poson bubble trap attack
+     */
+    bubbleTrapAttackPoison() {
+        this.activateF();
+        this.lastMove = new Date().getTime();
+        this.isBubbleTrapping = true;
+
+        if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
+            setTimeout(() => { // Wait until animation is finished
+				let otherDirection; 
+				
+				if (this.imgMirrored == true) {
+					otherDirection = true;
+				}
+				
+				if (this.poison > 0) {
+					this.world.bubble = new PoisonBubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
+					this.poison--;
+					this.world.statusBarPoison.setPercentage((this.poison / this.world.level.totalPoison) * 100, this.world.statusBarPoison.type, this.world.statusBarPoison.color);
+				}
+            }, 600)
+        }
+    }
+
+    /**
+     * Activates the F-key event until the fin slap animation is finished
+     */
+    activateF() {
+        if (!this.checkAlreadyRunning) {
+
+            this.currentImage = 0; // To start with the first img of the animation
+
+            let fPressed = setInterval(() => {
+                this.world.keyboard.F = true;
+                this.checkAlreadyRunning = true;
+            }, 100);
+
+            setTimeout(() => {
+                this.world.keyboard.F = false;
+                this.checkAlreadyRunning = false;
+                clearInterval(fPressed);
                 this.isBubbleTrapping = false;
             }, 600);
         }
