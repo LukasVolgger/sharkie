@@ -97,10 +97,15 @@
      * Move the dead enemy out of the world at the top left 
 	 * For puffer fish
      */
-    floatAway() {
+    floatAway(otherDirection) {
         setInterval(() => {
-            this.x -= this.speed;
-            this.y -= this.speed;
+			if (otherDirection) {
+				this.x += this.speed;
+				this.y -= this.speed;
+			} else {
+				this.x -= this.speed;
+				this.y -= this.speed;
+			}
         }, 1000 / 60)
     }
 	
