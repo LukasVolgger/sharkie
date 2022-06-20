@@ -47,6 +47,9 @@ window.addEventListener('keydown', (e) => {
         case 68:
             keyboard.D = true;
             break;
+		case 70:
+            keyboard.F = true;
+            break;
     }
 });
 
@@ -74,6 +77,9 @@ window.addEventListener('keyup', (e) => {
             break;
         case 68:
             keyboard.D = false;
+            break;
+		case 70:
+            keyboard.F = false;
             break;
     }
 });
