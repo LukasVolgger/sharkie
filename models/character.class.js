@@ -22,6 +22,7 @@
     checkAlreadyRunning = false;
     isFinSlapping = false;
     isBubbleTrapping = false;
+	hitBy;
     coins = 0;
     poison = 0;
     IMAGES_IDLE = [
@@ -72,7 +73,12 @@
         'img/1._Sharkie/5._Hurt/1._Poisoned/1.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/2.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/3.png',
-        'img/1._Sharkie/5._Hurt/1._Poisoned/4.png',
+        'img/1._Sharkie/5._Hurt/1._Poisoned/4.png'
+    ];
+	IMAGES_HURT_ELECTRIC_SHOCK = [
+		'img/1._Sharkie/5._Hurt/2._Electric_Shock/1.png',
+		'img/1._Sharkie/5._Hurt/2._Electric_Shock/2.png',
+		'img/1._Sharkie/5._Hurt/2._Electric_Shock/3.png'
     ];
     IMAGES_DIE_POISONED = [
         'img/1._Sharkie/6._Dead/1._Poisoned/1.png',
@@ -117,6 +123,7 @@
         this.loadImages(this.IMAGES_LONG_IDLE);
         this.loadImages(this.IMAGES_SWIM);
         this.loadImages(this.IMAGES_HURT_POISONED);
+        this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
         this.loadImages(this.IMAGES_DIE_POISONED);
         this.loadImages(this.IMAGES_FIN_SLAP);
         this.loadImages(this.IMAGES_BUBBLE_TRAP);
@@ -131,8 +138,10 @@
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DIE_POISONED);
-            } else if (this.isHurt()) {
+            } else if (this.isHurt() && this.hitBy == 'PufferFish') {
                 this.playAnimation(this.IMAGES_HURT_POISONED);
+            } else if (this.isHurt() && this.hitBy == 'JellyFish') {
+                this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
                 this.playAnimation(this.IMAGES_SWIM);
             } else if (this.isLongIdle()) {

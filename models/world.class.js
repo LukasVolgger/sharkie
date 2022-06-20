@@ -155,6 +155,12 @@
                     this.character.hit();
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
+					
+					if (enemy instanceof PufferFish) {
+						this.character.hitBy = 'PufferFish';
+					} else if (enemy instanceof JellyFish) {
+						this.character.hitBy = 'JellyFish';
+					}
                 }
             });
 
