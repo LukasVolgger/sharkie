@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
-class Character extends MovableObject {
+ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -261,7 +261,12 @@ class Character extends MovableObject {
 
         if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
             setTimeout(() => { // Wait until animation is finished
-                this.world.bubble = new Bubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY);
+				let otherDirection; 
+				
+				if (this.imgMirrored == true) {
+					otherDirection = true;
+				}
+                this.world.bubble = new Bubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
             }, 600)
         }
     }
