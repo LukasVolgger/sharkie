@@ -1,9 +1,10 @@
 /**
  * Jellyfish enemy object
  */
-class JellyFish extends MovableObject {
+ class JellyFish extends MovableObject {
     width = 100;
     height = 100;
+	energy = 5;
     offset = {
         x: 0,
         y: 5,
@@ -16,13 +17,13 @@ class JellyFish extends MovableObject {
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png',
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_2.png',
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_3.png',
-                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_4.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_4.png'
             ],
             'yellow': [
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_1.png',
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_2.png',
                 'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_3.png',
-                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_4.png',
+                'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_4.png'
             ]
         },
         'super_dangerous': {
@@ -30,19 +31,52 @@ class JellyFish extends MovableObject {
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_1.png',
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_2.png',
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_3.png',
-                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_4.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_4.png'
             ],
             'pink': [
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_1.png',
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_2.png',
                 'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_3.png',
-                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_4.png',
+                'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_4.png'
             ]
         }
     }
+	
+	IMAGES_DEAD = {
+		'regular_damage': {
+            'lila': [
+				'img/2._Enemy/2._Jellyfish/Dead/Lila/L1.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Lila/L2.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Lila/L3.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Lila/L4.png'
+            ],
+            'yellow': [
+				'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y1.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y2.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y3.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y4.png'
+            ]
+        },
+        'super_dangerous': {
+            'green': [
+				'img/2._Enemy/2._Jellyfish/Dead/Green/G1.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Green/G2.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Green/G3.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Green/G4.png'
+            ],
+            'pink': [
+				'img/2._Enemy/2._Jellyfish/Dead/Pink/P1.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Pink/P2.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Pink/P3.png',
+				'img/2._Enemy/2._Jellyfish/Dead/Pink/P4.png'
+            ]
+        }
+	};
+	
     constructor(type, color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         super().loadImage('img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png');
         this.loadImages(this.IMAGES[type][color]);
+        this.loadImages(this.IMAGES_DEAD[type][color]);
         this.x = x;
         this.y = y;
 
@@ -69,7 +103,11 @@ class JellyFish extends MovableObject {
         this.move(direction, startPoint, endPoint, speed, imgInitiallyMirrored);
 
         setInterval(() => {
-            this.playAnimation(this.IMAGES[type][color]);
+			if (this.isDead()) {
+				this.playAnimation(this.IMAGES_DEAD[type][color]);
+			} else {
+				this.playAnimation(this.IMAGES[type][color]);
+			}
         }, 250)
     }
 }

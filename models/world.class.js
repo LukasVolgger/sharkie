@@ -3,7 +3,7 @@
  * Every object shown in the game is generated here (Backgrounds, character, enemies,... )
  * To access an object from world in the console: world.<object>.<properties>/<method>...
  */
-class World {
+ class World {
     canvas;
     ctx;
     camera_x = 0;
@@ -158,13 +158,26 @@ class World {
                 }
             });
 
-            // Check collision with puffer fish & fin slap attack 
+            // Check puffer fish collision and fin slap attack
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof PufferFish) {
                     enemy.hit();
                     enemy.floatAway();
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
+            });
+			
+			// Check bubble with jellyfish collision
+            this.level.enemies.forEach(enemy => {
+                if (this.bubble) {
+					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFish) {
+						enemy.hit();
+						enemy.speed	= 2;
+						enemy.floatAwayUp();
+						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+					}
+				}
             });
 
             // Check collisions with coins

@@ -2,7 +2,7 @@
  * Parent element for all moving objects in the world
  * The background elements are also moveable
  */
-class MovableObject extends DrawableObject {
+ class MovableObject extends DrawableObject {
     speed = 0.15;
     energy = 100;
     lastHit = 0;
@@ -95,6 +95,7 @@ class MovableObject extends DrawableObject {
 
     /**
      * Move the dead enemy out of the world at the top left 
+	 * For puffer fish
      */
     floatAway() {
         setInterval(() => {
@@ -102,6 +103,16 @@ class MovableObject extends DrawableObject {
             this.y -= this.speed;
         }, 1000 / 60)
     }
+	
+	/**
+     * Move the dead enemy up out of the world 
+	 * For jellyfish
+     */
+	floatAwayUp() {
+		 setInterval(() => {
+            this.y -= this.speed;
+        }, 1000 / 60)
+	}
 
     /**
      * If the difference in the last hit on the character is less than x s, true is returned
