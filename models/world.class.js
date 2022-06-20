@@ -207,7 +207,7 @@
                     }
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     this.level.life.splice(lifeIndex, 1);
-                    console.log('Colliding with: ', life, 'Energy: ', this.character.life);
+                    console.log('Colliding with: ', life, 'Energy: ', this.character.energy);
                 }
             });
 
