@@ -105,9 +105,9 @@
 
         setInterval(() => {
 			if (this.isDead()) {
-				this.playAnimation(this.IMAGES_DEAD[type][color]);
+				this.playAnimation(this.IMAGES_DEAD[type][color], 1);
 			} else {
-				this.playAnimation(this.IMAGES[type][color]);
+				this.playAnimation(this.IMAGES[type][color], 1);
 			}
         }, 250)
     }

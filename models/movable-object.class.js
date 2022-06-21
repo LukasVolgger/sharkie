@@ -12,6 +12,8 @@
         width: 0,
         height: 0
     }
+	animationStarted = false;
+	animationFinished = false;
     waypointReached = false;
 
     /**
@@ -59,12 +61,32 @@
     /**
      * Animates the images within an interval
      * @param {array} images 
+	 * @param {integer} loop 0 = off, 1 = on 
      */
-    playAnimation(images) {
-        let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
-        let path = images[i]; // Temporary store the path of each img
-        this.img = this.imageCache[path]; // Change img from class
-        this.currentImage++;
+    playAnimation(images, loop) {
+		if (loop == 0 && !this.animationFinished) {
+			
+			if (!this.animationStarted) { // Setting currentImage just once
+				this.currentImage = 0; // If it's an one time animation, it should start with the  first img
+			}
+			
+			this.animationStarted = true;
+			let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
+			let path = images[i]; // Temporary store the path of each img
+			this.img = this.imageCache[path]; // Change img from class
+			this.currentImage++;
+			
+			if (this.currentImage == images.length) { // Stop animation if all images are animated once
+				this.animationFinished = true;
+				this.animationStarted = false;
+			}
+		} else if (loop == 1) {
+			let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
+			let path = images[i]; // Temporary store the path of each img
+			this.img = this.imageCache[path]; // Change img from class
+			this.currentImage++;
+			this.animationFinished = false;
+		}
     }
 
     /**

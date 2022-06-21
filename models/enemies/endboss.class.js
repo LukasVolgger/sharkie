@@ -80,11 +80,11 @@
     animate() {
         setInterval(() => {
             if (this.endBossIntroduced && !this.isHurt() && !this.isDead()) {
-                this.playAnimation(this.IMAGES_FLOATING);
+                this.playAnimation(this.IMAGES_FLOATING, 1);
             } else if (this.isDead()) {
-				this.playAnimation(this.IMAGES_DEAD);
+				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.isHurt()) {
-				this.playAnimation(this.IMAGES_HURT);
+				this.playAnimation(this.IMAGES_HURT, 1);
 			}
         }, 250)
 
@@ -111,7 +111,7 @@
      * EndBoss introduce animation
      */
     introduceEndBoss() {
-        this.playAnimation(this.IMAGES_INTRODUCE);
+        this.playAnimation(this.IMAGES_INTRODUCE, 0);
         this.endBossAlreadyTriggered = true;
 
         setTimeout(() => {

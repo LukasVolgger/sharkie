@@ -140,30 +140,30 @@
     animate() {
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DIE_POISONED);
+                this.playAnimation(this.IMAGES_DIE_POISONED, 0);
             } else if (this.isHurt() && this.hitBy == 'PufferFish') {
-                this.playAnimation(this.IMAGES_HURT_POISONED);
+                this.playAnimation(this.IMAGES_HURT_POISONED, 1);
             } else if (this.isHurt() && this.hitBy == 'JellyFish') {
-                this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK);
+                this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK, 1);
             } else if (this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.RIGHT || this.world.keyboard.DOWN) {
-                this.playAnimation(this.IMAGES_SWIM);
+                this.playAnimation(this.IMAGES_SWIM, 1);
             } else if (this.isLongIdle()) {
-                this.playAnimation(this.IMAGES_LONG_IDLE);
+                this.playAnimation(this.IMAGES_LONG_IDLE, 1);
             } else {
-                this.playAnimation(this.IMAGES_IDLE);
+                this.playAnimation(this.IMAGES_IDLE, 1);
             }
         }, 200)
 
         setInterval(() => {
             if (this.world.keyboard.SPACE) {
                 this.finSlapAttack();
-                this.playAnimation(this.IMAGES_FIN_SLAP);
+                this.playAnimation(this.IMAGES_FIN_SLAP, 0);
             } else if (this.world.keyboard.D) {
                 this.bubbleTrapAttack();
-                this.playAnimation(this.IMAGES_BUBBLE_TRAP);
+                this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
             } else if (this.world.keyboard.F && this.poison > 0) {
 				this.bubbleTrapAttackPoison();
-                this.playAnimation(this.IMAGES_BUBBLE_TRAP);
+                this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
 			}
         }, 100)
     }
