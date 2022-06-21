@@ -23,7 +23,6 @@
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
-    checkAlreadyRunning = false;
     isFinSlapping = false;
     isBubbleTrapping = false;
 	hitBy;

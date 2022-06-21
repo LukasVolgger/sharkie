@@ -10,6 +10,7 @@
     endBossTriggered = false;
     endBossIntroduced = false;
     endBossAlreadyTriggered = false;
+	isCollidingWithCharacter;
     triggerDistance = 500;
     offset = {
         x: 15,
@@ -61,6 +62,15 @@
 		'img/2._Enemy/3._Final_Enemy/Dead/5.png',
 		'img/2._Enemy/3._Final_Enemy/Dead/6.png'
 	];
+	
+	IMAGES_ATTACK = [
+		'img/2._Enemy/3._Final_Enemy/Attack/1.png',
+		'img/2._Enemy/3._Final_Enemy/Attack/2.png',
+		'img/2._Enemy/3._Final_Enemy/Attack/3.png',
+		'img/2._Enemy/3._Final_Enemy/Attack/4.png',
+		'img/2._Enemy/3._Final_Enemy/Attack/5.png',
+		'img/2._Enemy/3._Final_Enemy/Attack/6.png'
+	];
 
     constructor(x, y) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
@@ -68,6 +78,7 @@
         this.loadImages(this.IMAGES_INTRODUCE);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
+        this.loadImages(this.IMAGES_ATTACK);
         this.animate();
         this.triggerEndBoss();
         this.x = x;
@@ -79,13 +90,19 @@
      */
     animate() {
         setInterval(() => {
-            if (this.endBossIntroduced && !this.isHurt() && !this.isDead()) {
+            if (this.endBossIntroduced && !this.isHurt() && !this.isDead() && !this.isCollidingWithCharacter) {
                 this.playAnimation(this.IMAGES_FLOATING, 1);
             } else if (this.isDead()) {
 				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.isHurt()) {
 				this.playAnimation(this.IMAGES_HURT, 1);
+			} else if (this.isCollidingWithCharacter) {
+				this.attackAnimation();
+				this.playAnimation(this.IMAGES_ATTACK, 0);
 			}
+			
+			this.checkCollisionWithCharacter();
+			
         }, 250)
 
         // Faster animation
@@ -95,6 +112,38 @@
             }
         }, 150)
     }
+	
+	/**
+     * Sets the boolean value isCollidingWithCharacter to true until the animation has finished playing once
+     */
+    attackAnimation() {
+        if (!this.checkAlreadyRunning) {
+
+            this.currentImage = 0; // To start with the first img of the animation
+
+            let spacePressed = setInterval(() => {
+                this.isCollidingWithCharacter= true;
+                this.checkAlreadyRunning = true;
+            }, 100);
+
+            setTimeout(() => {
+                this.isCollidingWithCharacter = false;
+                this.checkAlreadyRunning = false;
+                clearInterval(spacePressed);
+            }, 600);
+        }
+    }
+	
+	/**
+     * Checks if Character is colliding with EndBoss
+     */
+	checkCollisionWithCharacter() {
+		if (this.isColliding(this.world.character)) {
+			this.isCollidingWithCharacter = true;
+		} else {
+			this.isCollidingWithCharacter = false;
+		}
+	}
 
     /**
      * Checks if EndBoss has been triggered

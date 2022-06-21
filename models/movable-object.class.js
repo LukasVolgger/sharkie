@@ -12,6 +12,7 @@
         width: 0,
         height: 0
     }
+	checkAlreadyRunning = false;
 	animationStarted = false;
 	animationFinished = false;
     waypointReached = false;
