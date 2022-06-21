@@ -16,6 +16,10 @@
         bubbleY: 165
     }
     speed = 4;
+	energy = 100;
+	attack = 10;
+	coins = 0;
+    poison = 0;
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
@@ -23,8 +27,7 @@
     isFinSlapping = false;
     isBubbleTrapping = false;
 	hitBy;
-    coins = 0;
-    poison = 0;
+
     IMAGES_IDLE = [
         'img/1._Sharkie/1._Idle/1.png',
         'img/1._Sharkie/1._Idle/2.png',

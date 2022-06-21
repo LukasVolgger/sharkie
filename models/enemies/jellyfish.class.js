@@ -5,6 +5,7 @@
     width = 100;
     height = 100;
 	energy = 5;
+	attack = 20;
     offset = {
         x: 0,
         y: 5,

@@ -152,7 +152,7 @@
             // Check collision with enemies
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && !enemy.isDead() && !this.character.isFinSlapping) {
-                    this.character.hit();
+                    this.character.hit(enemy.attack);
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
 					
@@ -167,7 +167,7 @@
             // Check puffer fish collision and fin slap attack
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof PufferFish) {
-                    enemy.hit();
+                    enemy.hit(this.character.attack);
                     enemy.floatAway(this.character.imgMirrored);
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
@@ -177,7 +177,7 @@
             this.level.enemies.forEach(enemy => {
                 if (this.bubble) {
 					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFish) {
-						enemy.hit();
+						enemy.hit(this.character.attack);
 						enemy.speed	= 2;
 						enemy.floatAwayUp();
 						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy

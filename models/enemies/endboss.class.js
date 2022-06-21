@@ -1,10 +1,12 @@
 /**
  * Final enemy object
  */
-class EndBoss extends MovableObject {
+ class EndBoss extends MovableObject {
     world;
     width = 300;
     height = 300;
+	energy = 200;
+	attack = 30;
     endBossTriggered = false;
     endBossIntroduced = false;
     endBossAlreadyTriggered = false;

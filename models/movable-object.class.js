@@ -4,7 +4,7 @@
  */
  class MovableObject extends DrawableObject {
     speed = 0.15;
-    energy = 100;
+    energy;
     lastHit = 0;
     offset = {
         x: 0,
@@ -82,8 +82,8 @@
     /**
      * Reduces the character's energy after colliding with an enemy
      */
-    hit() {
-        this.energy -= 5;
+    hit(attack) {
+        this.energy -= attack;
 
         // Prevent the energy from going negative
         if (this.energy < 0) {
