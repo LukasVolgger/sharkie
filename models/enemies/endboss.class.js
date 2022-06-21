@@ -12,6 +12,7 @@
     endBossAlreadyTriggered = false;
 	isCollidingWithCharacter;
     triggerDistance = 500;
+	wanderDistance = 500;
     offset = {
         x: 15,
         y: 90,
@@ -92,6 +93,7 @@
         setInterval(() => {
             if (this.endBossIntroduced && !this.isHurt() && !this.isDead() && !this.isCollidingWithCharacter) {
                 this.playAnimation(this.IMAGES_FLOATING, 1);
+				this.aiMovement();
             } else if (this.isDead()) {
 				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.isHurt() && !this.isDead()) {
@@ -112,6 +114,15 @@
 			}
         }, 150)
     }
+	
+	/**
+	 * Autonomous motion sequence for EndBoss
+	 */
+	aiMovement() {
+		setInterval(() => {
+			// WIP
+		}, 1000 / 60);
+	}
 	
 	/**
      * Sets the boolean value isCollidingWithCharacter to true until the animation has finished playing once
