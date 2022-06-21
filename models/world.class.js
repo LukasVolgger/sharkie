@@ -14,9 +14,10 @@
 
     level = level_1; // level_1 is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     character = new Character();
-    statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
+	statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
+    statusBarEndBoss = new StatusBar('life', 'orange', 100, 460, 400);
 
     // The canvas was passed from init() in game.js
     constructor(canvas, keyboard) {
@@ -69,9 +70,12 @@
         // ----------------- FIXED OBJECTS START -----------------
         this.ctx.translate(-this.camera_x, 0);
 
-        this.addToWorld(this.statusBarLife);
+		this.addToWorld(this.statusBarLife);
         this.addToWorld(this.statusBarCoins);
         this.addToWorld(this.statusBarPoison);
+		if (this.level.getEndBoss().endBossIntroduced == true) {
+			this.addToWorld(this.statusBarEndBoss);
+		}
 
         this.ctx.translate(this.camera_x, 0);
         // ----------------- FIXED OBJECTS END -----------------
@@ -192,6 +196,7 @@
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof EndBoss) {
                     enemy.hit(this.character.attack);
+					this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
             });
@@ -201,12 +206,14 @@
                 if (this.bubble instanceof Bubble) {
 					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
 						enemy.hit(this.bubble.attack);
+						this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
 						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
 						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
 					}
 				} else if (this.bubble instanceof PoisonBubble) {
 					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
 						enemy.hit(this.bubble.attack);
+						this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
 						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
 						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
 					}
