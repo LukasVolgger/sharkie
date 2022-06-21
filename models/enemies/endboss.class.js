@@ -27,7 +27,7 @@
         'img/2._Enemy/3._Final_Enemy/1._Introduce/7.png',
         'img/2._Enemy/3._Final_Enemy/1._Introduce/8.png',
         'img/2._Enemy/3._Final_Enemy/1._Introduce/9.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/10.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/10.png'
     ];
 
     IMAGES_FLOATING = [
@@ -43,13 +43,31 @@
         'img/2._Enemy/3._Final_Enemy/2._Floating/10.png',
         'img/2._Enemy/3._Final_Enemy/2._Floating/11.png',
         'img/2._Enemy/3._Final_Enemy/2._Floating/12.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/13.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/13.png'
     ];
+	
+	IMAGES_HURT = [
+		'img/2._Enemy/3._Final_Enemy/Hurt/1.png',
+		'img/2._Enemy/3._Final_Enemy/Hurt/2.png',
+		'img/2._Enemy/3._Final_Enemy/Hurt/3.png',
+		'img/2._Enemy/3._Final_Enemy/Hurt/4.png'
+	];
+	
+	IMAGES_DEAD = [
+		'img/2._Enemy/3._Final_Enemy/Dead/1.png',
+		'img/2._Enemy/3._Final_Enemy/Dead/2.png',
+		'img/2._Enemy/3._Final_Enemy/Dead/3.png',
+		'img/2._Enemy/3._Final_Enemy/Dead/4.png',
+		'img/2._Enemy/3._Final_Enemy/Dead/5.png',
+		'img/2._Enemy/3._Final_Enemy/Dead/6.png'
+	];
 
     constructor(x, y) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
         this.loadImages(this.IMAGES_FLOATING);
         this.loadImages(this.IMAGES_INTRODUCE);
+        this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_DEAD);
         this.animate();
         this.triggerEndBoss();
         this.x = x;
@@ -61,9 +79,13 @@
      */
     animate() {
         setInterval(() => {
-            if (this.endBossIntroduced) {
+            if (this.endBossIntroduced && !this.isHurt() && !this.isDead()) {
                 this.playAnimation(this.IMAGES_FLOATING);
-            }
+            } else if (this.isDead()) {
+				this.playAnimation(this.IMAGES_DEAD);
+			} else if (this.isHurt()) {
+				this.playAnimation(this.IMAGES_HURT);
+			}
         }, 250)
 
         // Faster animation
