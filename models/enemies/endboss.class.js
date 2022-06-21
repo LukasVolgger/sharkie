@@ -96,9 +96,6 @@
 				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.isHurt() && !this.isDead()) {
 				this.playAnimation(this.IMAGES_HURT, 1);
-			} else if (this.isCollidingWithCharacter) {
-				this.attackAnimation();
-				this.playAnimation(this.IMAGES_ATTACK, 0);
 			}
 			
 			this.checkCollisionWithCharacter();
@@ -109,7 +106,10 @@
         setInterval(() => {
             if (this.endBossTriggered) {
                 this.introduceEndBoss();
-            }
+            } else if (this.isCollidingWithCharacter) {
+				this.attackAnimation();
+				this.playAnimation(this.IMAGES_ATTACK, 0);
+			}
         }, 150)
     }
 	
@@ -130,7 +130,7 @@
                 this.isCollidingWithCharacter = false;
                 this.checkAlreadyRunning = false;
                 clearInterval(spacePressed);
-            }, 600);
+            }, 900);
         }
     }
 	
