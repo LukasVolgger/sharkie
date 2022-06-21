@@ -164,7 +164,7 @@
                 }
             });
 
-            // Check puffer fish collision and fin slap attack
+            // Check PufferFfish collision and fin slap attack
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof PufferFish) {
                     enemy.hit(this.character.attack);
@@ -173,11 +173,11 @@
                 }
             });
 			
-			// Check bubble with jellyfish collision
+			// Check Bubble with JellyFish collision
             this.level.enemies.forEach(enemy => {
                 if (this.bubble) {
 					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFish) {
-						enemy.hit(this.character.attack);
+						enemy.hit(this.bubble.attack);
 						enemy.speed	= 2;
 						enemy.floatAwayUp();
 						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
@@ -185,8 +185,33 @@
 					}
 				}
             });
+			
+			// Check EndBoss collision and fin slap attack
+            this.level.enemies.forEach(enemy => {
+                if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof EndBoss) {
+                    enemy.hit(this.character.attack);
+                    console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
+                }
+            });
+			
+			// Check Bubble with EndBoss collision
+            this.level.enemies.forEach(enemy => {
+                if (this.bubble instanceof Bubble) {
+					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+						enemy.hit(this.bubble.attack);
+						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+					}
+				} else if (this.bubble instanceof PoisonBubble) {
+					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+						enemy.hit(this.bubble.attack);
+						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+					}
+				}
+            });
 
-            // Check collisions with coins
+            // Check collisions with Coin
             this.level.coins.forEach(coin => {
                 if (this.character.isColliding(coin)) {
                     let coinIndex = this.level.coins.indexOf(coin); // Index of the coins just collected (Necessary to delete exactly this after collecting)
@@ -198,7 +223,7 @@
                 }
             });
 
-            // Check collisions with life
+            // Check collisions with Life
             this.level.life.forEach(life => {
                 if (this.character.isColliding(life)) {
                     let lifeIndex = this.level.life.indexOf(life);
@@ -211,7 +236,7 @@
                 }
             });
 
-            // Check collisions with poison
+            // Check collisions with Poison
             this.level.poison.forEach(poison => {
                 if (this.character.isColliding(poison)) {
                     let poisonIndex = this.level.poison.indexOf(poison);

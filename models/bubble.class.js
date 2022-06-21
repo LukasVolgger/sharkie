@@ -2,6 +2,7 @@ class Bubble extends MovableObject {
     width = 50;
     height = 50;
     speed = 1.02;
+	attack = 10;
 
     constructor(startX, startY, otherDirection) {
         super().loadImage('img/1._Sharkie/4._Attack/Bubble_Trap/Bubble.png');
