@@ -141,7 +141,7 @@
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DIE_POISONED, 0);
-            } else if (this.isHurt() && this.hitBy == 'PufferFish') {
+            } else if (this.isHurt() && this.hitBy == 'PufferFish' || this.isHurt() && this.hitBy == 'EndBoss') {
                 this.playAnimation(this.IMAGES_HURT_POISONED, 1);
             } else if (this.isHurt() && this.hitBy == 'JellyFish') {
                 this.playAnimation(this.IMAGES_HURT_ELECTRIC_SHOCK, 1);

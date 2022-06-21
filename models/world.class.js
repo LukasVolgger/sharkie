@@ -160,6 +160,8 @@
 						this.character.hitBy = 'PufferFish';
 					} else if (enemy instanceof JellyFish) {
 						this.character.hitBy = 'JellyFish';
+					} else if (enemy instanceof EndBoss) {
+						this.character.hitBy = 'EndBoss';
 					}
                 }
             });
