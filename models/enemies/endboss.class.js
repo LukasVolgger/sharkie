@@ -94,7 +94,7 @@
                 this.playAnimation(this.IMAGES_FLOATING, 1);
             } else if (this.isDead()) {
 				this.playAnimation(this.IMAGES_DEAD, 0);
-			} else if (this.isHurt()) {
+			} else if (this.isHurt() && !this.isDead()) {
 				this.playAnimation(this.IMAGES_HURT, 1);
 			} else if (this.isCollidingWithCharacter) {
 				this.attackAnimation();
