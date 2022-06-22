@@ -86,7 +86,6 @@
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_ATTACK);
         this.animate();
-        this.triggerEndBoss();
         this.x = x;
         this.y = y;
         this.startX = startX;
@@ -171,17 +170,6 @@
                 clearInterval(spacePressed);
             }, 600);
         }
-    }
-
-    /**
-     * Checks if EndBoss has been triggered
-     */
-    triggerEndBoss() {
-        setInterval(() => {
-            if (this.world.character.x > this.x - this.triggerDistance && !this.endBossAlreadyTriggered) {
-                this.endBossTriggered = true;
-            }
-        }, 1000)
     }
 
     /**

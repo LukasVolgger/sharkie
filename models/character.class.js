@@ -144,6 +144,7 @@
         this.loadImages(this.IMAGES_BUBBLE_TRAP);
         this.animate();
         this.characterEvents();
+		this.triggerEndboss();
     }
 
     /**
@@ -369,4 +370,14 @@
         }
     }
 
+	/**
+	 * Triggers the EndBoss when exceeding the x coordinate minus the triggerDistance
+	 */
+	triggerEndboss() {
+		setInterval(() => {
+		if (this.x > (this.world.level.getEndBoss().x - this.world.level.getEndBoss().triggerDistance) && !this.world.level.getEndBoss().endBossAlreadyTriggered) {
+			this.world.level.getEndBoss().endBossTriggered = true;
+		}
+		}, 100);
+	}
 }
