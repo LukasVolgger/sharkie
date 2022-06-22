@@ -14,7 +14,7 @@
 
     
 	character = new Character();
-	level = level_1; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
+	level = level_2; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
 	statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
@@ -184,7 +184,7 @@
 			// Check Bubble with JellyFish collision
             this.level.enemies.forEach(enemy => {
                 if (this.bubble) {
-					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFish) {
+					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous) {
 						enemy.hit(this.bubble.attack);
 						enemy.speed	= 2;
 						enemy.floatAwayUp();
