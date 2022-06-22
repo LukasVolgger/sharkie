@@ -7,12 +7,17 @@
     height = 300;
 	energy = 200;
 	attack = 30;
+	speed = 8;
     endBossTriggered = false;
     endBossIntroduced = false;
     endBossAlreadyTriggered = false;
 	isCollidingWithCharacter;
     triggerDistance = 500;
-	wanderDistance = 500;
+	wanderDistance = 200;
+	waypoint1 = false;
+	waypoint2 = false;
+	waypoint3 = false;
+	waypoint4 = false;
     offset = {
         x: 15,
         y: 90,
@@ -73,7 +78,7 @@
 		'img/2._Enemy/3._Final_Enemy/Attack/6.png'
 	];
 
-    constructor(x, y) {
+    constructor(x, y, startX, startY) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
         this.loadImages(this.IMAGES_FLOATING);
         this.loadImages(this.IMAGES_INTRODUCE);
@@ -84,6 +89,8 @@
         this.triggerEndBoss();
         this.x = x;
         this.y = y;
+        this.startX = startX;
+        this.startY = startY;
     }
 
     /**
@@ -98,15 +105,7 @@
 				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.isHurt() && !this.isDead()) {
 				this.playAnimation(this.IMAGES_HURT, 1);
-			}
-			
-			this.checkCollisionWithCharacter();
-			
-        }, 250)
-
-        // Faster animation
-        setInterval(() => {
-            if (this.endBossTriggered) {
+			} else if (this.endBossTriggered) {
                 this.introduceEndBoss();
             } else if (this.isCollidingWithCharacter) {
 				this.attackAnimation();
@@ -119,9 +118,35 @@
 	 * Autonomous motion sequence for EndBoss
 	 */
 	aiMovement() {
-		setInterval(() => {
-			// WIP
-		}, 1000 / 60);
+			if (!this.waypoint1 && this.x > this.startX - this.wanderDistance) { // Move forward
+				this.x -= this.speed;
+				
+				if (this.x <= this.startX - this.wanderDistance) {
+					this.waypoint1 = true;
+					this.waypoint4 = false;
+				} 
+			} else if (this.waypoint1 && !this.waypoint2) { // Move up
+					this.y -= this.speed;
+					
+					if(this.y <= -50) {
+						this.waypoint2 = true;
+					}
+			} else if (this.waypoint2 && !this.waypoint3) { // move back
+				this.x += this.speed;
+				
+				if (this.x >= this.startX) {
+					this.waypoint3 = true;
+				}
+			} else if (this.waypoint3 && !this.waypoint4) { // Move down
+				this.y += this.speed;
+				
+				if (this.y >= 150) {
+					this.waypoint4 = true;
+					this.waypoint1 = false;
+					this.waypoint2 = false;
+					this.waypoint3 = false;
+				}
+			}
 	}
 	
 	/**
@@ -141,20 +166,9 @@
                 this.isCollidingWithCharacter = false;
                 this.checkAlreadyRunning = false;
                 clearInterval(spacePressed);
-            }, 900);
+            }, 600);
         }
     }
-	
-	/**
-     * Checks if Character is colliding with EndBoss
-     */
-	checkCollisionWithCharacter() {
-		if (this.isColliding(this.world.character)) {
-			this.isCollidingWithCharacter = true;
-		} else {
-			this.isCollidingWithCharacter = false;
-		}
-	}
 
     /**
      * Checks if EndBoss has been triggered

@@ -54,10 +54,12 @@ const level_1 = new Level(
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
     // #######################################################################################################
-    // ### new EndBoss(x, y)
+    // ### new EndBoss(x, y, startX, startY)
     // #######################################################################################################
     // ### x = coordinate
     // ### y = coordinate
+	// ### startX = starting point X for ai movement
+    // ### startY = starting point Y for ai movement
     // #######################################################################################################
 
     [
@@ -66,7 +68,7 @@ const level_1 = new Level(
         new PufferFish('red', 600, 100, 'horizontal', 600, 800, .5, 1),
         new PufferFish('orange', 1060, 350, 'horizontal', 1060, 1300, 1.5, 1),
         new JellyFish('regular_damage', 'yellow', 1250, 100, 'vertical', 100, 200, 1, 0),
-        new EndBoss(2000, 50)
+        new EndBoss(2000, 50, 2000, 50)
     ],
 
     // ############################################### Coins ###############################################
