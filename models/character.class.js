@@ -96,6 +96,18 @@
         'img/1._Sharkie/6._Dead/1._Poisoned/11.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
     ];
+	IMAGES_DIE_ELECTRIC_SHOCK = [
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/1.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/2.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/3.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/4.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/5.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/6.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/7.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/8.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/9.png',
+		'img/1._Sharkie/6._Dead/2._Electric_Shock/10.png'
+	];
     IMAGES_FIN_SLAP = [
         'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
@@ -127,6 +139,7 @@
         this.loadImages(this.IMAGES_HURT_POISONED);
         this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
         this.loadImages(this.IMAGES_DIE_POISONED);
+        this.loadImages(this.IMAGES_DIE_ELECTRIC_SHOCK);
         this.loadImages(this.IMAGES_FIN_SLAP);
         this.loadImages(this.IMAGES_BUBBLE_TRAP);
         this.animate();
@@ -138,8 +151,10 @@
      */
     animate() {
         setInterval(() => {
-            if (this.isDead()) {
+            if (this.isDead() && this.hitBy == 'PufferFish' || this.isDead() && this.hitBy == 'EndBoss') {
                 this.playAnimation(this.IMAGES_DIE_POISONED, 0);
+            } else if (this.isDead() && this.hitBy == 'JellyFish') {
+                this.playAnimation(this.IMAGES_DIE_ELECTRIC_SHOCK, 0);
             } else if (this.isHurt() && this.hitBy == 'PufferFish' || this.isHurt() && this.hitBy == 'EndBoss') {
                 this.playAnimation(this.IMAGES_HURT_POISONED, 1);
             } else if (this.isHurt() && this.hitBy == 'JellyFish') {
@@ -180,22 +195,22 @@
             }
 
             // Moving UP
-            if (this.world.keyboard.UP && this.y > -135 && !this.world.level.getEndBoss().isDead()) {
+            if (this.world.keyboard.UP && this.y > -135 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('up');
             }
 
             // Moving RIGHT
-            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x && !this.world.level.getEndBoss().isDead()) {
+            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('right');
             }
 
             // Moving DOWN
-            if (this.world.keyboard.DOWN && this.y < 240 && !this.world.level.getEndBoss().isDead()) {
+            if (this.world.keyboard.DOWN && this.y < 240 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('down');
             }
 
             // Moving LEFT
-            if (this.world.keyboard.LEFT && this.x > 0 && !this.world.level.getEndBoss().isDead()) {
+            if (this.world.keyboard.LEFT && this.x > 0 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('left');
             }
 
