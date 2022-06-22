@@ -2,31 +2,38 @@
 const level_1 = new Level(
 
     // ############################################### Background objects ###############################################
+	// ### new BackgroundObject(szene, section, index, levelSection)
+    // ##################################################################################################################
+    // ### szene = 'light', 'dark'
+    // ### section = 1, 2 (Always changing. First 1 then 2)
+    // ### index = 0, 1, 2, 4 (Always increasing from 0 - 4)
+    // ### levelSection = 0 - x (Section of the level. A section is 719 px long. Always increasing from 0 - x)
+	// ##################################################################################################################
 
     [
-        new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/4._Background_2/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/3._Background_1/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 0),
-        new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 0),
+		new BackgroundObject('light', 1, 0, 0),
+		new BackgroundObject('light', 1, 1, 0),
+		new BackgroundObject('light', 1, 2, 0),
+		new BackgroundObject('light', 1, 3, 0),
+		new BackgroundObject('light', 1, 4, 0),
 
-        new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/4._Background_2/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/3._Background_1/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719),
-        new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719),
+		new BackgroundObject('light', 2, 0, 1),
+		new BackgroundObject('light', 2, 1, 1),
+		new BackgroundObject('light', 2, 2, 1),
+		new BackgroundObject('light', 2, 3, 1),
+		new BackgroundObject('light', 2, 4, 1), 
 
-        new BackgroundObject('img/3._Background/Layers/5._Water/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/4._Background_2/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/3._Background_1/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L1.png', 719 * 2),
-        new BackgroundObject('img/3._Background/Layers/1._Light/1.png', 719 * 2),
-
-        new BackgroundObject('img/3._Background/Layers/5._Water/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/4._Background_2/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/3._Background_1/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/2._Floor/L2.png', 719 * 3),
-        new BackgroundObject('img/3._Background/Layers/1._Light/2.png', 719 * 3)
+ 		new BackgroundObject('light', 1, 0, 2),
+		new BackgroundObject('light', 1, 1, 2),
+		new BackgroundObject('light', 1, 2, 2),
+		new BackgroundObject('light', 1, 3, 2),
+		new BackgroundObject('light', 1, 4, 2),
+		
+		new BackgroundObject('light', 2, 0, 3),
+		new BackgroundObject('light', 2, 1, 3),
+		new BackgroundObject('light', 2, 2, 3),
+		new BackgroundObject('light', 2, 3, 3),
+		new BackgroundObject('light', 2, 4, 3)
     ],
 
     // ############################################### Enemies ###############################################
