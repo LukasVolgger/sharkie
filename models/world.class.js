@@ -14,7 +14,7 @@
 
     
 	character = new Character();
-	level = level_2; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
+	level = level_1; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
 	statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
@@ -163,7 +163,7 @@
 					
 					if (enemy instanceof PufferFish) {
 						this.character.hitBy = 'PufferFish';
-					} else if (enemy instanceof JellyFish) {
+					} else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
 						this.character.hitBy = 'JellyFish';
 					} else if (enemy instanceof EndBoss) {
 						this.character.hitBy = 'EndBoss';

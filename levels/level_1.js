@@ -48,11 +48,9 @@ const level_1 = new Level(
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
     // #######################################################################################################
-    // ### new JellyFish(type, color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
+    // ### new JellyFishRegular(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
     // #######################################################################################################
-    // ### type = 'regular_damage', 'super_dangerous'
-    // ### color (regular_damage) = 'lila', 'yellow'
-    // ### color (super_dangerous) = 'green', 'pink'
+    // ### color = 'lila', 'yellow'
     // ### x = coordinate
     // ### y = coordinate
     // ### direction = 'horizontal', 'vertical'
@@ -60,6 +58,18 @@ const level_1 = new Level(
     // ### endPoint = coordinate for waypoint end
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
+	// #######################################################################################################
+    // ### new JellyFishDangerous(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
+    // #######################################################################################################
+    // ### color = 'green', 'pink'
+    // ### x = coordinate
+    // ### y = coordinate
+    // ### direction = 'horizontal', 'vertical'
+    // ### startPoint = coordinate for waypoint start (Should be same as x/y, depending on 'horizontal'/'vertical')
+    // ### endPoint = coordinate for waypoint end
+    // ### speed = 0 - 5
+    // ### imgInitiallyMirrored = 0, 1 (off/on)
+    // #######################################################################################################
     // #######################################################################################################
     // ### new EndBoss(x, y, startX, startY)
     // #######################################################################################################
@@ -71,10 +81,10 @@ const level_1 = new Level(
 
     [
         new PufferFish('green', 0, 380, 'horizontal', 0, 200, .5, 1),
-        new JellyFish('regular_damage', 'lila', 400, 100, 'vertical', 100, 300, .5, 0),
+        new JellyFishRegular('lila', 400, 100, 'vertical', 100, 300, .5, 0),
         new PufferFish('red', 600, 100, 'horizontal', 600, 800, .5, 1),
         new PufferFish('orange', 1060, 350, 'horizontal', 1060, 1300, 1.5, 1),
-        new JellyFish('regular_damage', 'yellow', 1250, 100, 'vertical', 100, 200, 1, 0),
+        new JellyFishDangerous('green', 1250, 100, 'vertical', 100, 200, 1, 0),
         new EndBoss(2000, 50, 2000, 50)
     ],
 

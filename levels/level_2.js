@@ -48,11 +48,9 @@ const level_2 = new Level(
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
     // #######################################################################################################
-    // ### new JellyFish(type, color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
+    // ### new JellyFishRegular(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
     // #######################################################################################################
-    // ### type = 'regular_damage', 'super_dangerous'
-    // ### color (regular_damage) = 'lila', 'yellow'
-    // ### color (super_dangerous) = 'green', 'pink'
+    // ### color = 'lila', 'yellow'
     // ### x = coordinate
     // ### y = coordinate
     // ### direction = 'horizontal', 'vertical'
@@ -60,6 +58,18 @@ const level_2 = new Level(
     // ### endPoint = coordinate for waypoint end
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
+	// #######################################################################################################
+    // ### new JellyFishDangerous(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
+    // #######################################################################################################
+    // ### color = 'green', 'pink'
+    // ### x = coordinate
+    // ### y = coordinate
+    // ### direction = 'horizontal', 'vertical'
+    // ### startPoint = coordinate for waypoint start (Should be same as x/y, depending on 'horizontal'/'vertical')
+    // ### endPoint = coordinate for waypoint end
+    // ### speed = 0 - 5
+    // ### imgInitiallyMirrored = 0, 1 (off/on)
+    // #######################################################################################################
     // #######################################################################################################
     // ### new EndBoss(x, y, startX, startY)
     // #######################################################################################################
@@ -70,7 +80,7 @@ const level_2 = new Level(
     // #######################################################################################################
 
     [
-        new JellyFish('super_dangerous', 'pink', 400, 100, 'vertical', 100, 300, .5, 0),
+        new JellyFishDangerous('pink', 400, 100, 'vertical', 100, 300, .5, 0),
         new EndBoss(2000, 50, 2000, 50)
     ],
 
