@@ -238,9 +238,13 @@
             this.level.life.forEach(life => {
                 if (this.character.isColliding(life)) {
                     let lifeIndex = this.level.life.indexOf(life);
-                    if (this.character.energy < 100) {
+                    
+					if (this.character.energy < 100 && this.character.energy < 90) {
                         this.character.energy += 10;
-                    }
+                    } else if (this.character.energy < 100 && this.character.energy > 90) {
+						this.character.energy += 5;
+					}
+					
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     this.level.life.splice(lifeIndex, 1);
                     console.log('Colliding with: ', life, 'Energy: ', this.character.energy);

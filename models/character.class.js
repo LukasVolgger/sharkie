@@ -150,8 +150,8 @@
                 this.playAnimation(this.IMAGES_LONG_IDLE, 1);
             } else {
                 this.playAnimation(this.IMAGES_IDLE, 1);
-            }
-        }, 200)
+			}
+		}, 200);
 
         setInterval(() => {
             if (this.world.keyboard.SPACE) {
@@ -180,22 +180,22 @@
             }
 
             // Moving UP
-            if (this.world.keyboard.UP && this.y > -135) {
+            if (this.world.keyboard.UP && this.y > -135 && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('up');
             }
 
             // Moving RIGHT
-            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
+            if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('right');
             }
 
             // Moving DOWN
-            if (this.world.keyboard.DOWN && this.y < 240) {
+            if (this.world.keyboard.DOWN && this.y < 240 && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('down');
             }
 
             // Moving LEFT
-            if (this.world.keyboard.LEFT && this.x > 0) {
+            if (this.world.keyboard.LEFT && this.x > 0 && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('left');
             }
 

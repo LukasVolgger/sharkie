@@ -100,11 +100,14 @@
         setInterval(() => {
             if (this.endBossIntroduced && !this.isHurt() && !this.isDead() && !this.isCollidingWithCharacter) {
                 this.playAnimation(this.IMAGES_FLOATING, 1);
-				this.aiMovement();
-            } else if (this.isDead()) {
-				this.playAnimation(this.IMAGES_DEAD, 0);
-			} else if (this.isHurt() && !this.isDead()) {
+				
+				if (!this.world.character.isDead()) {
+					this.aiMovement();
+				}
+            } else if (this.isHurt() && !this.isDead()) {
 				this.playAnimation(this.IMAGES_HURT, 1);
+			} else if (this.isDead()) {
+				this.playAnimation(this.IMAGES_DEAD, 0);
 			} else if (this.endBossTriggered) {
                 this.introduceEndBoss();
             } else if (this.isCollidingWithCharacter) {
