@@ -169,13 +169,13 @@
 		}, 200);
 
         setInterval(() => {
-            if (this.world.keyboard.SPACE) {
+            if (this.world.keyboard.SPACE && !this.isDead()) {
                 this.finSlapAttack();
                 this.playAnimation(this.IMAGES_FIN_SLAP, 0);
-            } else if (this.world.keyboard.D) {
+            } else if (this.world.keyboard.D && !this.isDead()) {
                 this.bubbleTrapAttack();
                 this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
-            } else if (this.world.keyboard.F && this.poison > 0) {
+            } else if (this.world.keyboard.F && this.poison > 0 && !this.isDead()) {
 				this.bubbleTrapAttackPoison();
                 this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
 			}
