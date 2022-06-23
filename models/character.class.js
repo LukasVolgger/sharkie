@@ -292,12 +292,13 @@
         this.isBubbleTrapping = true;
 
         if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
-            setTimeout(() => { // Wait until animation is finished
-				let otherDirection; 
+			let otherDirection; 
 				
 				if (this.imgMirrored == true) {
 					otherDirection = true;
 				}
+				
+            setTimeout(() => { // Wait until animation is finished
                 this.world.bubble = new Bubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
             }, 600)
         }
