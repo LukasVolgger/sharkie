@@ -13,11 +13,14 @@
     endBossAlreadyTriggered = false;
 	isCollidingWithCharacter;
     triggerDistance = 500;
-	wanderDistance = 200;
+	wanderDistance = 300;
 	waypoint1 = false;
 	waypoint2 = false;
 	waypoint3 = false;
 	waypoint4 = false;
+	waypoint5 = false;
+	waypoint6 = false;
+	waypoint7 = false;
     offset = {
         x: 15,
         y: 90,
@@ -120,35 +123,69 @@
 	 * Autonomous motion sequence for EndBoss
 	 */
 	aiMovement() {
-			if (!this.waypoint1 && this.x > this.startX - this.wanderDistance) { // Move forward
-				this.x -= this.speed;
+		if (!this.waypoint1 && this.x > this.startX - this.wanderDistance) { // Move forward
+				this.x -= this.speed * this.getRandomSpeedFactor(1.5, 3);
 				
 				if (this.x <= this.startX - this.wanderDistance) {
 					this.waypoint1 = true;
-					this.waypoint4 = false;
+					console.log('Endboss reached waypoint1');
 				} 
-			} else if (this.waypoint1 && !this.waypoint2) { // Move up
-					this.y -= this.speed;
+			} else if (this.waypoint1 && !this.waypoint2) { // Move back
+					this.x += this.speed;
 					
-					if(this.y <= -50) {
+					if(this.x > this.startX) {
 						this.waypoint2 = true;
+						console.log('Endboss reached waypoint2');
 					}
-			} else if (this.waypoint2 && !this.waypoint3) { // move back
-				this.x += this.speed;
-				
-				if (this.x >= this.startX) {
-					this.waypoint3 = true;
-				}
-			} else if (this.waypoint3 && !this.waypoint4) { // Move down
+			} else if (this.waypoint2 && !this.waypoint3) { // Move down
 				this.y += this.speed;
 				
 				if (this.y >= 150) {
-					this.waypoint4 = true;
-					this.waypoint1 = false;
-					this.waypoint2 = false;
-					this.waypoint3 = false;
+					this.waypoint3 = true;
+					console.log('Endboss reached waypoint3');
 				}
-			}
+			} else if (this.waypoint3 && !this.waypoint4) { // Move forward
+				this.x -= this.speed * this.getRandomSpeedFactor(2.5, 3.5);
+				
+				if (this.x <= this.startX - this.wanderDistance) {
+					this.waypoint4 = true;
+					console.log('Endboss reached waypoint4');
+				}
+			} else if (this.waypoint4 && !this.waypoint5) { // Move back
+				this.x += this.speed * this.getRandomSpeedFactor(2, 3.5);
+				
+				if (this.x > this.startX) {
+					this.waypoint5 = true;
+					console.log('Endboss reached waypoint5');
+				}
+			} else if (this.waypoint5 && !this.waypoint6) { // Move up
+				this.y -= this.speed;
+				
+				if (this.y < 0) {
+					this.waypoint6 = true;
+					console.log('Endboss reached waypoint6');
+				}
+			} else if (this.waypoint6 && !this.waypoint7) { // Move forward
+				this.x -= this.speed * this.getRandomSpeedFactor(2.5, 4.5);
+				
+				if (this.x <= this.startX - this.wanderDistance) {
+					this.waypoint7 = true;
+					console.log('Endboss reached waypoint7');
+				} 
+			} else if (this.waypoint7) { // Move back
+					this.x += this.speed;
+					
+					if(this.x > this.startX) {
+						this.waypoint1 = false;
+						this.waypoint2 = false;
+						this.waypoint3 = false;
+						this.waypoint4 = false;
+						this.waypoint5 = false;
+						this.waypoint6 = false;
+						this.waypoint7 = false;
+						console.log('Endboss reached last waypoint');
+					}
+			} 
 	}
 	
 	/**
@@ -183,6 +220,15 @@
             this.endBossTriggered = false;
             this.endBossIntroduced = true;
         }, 1490); // Normally 1500ms => 10ms before the animation ends so that a smooth transition takes place
-
     }
+	
+	/**
+	 * Generates a random number between min and max
+	 * @param {int} min 
+	 * @param {int} max 
+     * @returns int
+	 */
+	getRandomSpeedFactor(min, max) {
+		return Math.random() * (max - min) + min;
+	}
 }
