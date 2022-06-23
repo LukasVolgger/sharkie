@@ -80,11 +80,11 @@ const level_1 = new Level(
     // #######################################################################################################
 
     [
-        new PufferFish('green', 0, 380, 'horizontal', 0, 200, .5, 1),
+        new PufferFish('green', 168, 380, 'horizontal', 168, 368, .5, 1),
         new JellyFishRegular('lila', 400, 100, 'vertical', 100, 300, .5, 0),
         new PufferFish('red', 600, 100, 'horizontal', 600, 800, .5, 1),
-        new PufferFish('orange', 1060, 350, 'horizontal', 1060, 1300, 1.5, 1),
-        new JellyFishDangerous('green', 1250, 100, 'vertical', 100, 200, 1, 0),
+        new PufferFish('orange', 936, 350, 'horizontal', 936, 1300, 1.5, 1),
+        new JellyFishRegular('yellow', 1250, 48, 'vertical', 48, 260, 1, 0),
         new EndBoss(2000, 50, 2000, 50)
     ],
 
@@ -99,7 +99,7 @@ const level_1 = new Level(
         new Coin(580, 200),
         new Coin(850, 100),
         new Coin(1350, 200),
-        new Coin(1900, 350)
+        new Coin(1716, 196)
     ],
 
     // ############################################### Life ###############################################
@@ -111,8 +111,7 @@ const level_1 = new Level(
 
     [
         new Life(850, 300),
-        new Life(1450, 300),
-        new Life(2100, 0)
+        new Life(1450, 300)
     ],
 
     // ############################################### Poison ###############################################
