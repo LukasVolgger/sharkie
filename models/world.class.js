@@ -60,10 +60,10 @@
 
         // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
-        this.addObjectsToWorld(this.level.enemies);
-        this.addObjectsToWorld(this.level.coins);
+		this.addObjectsToWorld(this.level.coins);
         this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
+        this.addObjectsToWorld(this.level.enemies);
 		
 		// Decide whether to add the normal or debug character to the world
 		if (!debugMode) {
