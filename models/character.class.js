@@ -327,7 +327,7 @@
     }
 	
 	/**
-     * Poson bubble trap attack
+     * Poison bubble trap attack
      */
     bubbleTrapAttackPoison() {
         this.activateF();
@@ -335,13 +335,13 @@
         this.isBubbleTrapping = true;
 
         if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
-            setTimeout(() => { // Wait until animation is finished
-				let otherDirection; 
+            let otherDirection; 
 				
-				if (this.imgMirrored == true) {
-					otherDirection = true;
-				}
-				
+			if (this.imgMirrored == true) {
+				otherDirection = true;
+			}
+			
+			setTimeout(() => { // Wait until animation is finished
 				if (this.poison > 0) {
 					this.world.bubble = new PoisonBubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
 					this.poison--;
