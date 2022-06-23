@@ -131,20 +131,22 @@
     swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
-        // super() is needed to call the constructor of its parent class to access the parent's properties and methods
-        super().loadImage('img/1._Sharkie/1._Idle/1.png');
-        this.loadImages(this.IMAGES_IDLE);
-        this.loadImages(this.IMAGES_LONG_IDLE);
-        this.loadImages(this.IMAGES_SWIM);
-        this.loadImages(this.IMAGES_HURT_POISONED);
-        this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
-        this.loadImages(this.IMAGES_DIE_POISONED);
-        this.loadImages(this.IMAGES_DIE_ELECTRIC_SHOCK);
-        this.loadImages(this.IMAGES_FIN_SLAP);
-        this.loadImages(this.IMAGES_BUBBLE_TRAP);
-        this.animate();
-        this.characterEvents();
-		this.triggerEndboss();
+		super();
+		if (!debugMode) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
+			this.loadImage('img/1._Sharkie/1._Idle/1.png');
+			this.loadImages(this.IMAGES_IDLE);
+			this.loadImages(this.IMAGES_LONG_IDLE);
+			this.loadImages(this.IMAGES_SWIM);
+			this.loadImages(this.IMAGES_HURT_POISONED);
+			this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
+			this.loadImages(this.IMAGES_DIE_POISONED);
+			this.loadImages(this.IMAGES_DIE_ELECTRIC_SHOCK);
+			this.loadImages(this.IMAGES_FIN_SLAP);
+			this.loadImages(this.IMAGES_BUBBLE_TRAP);
+			this.animate();
+			this.characterEvents();
+			this.triggerEndboss();
+		}
     }
 
     /**

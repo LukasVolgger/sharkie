@@ -52,12 +52,12 @@
      * @param {object} object 
      */
     drawCollisionDetectionFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish || this instanceof JellyFishRegular || this instanceof JellyFishDangerous || this instanceof EndBoss || this instanceof Coin || this instanceof Life || this instanceof Poison || this instanceof Bubble || this instanceof PoisonBubble) { // Only draw frames on Character and Enemies
+        if (this instanceof Character || this instanceof DebugCharacter || this instanceof PufferFish || this instanceof JellyFishRegular || this instanceof JellyFishDangerous || this instanceof EndBoss || this instanceof Coin || this instanceof Life || this instanceof Poison || this instanceof Bubble || this instanceof PoisonBubble) { // Only draw frames on Character and Enemies
             ctx.beginPath();
             ctx.lineWidth = "4";
-            ctx.strokeStyle = "blue";
+            ctx.strokeStyle = "red";
             ctx.rect(this.x + this.offset.x, this.y + this.offset.y, this.width - this.offset.width - this.offset.x, this.height - this.offset.height - this.offset.y);
-            ctx.stroke();
+			ctx.stroke();
         }
     }
 }

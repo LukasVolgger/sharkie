@@ -11,9 +11,9 @@
     bubble;
 
     // ################################################### Create objects ###################################################
-
-    
+	
 	character = new Character();
+	debugCharacter = new DebugCharacter();
 	level = level_2; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
 	statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
@@ -40,6 +40,7 @@
      */
     setWorld() {
         this.character.world = this;
+        this.debugCharacter.world = this;
         this.level.getEndBoss().world = this;
     }
 
@@ -63,7 +64,15 @@
         this.addObjectsToWorld(this.level.coins);
         this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
-        this.addToWorld(this.character);
+		
+		// Decide whether to add the normal or debug character to the world
+		if (!debugMode) {
+			this.addToWorld(this.character);
+		} else {
+			this.addToWorld(this.debugCharacter);
+		}
+		
+		// When a bubble is created by the character, it is saved here
         if (this.bubble) {
             this.addToWorld(this.bubble);
         }
@@ -106,6 +115,7 @@
         // Draw image on context
         movableObject.draw(this.ctx);
         
+		// Draw the collision detection frames only when debug mode is enabled
 		if (debugMode) {
 			movableObject.drawCollisionDetectionFrame(this.ctx);
 		}
