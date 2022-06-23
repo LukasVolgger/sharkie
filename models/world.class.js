@@ -105,7 +105,10 @@
 
         // Draw image on context
         movableObject.draw(this.ctx);
-        movableObject.drawCollisionDetectionFrame(this.ctx);
+        
+		if (debugMode) {
+			movableObject.drawCollisionDetectionFrame(this.ctx);
+		}
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
