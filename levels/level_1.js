@@ -2,38 +2,38 @@
 const level_1 = new Level(
 
     // ############################################### Background objects ###############################################
-	// ### new BackgroundObject(szene, section, index, levelSection)
+    // ### new BackgroundObject(szene, section, index, levelSection)
     // ##################################################################################################################
     // ### szene = 'light', 'dark'
     // ### section = 1, 2 (Always changing. First 1 then 2)
     // ### index = 0, 1, 2, 4 (Always increasing from 0 - 4)
     // ### levelSection = 0 - x (Section of the level. A section is 719 px long. Always increasing from 0 - x)
-	// ##################################################################################################################
+    // ##################################################################################################################
 
     [
-		new BackgroundObject('light', 1, 0, 0),
-		new BackgroundObject('light', 1, 1, 0),
-		new BackgroundObject('light', 1, 2, 0),
-		new BackgroundObject('light', 1, 3, 0),
-		new BackgroundObject('light', 1, 4, 0),
+        new BackgroundObject('light', 1, 0, 0),
+        new BackgroundObject('light', 1, 1, 0),
+        new BackgroundObject('light', 1, 2, 0),
+        new BackgroundObject('light', 1, 3, 0),
+        new BackgroundObject('light', 1, 4, 0),
 
-		new BackgroundObject('light', 2, 0, 1),
-		new BackgroundObject('light', 2, 1, 1),
-		new BackgroundObject('light', 2, 2, 1),
-		new BackgroundObject('light', 2, 3, 1),
-		new BackgroundObject('light', 2, 4, 1), 
+        new BackgroundObject('light', 2, 0, 1),
+        new BackgroundObject('light', 2, 1, 1),
+        new BackgroundObject('light', 2, 2, 1),
+        new BackgroundObject('light', 2, 3, 1),
+        new BackgroundObject('light', 2, 4, 1),
 
- 		new BackgroundObject('light', 1, 0, 2),
-		new BackgroundObject('light', 1, 1, 2),
-		new BackgroundObject('light', 1, 2, 2),
-		new BackgroundObject('light', 1, 3, 2),
-		new BackgroundObject('light', 1, 4, 2),
-		
-		new BackgroundObject('light', 2, 0, 3),
-		new BackgroundObject('light', 2, 1, 3),
-		new BackgroundObject('light', 2, 2, 3),
-		new BackgroundObject('light', 2, 3, 3),
-		new BackgroundObject('light', 2, 4, 3)
+        new BackgroundObject('light', 1, 0, 2),
+        new BackgroundObject('light', 1, 1, 2),
+        new BackgroundObject('light', 1, 2, 2),
+        new BackgroundObject('light', 1, 3, 2),
+        new BackgroundObject('light', 1, 4, 2),
+
+        new BackgroundObject('light', 2, 0, 3),
+        new BackgroundObject('light', 2, 1, 3),
+        new BackgroundObject('light', 2, 2, 3),
+        new BackgroundObject('light', 2, 3, 3),
+        new BackgroundObject('light', 2, 4, 3)
     ],
 
     // ############################################### Coins ###############################################
@@ -74,8 +74,8 @@ const level_1 = new Level(
         new Poison('animated', 700, 400),
         new Poison('animated', 1060, 400)
     ],
-	
-	// ############################################### Enemies ###############################################
+
+    // ############################################### Enemies ###############################################
     // ### new PufferFish(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) 
     // #######################################################################################################
     // ### color = 'green', 'orange', 'red'
@@ -97,7 +97,7 @@ const level_1 = new Level(
     // ### endPoint = coordinate for waypoint end
     // ### speed = 0 - 5
     // ### imgInitiallyMirrored = 0, 1 (off/on)
-	// #######################################################################################################
+    // #######################################################################################################
     // ### new JellyFishDangerous(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored)
     // #######################################################################################################
     // ### color = 'green', 'pink'
@@ -114,7 +114,7 @@ const level_1 = new Level(
     // #######################################################################################################
     // ### x = coordinate
     // ### y = coordinate
-	// ### startX = starting point X for ai movement
+    // ### startX = starting point X for ai movement
     // ### startY = starting point Y for ai movement
     // #######################################################################################################
 
@@ -126,33 +126,33 @@ const level_1 = new Level(
         new JellyFishRegular('yellow', 1250, 48, 'vertical', 48, 260, 1, 0),
         new EndBoss(2000, 50, 2000, 50)
     ],
-	
-	// ############################################### Barriers ###############################################
-	// ### new BarrierTunnelAbove(x)
+
+    // ############################################### Barriers ###############################################
+    // ### new BarrierTunnelAbove(x)
     // ########################################################################################################
-	// ### x = coordinate
-	// ########################################################################################################
-	// ### new BarrierTunnelBelow(x)
+    // ### x = coordinate
     // ########################################################################################################
-	// ### x = coordinate
-	// ########################################################################################################
-	// ########################################################################################################
-	// ### new BarrierRock(x)
+    // ### new BarrierTunnelBelow(x)
     // ########################################################################################################
-	// ### x = coordinate
-	// ########################################################################################################
-	// ########################################################################################################
-	// ### new BarrierWall(x)
+    // ### x = coordinate
     // ########################################################################################################
-	// ### x = coordinate
-	// ########################################################################################################
-	
-	[
-		new BarrierTunnelAbove(0),
-		new BarrierTunnelBelow(0),
-		new BarrierRock(720),
-		new BarrierWall(1440)
-	],
+    // ########################################################################################################
+    // ### new BarrierRock(x)
+    // ########################################################################################################
+    // ### x = coordinate
+    // ########################################################################################################
+    // ########################################################################################################
+    // ### new BarrierWall(x)
+    // ########################################################################################################
+    // ### x = coordinate
+    // ########################################################################################################
+
+    [
+        new BarrierTunnelAbove(0),
+        new BarrierTunnelBelow(0),
+        new BarrierRock(720),
+        new BarrierWall(1440)
+    ],
 
     // ############################################### level_end_x ###############################################
 

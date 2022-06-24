@@ -2,7 +2,7 @@
  * Debug character object
  * Used to be able to position objects more precisely in the world for level design
  */
- class DebugCharacter extends MovableObject {
+class DebugCharacter extends MovableObject {
     world;
     width = 50;
     height = 50;
@@ -16,14 +16,14 @@
         bubbleX: 50,
         bubbleY: 0
     }
-	speed = 4;
+    speed = 4;
 
     constructor() {
-		super();
-		if (debugMode) { // Is required because otherwise this.world.camera_x will be set incorrectly when debug mode not acitvated
-			this.loadImage('img/1._Sharkie/1._Idle/1.png');
-			this.characterEvents();
-		}
+        super();
+        if (debugMode) { // Is required because otherwise this.world.camera_x will be set incorrectly when debug mode not acitvated
+            this.loadImage('img/1._Sharkie/1._Idle/1.png');
+            this.characterEvents();
+        }
     }
 
     /**

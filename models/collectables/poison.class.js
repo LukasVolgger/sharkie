@@ -1,7 +1,7 @@
 /**
  * Poison object
  */
- class Poison extends MovableObject {
+class Poison extends MovableObject {
     IMAGES = {
         'animated': [
             'img/4._Marks/Poison/Animated/1.png',

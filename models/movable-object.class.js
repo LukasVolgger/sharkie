@@ -2,7 +2,7 @@
  * Parent element for all moving objects in the world
  * The background elements are also moveable
  */
- class MovableObject extends DrawableObject {
+class MovableObject extends DrawableObject {
     speed = 0.15;
     energy;
     lastHit = 0;
@@ -12,9 +12,9 @@
         width: 0,
         height: 0
     }
-	checkAlreadyRunning = false;
-	animationStarted = false;
-	animationFinished = false;
+    checkAlreadyRunning = false;
+    animationStarted = false;
+    animationFinished = false;
     waypointReached = false;
 
     /**
@@ -62,32 +62,32 @@
     /**
      * Animates the images within an interval
      * @param {array} images 
-	 * @param {integer} loop 0 = off, 1 = on 
+     * @param {integer} loop 0 = off, 1 = on 
      */
     playAnimation(images, loop) {
-		if (loop == 0 && !this.animationFinished) {
-			
-			if (!this.animationStarted) { // Setting currentImage just once
-				this.currentImage = 0; // If it's an one time animation, it should start with the  first img
-			}
-			
-			this.animationStarted = true;
-			let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
-			let path = images[i]; // Temporary store the path of each img
-			this.img = this.imageCache[path]; // Change img from class
-			this.currentImage++;
-			
-			if (this.currentImage == images.length) { // Stop animation if all images are animated once
-				this.animationFinished = true;
-				this.animationStarted = false;
-			}
-		} else if (loop == 1) {
-			let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
-			let path = images[i]; // Temporary store the path of each img
-			this.img = this.imageCache[path]; // Change img from class
-			this.currentImage++;
-			this.animationFinished = false;
-		}
+        if (loop == 0 && !this.animationFinished) {
+
+            if (!this.animationStarted) { // Setting currentImage just once
+                this.currentImage = 0; // If it's an one time animation, it should start with the  first img
+            }
+
+            this.animationStarted = true;
+            let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
+            let path = images[i]; // Temporary store the path of each img
+            this.img = this.imageCache[path]; // Change img from class
+            this.currentImage++;
+
+            if (this.currentImage == images.length) { // Stop animation if all images are animated once
+                this.animationFinished = true;
+                this.animationStarted = false;
+            }
+        } else if (loop == 1) {
+            let i = this.currentImage % images.length; // (0 % 3 = 0), (1 % 3 = 1), (2 % 3 = 2), (3 % 3 = 0), (4 % 3 = 1), (5 % 3 = 2), (6 % 3 = 0), (7 % 3 = 1), (8 % = 2)
+            let path = images[i]; // Temporary store the path of each img
+            this.img = this.imageCache[path]; // Change img from class
+            this.currentImage++;
+            this.animationFinished = false;
+        }
     }
 
     /**
@@ -118,29 +118,29 @@
 
     /**
      * Move the dead enemy out of the world at the top left 
-	 * For puffer fish
+     * For puffer fish
      */
     floatAway(otherDirection) {
         setInterval(() => {
-			if (otherDirection) {
-				this.x += this.speed;
-				this.y -= this.speed;
-			} else {
-				this.x -= this.speed;
-				this.y -= this.speed;
-			}
+            if (otherDirection) {
+                this.x += this.speed;
+                this.y -= this.speed;
+            } else {
+                this.x -= this.speed;
+                this.y -= this.speed;
+            }
         }, 1000 / 60)
     }
-	
-	/**
+
+    /**
      * Move the dead enemy up out of the world 
-	 * For jellyfish
+     * For jellyfish
      */
-	floatAwayUp() {
-		 setInterval(() => {
+    floatAwayUp() {
+        setInterval(() => {
             this.y -= this.speed;
         }, 1000 / 60)
-	}
+    }
 
     /**
      * If the difference in the last hit on the character is less than x s, true is returned

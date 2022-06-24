@@ -1,7 +1,7 @@
 /**
  * All drawable objects
  */
- class DrawableObject {
+class DrawableObject {
     x;
     y;
     width = 100;
@@ -57,7 +57,7 @@
             ctx.lineWidth = "4";
             ctx.strokeStyle = "red";
             ctx.rect(this.x + this.offset.x, this.y + this.offset.y, this.width - this.offset.width - this.offset.x, this.height - this.offset.height - this.offset.y);
-			ctx.stroke();
+            ctx.stroke();
         }
     }
 }

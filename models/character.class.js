@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
- class Character extends MovableObject {
+class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -16,17 +16,17 @@
         bubbleY: 165
     }
     speed = 4;
-	energy = 100;
-	attack = 10;
-	coins = 0;
+    energy = 100;
+    attack = 10;
+    coins = 0;
     poison = 0;
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
     isFinSlapping = false;
     isBubbleTrapping = false;
-	isCollidingWithBarrier = false;
-	hitBy;
+    isCollidingWithBarrier = false;
+    hitBy;
 
     IMAGES_IDLE = [
         'img/1._Sharkie/1._Idle/1.png',
@@ -78,10 +78,10 @@
         'img/1._Sharkie/5._Hurt/1._Poisoned/3.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/4.png'
     ];
-	IMAGES_HURT_ELECTRIC_SHOCK = [
-		'img/1._Sharkie/5._Hurt/2._Electric_Shock/1.png',
-		'img/1._Sharkie/5._Hurt/2._Electric_Shock/2.png',
-		'img/1._Sharkie/5._Hurt/2._Electric_Shock/3.png'
+    IMAGES_HURT_ELECTRIC_SHOCK = [
+        'img/1._Sharkie/5._Hurt/2._Electric_Shock/1.png',
+        'img/1._Sharkie/5._Hurt/2._Electric_Shock/2.png',
+        'img/1._Sharkie/5._Hurt/2._Electric_Shock/3.png'
     ];
     IMAGES_DIE_POISONED = [
         'img/1._Sharkie/6._Dead/1._Poisoned/1.png',
@@ -97,18 +97,18 @@
         'img/1._Sharkie/6._Dead/1._Poisoned/11.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
     ];
-	IMAGES_DIE_ELECTRIC_SHOCK = [
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/1.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/2.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/3.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/4.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/5.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/6.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/7.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/8.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/9.png',
-		'img/1._Sharkie/6._Dead/2._Electric_Shock/10.png'
-	];
+    IMAGES_DIE_ELECTRIC_SHOCK = [
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/1.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/2.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/3.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/4.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/5.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/6.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/7.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/8.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/9.png',
+        'img/1._Sharkie/6._Dead/2._Electric_Shock/10.png'
+    ];
     IMAGES_FIN_SLAP = [
         'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
@@ -132,22 +132,22 @@
     swim_sound = new Audio('audio/swim.mp3');
 
     constructor() {
-		super();
-		if (!debugMode) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
-			this.loadImage('img/1._Sharkie/1._Idle/1.png');
-			this.loadImages(this.IMAGES_IDLE);
-			this.loadImages(this.IMAGES_LONG_IDLE);
-			this.loadImages(this.IMAGES_SWIM);
-			this.loadImages(this.IMAGES_HURT_POISONED);
-			this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
-			this.loadImages(this.IMAGES_DIE_POISONED);
-			this.loadImages(this.IMAGES_DIE_ELECTRIC_SHOCK);
-			this.loadImages(this.IMAGES_FIN_SLAP);
-			this.loadImages(this.IMAGES_BUBBLE_TRAP);
-			this.animate();
-			this.characterEvents();
-			this.triggerEndboss();
-		}
+        super();
+        if (!debugMode) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
+            this.loadImage('img/1._Sharkie/1._Idle/1.png');
+            this.loadImages(this.IMAGES_IDLE);
+            this.loadImages(this.IMAGES_LONG_IDLE);
+            this.loadImages(this.IMAGES_SWIM);
+            this.loadImages(this.IMAGES_HURT_POISONED);
+            this.loadImages(this.IMAGES_HURT_ELECTRIC_SHOCK);
+            this.loadImages(this.IMAGES_DIE_POISONED);
+            this.loadImages(this.IMAGES_DIE_ELECTRIC_SHOCK);
+            this.loadImages(this.IMAGES_FIN_SLAP);
+            this.loadImages(this.IMAGES_BUBBLE_TRAP);
+            this.animate();
+            this.characterEvents();
+            this.triggerEndboss();
+        }
     }
 
     /**
@@ -169,8 +169,8 @@
                 this.playAnimation(this.IMAGES_LONG_IDLE, 1);
             } else {
                 this.playAnimation(this.IMAGES_IDLE, 1);
-			}
-		}, 200);
+            }
+        }, 200);
 
         setInterval(() => {
             if (this.world.keyboard.SPACE && !this.isDead()) {
@@ -180,9 +180,9 @@
                 this.bubbleTrapAttack();
                 this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
             } else if (this.world.keyboard.F && this.poison > 0 && !this.isDead()) {
-				this.bubbleTrapAttackPoison();
+                this.bubbleTrapAttackPoison();
                 this.playAnimation(this.IMAGES_BUBBLE_TRAP, 0);
-			}
+            }
         }, 100)
     }
 
@@ -293,12 +293,12 @@
         this.isBubbleTrapping = true;
 
         if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
-			let otherDirection; 
-				
-				if (this.imgMirrored == true) {
-					otherDirection = true;
-				}
-				
+            let otherDirection;
+
+            if (this.imgMirrored == true) {
+                otherDirection = true;
+            }
+
             setTimeout(() => { // Wait until animation is finished
                 this.world.bubble = new Bubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
             }, 600)
@@ -326,8 +326,8 @@
             }, 600);
         }
     }
-	
-	/**
+
+    /**
      * Poison bubble trap attack
      */
     bubbleTrapAttackPoison() {
@@ -336,18 +336,18 @@
         this.isBubbleTrapping = true;
 
         if (!this.checkAlreadyRunning) { // To prevent the bubble from shaking because activateD() is active for 600ms
-            let otherDirection; 
-				
-			if (this.imgMirrored == true) {
-				otherDirection = true;
-			}
-			
-			setTimeout(() => { // Wait until animation is finished
-				if (this.poison > 0) {
-					this.world.bubble = new PoisonBubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
-					this.poison--;
-					this.world.statusBarPoison.setPercentage((this.poison / this.world.level.totalPoison) * 100, this.world.statusBarPoison.type, this.world.statusBarPoison.color);
-				}
+            let otherDirection;
+
+            if (this.imgMirrored == true) {
+                otherDirection = true;
+            }
+
+            setTimeout(() => { // Wait until animation is finished
+                if (this.poison > 0) {
+                    this.world.bubble = new PoisonBubble(this.x + this.offset.bubbleX, this.y + this.offset.bubbleY, otherDirection);
+                    this.poison--;
+                    this.world.statusBarPoison.setPercentage((this.poison / this.world.level.totalPoison) * 100, this.world.statusBarPoison.type, this.world.statusBarPoison.color);
+                }
             }, 600)
         }
     }
@@ -374,14 +374,14 @@
         }
     }
 
-	/**
-	 * Triggers the EndBoss when exceeding the x coordinate minus the triggerDistance
-	 */
-	triggerEndboss() {
-		setInterval(() => {
-		if (this.x > (this.world.level.getEndBoss().x - this.world.level.getEndBoss().triggerDistance) && !this.world.level.getEndBoss().endBossAlreadyTriggered) {
-			this.world.level.getEndBoss().endBossTriggered = true;
-		}
-		}, 100);
-	}
+    /**
+     * Triggers the EndBoss when exceeding the x coordinate minus the triggerDistance
+     */
+    triggerEndboss() {
+        setInterval(() => {
+            if (this.x > (this.world.level.getEndBoss().x - this.world.level.getEndBoss().triggerDistance) && !this.world.level.getEndBoss().endBossAlreadyTriggered) {
+                this.world.level.getEndBoss().endBossTriggered = true;
+            }
+        }, 100);
+    }
 }
