@@ -139,7 +139,9 @@ const level_1 = new Level(
 	
 	[
 		new BarrierTunnelAbove(0),
-		new BarrierTunnelBelow(0)
+		new BarrierTunnelBelow(0),
+		new BarrierRock(720),
+		new BarrierWall(1440)
 	],
 
     // ############################################### level_end_x ###############################################
