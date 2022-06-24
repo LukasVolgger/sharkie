@@ -1,7 +1,7 @@
 /**
  * Barrier object
  */
- class BarrierRock extends MovableObject {
+ class BarrierRock extends Barrier {
 	width = 720;
 	height = 200;
 	y = 290;

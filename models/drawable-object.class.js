@@ -52,7 +52,7 @@
      * @param {object} object 
      */
     drawCollisionDetectionFrame(ctx) {
-        if (this instanceof Character || this instanceof DebugCharacter || this instanceof PufferFish || this instanceof JellyFishRegular || this instanceof JellyFishDangerous || this instanceof EndBoss || this instanceof Coin || this instanceof Life || this instanceof Poison || this instanceof Bubble || this instanceof PoisonBubble || this instanceof BarrierTunnelAbove || this instanceof BarrierTunnelBelow || this instanceof BarrierRock || this instanceof BarrierWall) {
+        if (this instanceof Character || this instanceof DebugCharacter || this instanceof PufferFish || this instanceof JellyFishRegular || this instanceof JellyFishDangerous || this instanceof EndBoss || this instanceof Coin || this instanceof Life || this instanceof Poison || this instanceof Bubble || this instanceof PoisonBubble || this instanceof Barrier) {
             ctx.beginPath();
             ctx.lineWidth = "4";
             ctx.strokeStyle = "red";

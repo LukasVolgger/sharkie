@@ -1,14 +1,14 @@
 /**
  * Barrier object
  */
- class BarrierWall extends MovableObject {
+ class BarrierWall extends Barrier {
 	width = 200;
 	height = 480;
 	y = 0;
 	offset = {
-        x: 0,
+        x: 50,
         y: 0,
-        width: 0,
+        width: 40,
         height: 0
     }
 	

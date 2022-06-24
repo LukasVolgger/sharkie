@@ -1,7 +1,7 @@
 /**
  * Barrier object
  */
- class BarrierTunnelAbove extends MovableObject {
+ class BarrierTunnelAbove extends Barrier {
 	width = 720;
 	height = 200;
 	y = 0;
