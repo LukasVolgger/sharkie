@@ -1,0 +1,20 @@
+/**
+ * Barrier object
+ */
+ class BarrierTunnelBelow extends MovableObject {
+	width = 720;
+	height = 200;
+	y = 290;
+	offset = {
+        x: 0,
+        y: 40,
+        width: 8,
+        height: 0
+    }
+	
+	constructor(x) {
+		super();
+		this.loadImage('img/3._Background/Barrier/1.2.png');
+		this.x = x;
+	}
+}
