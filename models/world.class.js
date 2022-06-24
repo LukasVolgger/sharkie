@@ -117,9 +117,9 @@ class World {
         movableObject.draw(this.ctx);
 
         // Draw the collision detection frames only when debug mode is enabled
-        if (debugMode) {
-            movableObject.drawCollisionDetectionFrame(this.ctx);
-        }
+        // if (debugMode) {
+        movableObject.drawCollisionDetectionFrame(this.ctx);
+        // }
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
@@ -283,10 +283,10 @@ class World {
 
             if (collidingWithBarrier) {
                 this.character.isCollidingWithBarrier = true;
-                // console.log('Colliding with Barrier');
+                console.log('Colliding with Barrier');
             } else {
                 this.character.isCollidingWithBarrier = false;
-                // console.log('Not colliding with Barrier');
+                console.log('Not colliding with Barrier');
             }
 
         }, 200);
