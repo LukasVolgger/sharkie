@@ -4,6 +4,7 @@
  */
  class Level {
     backgroundObjects;
+	barriers;
     enemies;
     coins = 0;
     life = 0;
@@ -14,12 +15,13 @@
 
     // The parameters are passed from the individual level_x.js
     // Then the values ​​are assigned to the variables of this class
-    constructor(backgroundObjects, enemies, coins, life, poison, level_end_x) {
+    constructor(backgroundObjects, coins, life, poison, enemies,  barriers, level_end_x) {
         this.backgroundObjects = backgroundObjects;
-        this.enemies = enemies;
         this.coins = coins;
         this.life = life;
         this.poison = poison;
+        this.enemies = enemies;
+		this.barriers = barriers;
         this.level_end_x = level_end_x;
         this.getEndBoss();
     }
