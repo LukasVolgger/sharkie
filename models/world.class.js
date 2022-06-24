@@ -3,7 +3,7 @@
  * Every object shown in the game is generated here (Backgrounds, character, enemies,... )
  * To access an object from world in the console: world.<object>.<properties>/<method>...
  */
- class World {
+class World {
     canvas;
     ctx;
     camera_x = 0;
@@ -11,11 +11,11 @@
     bubble;
 
     // ################################################### Create objects ###################################################
-	
-	character = new Character();
-	debugCharacter = new DebugCharacter();
-	level = level_1; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
-	statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
+
+    character = new Character();
+    debugCharacter = new DebugCharacter();
+    level = level_1; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
+    statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
     statusBarEndBoss = new StatusBar('life', 'orange', 100, 460, 400);
@@ -60,20 +60,20 @@
 
         // Add objects to world
         this.addObjectsToWorld(this.level.backgroundObjects);
-		this.addObjectsToWorld(this.level.coins);
+        this.addObjectsToWorld(this.level.coins);
         this.addObjectsToWorld(this.level.life);
         this.addObjectsToWorld(this.level.poison);
         this.addObjectsToWorld(this.level.enemies);
-		this.addObjectsToWorld(this.level.barriers);
-		
-		// Decide whether to add the normal or debug character to the world
-		if (!debugMode) {
-			this.addToWorld(this.character);
-		} else {
-			this.addToWorld(this.debugCharacter);
-		}
-		
-		// When a bubble is created by the character, it is saved here
+        this.addObjectsToWorld(this.level.barriers);
+
+        // Decide whether to add the normal or debug character to the world
+        if (!debugMode) {
+            this.addToWorld(this.character);
+        } else {
+            this.addToWorld(this.debugCharacter);
+        }
+
+        // When a bubble is created by the character, it is saved here
         if (this.bubble) {
             this.addToWorld(this.bubble);
         }
@@ -81,12 +81,12 @@
         // ----------------- FIXED OBJECTS START -----------------
         this.ctx.translate(-this.camera_x, 0);
 
-		this.addToWorld(this.statusBarLife);
+        this.addToWorld(this.statusBarLife);
         this.addToWorld(this.statusBarCoins);
         this.addToWorld(this.statusBarPoison);
-		if (this.level.getEndBoss().endBossIntroduced == true) {
-			this.addToWorld(this.statusBarEndBoss);
-		}
+        if (this.level.getEndBoss().endBossIntroduced == true) {
+            this.addToWorld(this.statusBarEndBoss);
+        }
 
         this.ctx.translate(this.camera_x, 0);
         // ----------------- FIXED OBJECTS END -----------------
@@ -115,11 +115,11 @@
 
         // Draw image on context
         movableObject.draw(this.ctx);
-        
-		// Draw the collision detection frames only when debug mode is enabled
-		if (debugMode) {
-			movableObject.drawCollisionDetectionFrame(this.ctx);
-		}
+
+        // Draw the collision detection frames only when debug mode is enabled
+        if (debugMode) {
+            movableObject.drawCollisionDetectionFrame(this.ctx);
+        }
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {
@@ -174,15 +174,15 @@
                     this.character.hit(enemy.attack);
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     console.log('Colliding with: ', enemy, 'Energy: ', this.character.energy);
-					
-					if (enemy instanceof PufferFish) {
-						this.character.hitBy = 'PufferFish';
-					} else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
-						this.character.hitBy = 'JellyFish';
-					} else if (enemy instanceof EndBoss) {
-						this.character.hitBy = 'EndBoss';
-						this.level.getEndBoss().isCollidingWithCharacter = true; // For attack animation of EndBoss
-					}
+
+                    if (enemy instanceof PufferFish) {
+                        this.character.hitBy = 'PufferFish';
+                    } else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
+                        this.character.hitBy = 'JellyFish';
+                    } else if (enemy instanceof EndBoss) {
+                        this.character.hitBy = 'EndBoss';
+                        this.level.getEndBoss().isCollidingWithCharacter = true; // For attack animation of EndBoss
+                    }
                 }
             });
 
@@ -194,46 +194,46 @@
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
             });
-			
-			// Check Bubble with JellyFish collision
+
+            // Check Bubble with JellyFish collision
             this.level.enemies.forEach(enemy => {
                 if (this.bubble) {
-					if (this.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous) {
-						enemy.hit(this.bubble.attack);
-						enemy.speed	= 2;
-						enemy.floatAwayUp();
-						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
-						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
-					}
-				}
+                    if (this.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous) {
+                        enemy.hit(this.bubble.attack);
+                        enemy.speed = 2;
+                        enemy.floatAwayUp();
+                        this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+                        console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+                    }
+                }
             });
-			
-			// Check EndBoss collision and fin slap attack
+
+            // Check EndBoss collision and fin slap attack
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof EndBoss) {
                     enemy.hit(this.character.attack);
-					this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
+                    this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
             });
-			
-			// Check Bubble with EndBoss collision
+
+            // Check Bubble with EndBoss collision
             this.level.enemies.forEach(enemy => {
                 if (this.bubble instanceof Bubble) {
-					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
-						enemy.hit(this.bubble.attack);
-						this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
-						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
-						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
-					}
-				} else if (this.bubble instanceof PoisonBubble) {
-					if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
-						enemy.hit(this.bubble.attack);
-						this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
-						this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
-						console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
-					}
-				}
+                    if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+                        enemy.hit(this.bubble.attack);
+                        this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
+                        this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+                        console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+                    }
+                } else if (this.bubble instanceof PoisonBubble) {
+                    if (this.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+                        enemy.hit(this.bubble.attack);
+                        this.statusBarEndBoss.setPercentage((this.level.getEndBoss().energy / 200) * 100, this.statusBarEndBoss.type, this.statusBarEndBoss.color);
+                        this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
+                        console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);
+                    }
+                }
             });
 
             // Check collisions with Coin
@@ -252,13 +252,13 @@
             this.level.life.forEach(life => {
                 if (this.character.isColliding(life)) {
                     let lifeIndex = this.level.life.indexOf(life);
-                    
-					if (this.character.energy < 100 && this.character.energy < 90) {
+
+                    if (this.character.energy < 100 && this.character.energy < 90) {
                         this.character.energy += 10;
                     } else if (this.character.energy < 100 && this.character.energy > 90) {
-						this.character.energy += 5;
-					}
-					
+                        this.character.energy += 5;
+                    }
+
                     this.statusBarLife.setPercentage(this.character.energy, this.statusBarLife.type, this.statusBarLife.color);
                     this.level.life.splice(lifeIndex, 1);
                     console.log('Colliding with: ', life, 'Energy: ', this.character.energy);
@@ -273,18 +273,22 @@
                     this.character.poison++;
                     this.statusBarPoison.setPercentage((this.character.poison / this.level.totalPoison) * 100, this.statusBarPoison.type, this.statusBarPoison.color);
                     this.level.poison.splice(poisonIndex, 1);
-					this.level.collectedPoison += 1;
+                    this.level.collectedPoison += 1;
                     console.log('Colliding with: ', poison, 'Poison collected: ', this.character.poison);
                 }
             });
-			
-			// Check collisions with Barrier
-            this.level.barriers.forEach(barrier => {
-                if (this.character.isColliding(barrier)) {
-                    this.character.isCollidingWithBarrier = true;
-                    console.log('Colliding with: ', barrier);
-                }
-            });
+
+            // Check collisions with Barrier
+            let collidingWithBarrier = this.level.barriers.find(barrier => this.character.isColliding(barrier));
+
+            if (collidingWithBarrier) {
+                this.character.isCollidingWithBarrier = true;
+                // console.log('Colliding with Barrier');
+            } else {
+                this.character.isCollidingWithBarrier = false;
+                // console.log('Not colliding with Barrier');
+            }
+
         }, 200);
     }
 }

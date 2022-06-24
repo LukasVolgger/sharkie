@@ -6,7 +6,7 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-let debugMode = true;
+let debugMode = false;
 
 // ################################################### Init game ###################################################
 
@@ -48,7 +48,7 @@ window.addEventListener('keydown', (e) => {
         case 68:
             keyboard.D = true;
             break;
-		case 70:
+        case 70:
             keyboard.F = true;
             break;
     }
@@ -79,7 +79,7 @@ window.addEventListener('keyup', (e) => {
         case 68:
             keyboard.D = false;
             break;
-		case 70:
+        case 70:
             keyboard.F = false;
             break;
     }
