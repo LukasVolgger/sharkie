@@ -277,6 +277,14 @@
                     console.log('Colliding with: ', poison, 'Poison collected: ', this.character.poison);
                 }
             });
+			
+			// Check collisions with Barrier
+            this.level.barriers.forEach(barrier => {
+                if (this.character.isColliding(barrier)) {
+                    this.character.isCollidingWithBarrier = true;
+                    console.log('Colliding with: ', barrier);
+                }
+            });
         }, 200);
     }
 }

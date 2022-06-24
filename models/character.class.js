@@ -25,6 +25,7 @@
     secondsUntilLongIdle = 10;
     isFinSlapping = false;
     isBubbleTrapping = false;
+	isCollidingWithBarrier = false;
 	hitBy;
 
     IMAGES_IDLE = [
