@@ -286,6 +286,14 @@ class World {
                 console.log('Colliding with Barrier');
             } else {
                 this.character.isCollidingWithBarrier = false;
+                this.character.isCollidingUp = false;
+                this.character.isCollidingRight = false;
+                this.character.isCollidingDown = false;
+                this.character.isCollidingLeft = false;
+                this.character.lockUp = false;
+                this.character.lockRight = false;
+                this.character.lockDown = false;
+                this.character.lockLeft = false;
                 console.log('Not colliding with Barrier');
             }
 

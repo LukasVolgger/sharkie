@@ -23,10 +23,19 @@ class Character extends MovableObject {
     imgMirrored = false;
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
+    hitBy;
     isFinSlapping = false;
     isBubbleTrapping = false;
     isCollidingWithBarrier = false;
-    hitBy;
+    isCollidingUp = false;
+    isCollidingRight = false;
+    isCollidingDown = false;
+    isCollidingLeft = false;
+    lockUp = false;
+    lockRight = false;
+    lockDown = false;
+    lockLeft = false;
+
 
     IMAGES_IDLE = [
         'img/1._Sharkie/1._Idle/1.png',
@@ -230,16 +239,138 @@ class Character extends MovableObject {
         // console.log('Character position: ', this.x, ', ', this.y);
         this.lastMove = new Date().getTime();
 
-        if (direction == 'up') {
+        if (direction == 'up' && !this.lockUp) {
             this.y -= this.speed;
-        } else if (direction == 'right') {
+        } else if (direction == 'right' && !this.lockRight) {
             this.x += this.speed;
             this.imgMirrored = false;
-        } else if (direction == 'down') {
+        } else if (direction == 'down' && !this.lockDown) {
             this.y += this.speed;
-        } else if (direction == 'left') {
+        } else if (direction == 'left' && !this.lockLeft) {
             this.x -= this.speed;
             this.imgMirrored = true;
+        }
+
+        if (direction == 'up' && this.isCollidingWithBarrier && !this.isCollidingRight && !this.isCollidingDown && !this.isCollidingLeft) {
+            this.isCollidingUp = true;
+            this.isCollidingRight = false;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = false;
+
+            this.lockUp = true;
+            this.lockRight = false;
+            this.lockDown = false;
+            this.lockLeft = false;
+        } else if (direction == 'up' && this.isCollidingWithBarrier && this.isCollidingRight && !this.isCollidingDown && !this.isCollidingLeft) {
+            this.isCollidingUp = true;
+            this.isCollidingRight = true;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = false;
+
+            this.lockUp = true;
+            this.lockRight = true;
+            this.lockDown = false;
+            this.lockLeft = false;
+        } else if (direction == 'up' && this.isCollidingWithBarrier && !this.isCollidingRight && !this.isCollidingDown && this.isCollidingLeft) {
+            this.isCollidingUp = true;
+            this.isCollidingRight = false;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = true;
+
+            this.lockUp = true;
+            this.lockRight = false;
+            this.lockDown = false;
+            this.lockLeft = true;
+        } else if (direction == 'right' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingDown && !this.isCollidingLeft) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = true;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = false;
+
+            this.lockUp = false;
+            this.lockRight = true;
+            this.lockDown = false;
+            this.lockLeft = false;
+        } else if (direction == 'right' && this.isCollidingWithBarrier && this.isCollidingUp && !this.isCollidingDown && !this.isCollidingLeft) {
+            this.isCollidingUp = true;
+            this.isCollidingRight = true;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = false;
+
+            this.lockUp = true;
+            this.lockRight = true;
+            this.lockDown = false;
+            this.lockLeft = false;
+        } else if (direction == 'right' && this.isCollidingWithBarrier && !this.isCollidingUp && this.isCollidingDown && !this.isCollidingLeft) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = true;
+            this.isCollidingDown = true;
+            this.isCollidingLeft = false;
+
+            this.lockUp = false;
+            this.lockRight = true;
+            this.lockDown = true;
+            this.lockLeft = false;
+        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && !this.isCollidingLeft) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = false;
+            this.isCollidingDown = true;
+            this.isCollidingLeft = false;
+
+            this.lockUp = false;
+            this.lockRight = false;
+            this.lockDown = true;
+            this.lockLeft = false;
+        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && this.isCollidingRight && !this.isCollidingLeft) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = true;
+            this.isCollidingDown = true;
+            this.isCollidingLeft = false;
+
+            this.lockUp = false;
+            this.lockRight = true;
+            this.lockDown = true;
+            this.lockLeft = false;
+        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && this.isCollidingLeft) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = false;
+            this.isCollidingDown = true;
+            this.isCollidingLeft = true;
+
+            this.lockUp = false;
+            this.lockRight = false;
+            this.lockDown = true;
+            this.lockLeft = true;
+        } else if (direction == 'left' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && !this.isCollidingDown) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = false;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = true;
+
+            this.lockUp = false;
+            this.lockRight = false;
+            this.lockDown = false;
+            this.lockLeft = true;
+        } else if (direction == 'left' && this.isCollidingWithBarrier && this.isCollidingUp && !this.isCollidingRight && !this.isCollidingDown) {
+            this.isCollidingUp = true;
+            this.isCollidingRight = false;
+            this.isCollidingDown = false;
+            this.isCollidingLeft = true;
+
+            this.lockUp = true;
+            this.lockRight = false;
+            this.lockDown = false;
+            this.lockLeft = true;
+        } else if (direction == 'left' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && this.isCollidingDown) {
+            this.isCollidingUp = false;
+            this.isCollidingRight = false;
+            this.isCollidingDown = true;
+            this.isCollidingLeft = true;
+
+            this.lockUp = false;
+            this.lockRight = false;
+            this.lockDown = true;
+            this.lockLeft = true;
         }
     }
 
