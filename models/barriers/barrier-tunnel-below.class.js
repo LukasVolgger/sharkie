@@ -4,7 +4,6 @@
 class BarrierTunnelBelow extends Barrier {
     width = 720;
     height = 200;
-    y = 290;
     offset = {
         x: 0,
         y: 40,
@@ -12,9 +11,10 @@ class BarrierTunnelBelow extends Barrier {
         height: 0
     }
 
-    constructor(x) {
+    constructor(x, y) {
         super();
         this.loadImage('img/3._Background/Barrier/1.2.png');
         this.x = x;
+        this.y = y;
     }
 }

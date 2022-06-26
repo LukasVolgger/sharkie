@@ -4,7 +4,6 @@
 class BarrierWall extends Barrier {
     width = 200;
     height = 480;
-    y = 0;
     offset = {
         x: 50,
         y: 0,
@@ -12,9 +11,10 @@ class BarrierWall extends Barrier {
         height: 0
     }
 
-    constructor(x) {
+    constructor(x, y) {
         super();
         this.loadImage('img/3._Background/Barrier/3.png');
         this.x = x;
+        this.y = y;
     }
 }
