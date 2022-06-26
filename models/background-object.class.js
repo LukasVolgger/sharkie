@@ -41,8 +41,8 @@ class BackgroundObject extends MovableObject {
         }
     };
 
-    constructor(szene, section, index, levelSection) {
-        super().loadImage(this.IMAGES[szene][section][index]);
+    constructor(scene, section, index, levelSection) {
+        super().loadImage(this.IMAGES[scene][section][index]);
 
         if (levelSection == 0) {
             this.x = 0;

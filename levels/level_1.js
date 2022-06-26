@@ -2,9 +2,9 @@
 const level_1 = new Level(
 
     // ############################################### Background objects ###############################################
-    // ### new BackgroundObject(szene, section, index, levelSection)
+    // ### new BackgroundObject(scene, section, index, levelSection)
     // ##################################################################################################################
-    // ### szene = 'light', 'dark'
+    // ### scene = 'light', 'dark'
     // ### section = 1, 2 (Always changing. First 1 then 2)
     // ### index = 0, 1, 2, 4 (Always increasing from 0 - 4)
     // ### levelSection = 0 - x (Section of the level. A section is 719 px long. Always increasing from 0 - x)
