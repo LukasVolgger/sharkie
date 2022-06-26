@@ -13,7 +13,7 @@ class World {
     // ################################################### Create objects ###################################################
 
     character = new Character();
-    debugCharacter = new DebugCharacter();
+    levelDesignHelper = new LevelDesignHelper();
     level = level_2; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
@@ -40,7 +40,7 @@ class World {
      */
     setWorld() {
         this.character.world = this;
-        this.debugCharacter.world = this;
+        this.levelDesignHelper.world = this;
         this.level.getEndBoss().world = this;
     }
 
@@ -66,11 +66,12 @@ class World {
         this.addObjectsToWorld(this.level.enemies);
         this.addObjectsToWorld(this.level.barriers);
 
-        // Decide whether to add the normal or debug character to the world
-        if (!debugMode) {
+        if (debugMode && !debugLevelDesignHelper) {
             this.addToWorld(this.character);
+        } else if (debugMode && debugLevelDesignHelper) {
+            this.addToWorld(this.levelDesignHelper);
         } else {
-            this.addToWorld(this.debugCharacter);
+            this.addToWorld(this.character);
         }
 
         // When a bubble is created by the character, it is saved here
@@ -117,9 +118,9 @@ class World {
         movableObject.draw(this.ctx);
 
         // Draw the collision detection frames only when debug mode is enabled
-        // if (debugMode) {
-        movableObject.drawCollisionDetectionFrame(this.ctx);
-        // }
+        if (debugMode) {
+            movableObject.drawCollisionDetectionFrame(this.ctx);
+        }
 
         // Check if object is mirrored
         if (movableObject.imgMirrored) {

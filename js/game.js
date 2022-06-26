@@ -6,7 +6,8 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-let debugMode = false;
+let debugMode = true;
+let debugLevelDesignHelper = false;
 
 // ################################################### Init game ###################################################
 
