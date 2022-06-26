@@ -92,14 +92,38 @@ class MovableObject extends DrawableObject {
 
     /**
      * Checks if 2 objects collide and returns a boolean
-     * @param {*} movableObject 
-     * @returns True / False
+     * @param {Object} movableObject 
+     * @returns true / false
      */
     isColliding(movableObject) {
         return this.x + this.width - this.offset.width > movableObject.x + movableObject.offset.x &&
             this.y + this.height - this.offset.height > movableObject.y + movableObject.offset.y &&
             this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width &&
             this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height;
+    }
+
+    /**
+     * Checks if 2 objects on x-axis collide and returns a boolean
+     * @param {Object} movableObject 
+     * @returns true / false
+     */
+    isCollidingX(movableObject) {
+        if (this.y + this.height - this.offset.height - 10 > movableObject.y + movableObject.offset.y && this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height - 10) {
+            return this.x + this.width - this.offset.width > movableObject.x + movableObject.offset.x &&
+                this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width
+        }
+    }
+
+    /**
+     * Checks if 2 objects on y-axis collide and returns a boolean
+     * @param {Object} movableObject 
+     * @returns true / false
+     */
+    isCollidingY(movableObject) {
+        if (this.x + this.width - this.offset.width - 10 > movableObject.x + movableObject.offset.x && this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width - 10) {
+            return this.y + this.height - this.offset.height > movableObject.y + movableObject.offset.y &&
+                this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height;
+        }
     }
 
     /**

@@ -277,26 +277,6 @@ class World {
                     console.log('Colliding with: ', poison, 'Poison collected: ', this.character.poison);
                 }
             });
-
-            // Check collisions with Barrier
-            let collidingWithBarrier = this.level.barriers.find(barrier => this.character.isColliding(barrier));
-
-            if (collidingWithBarrier) {
-                this.character.isCollidingWithBarrier = true;
-                console.log('Colliding with Barrier');
-            } else {
-                this.character.isCollidingWithBarrier = false;
-                this.character.isCollidingUp = false;
-                this.character.isCollidingRight = false;
-                this.character.isCollidingDown = false;
-                this.character.isCollidingLeft = false;
-                this.character.lockUp = false;
-                this.character.lockRight = false;
-                this.character.lockDown = false;
-                this.character.lockLeft = false;
-                console.log('Not colliding with Barrier');
-            }
-
         }, 200);
     }
 }

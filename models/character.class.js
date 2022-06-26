@@ -27,15 +27,10 @@ class Character extends MovableObject {
     isFinSlapping = false;
     isBubbleTrapping = false;
     isCollidingWithBarrier = false;
-    isCollidingUp = false;
-    isCollidingRight = false;
-    isCollidingDown = false;
-    isCollidingLeft = false;
-    lockUp = false;
-    lockRight = false;
-    lockDown = false;
-    lockLeft = false;
-
+    isCollidingWithBarrierUp = false;
+    isCollidingWithBarrierRight = false;
+    isCollidingWithBarrierDown = false;
+    isCollidingWithBarrierLeft = false;
 
     IMAGES_IDLE = [
         'img/1._Sharkie/1._Idle/1.png',
@@ -239,138 +234,55 @@ class Character extends MovableObject {
         // console.log('Character position: ', this.x, ', ', this.y);
         this.lastMove = new Date().getTime();
 
-        if (direction == 'up' && !this.lockUp) {
+        this.checkBarrierCollisions(direction);
+
+        // Character movement
+        if (direction == 'up' && !this.isCollidingWithBarrierUp) {
             this.y -= this.speed;
-        } else if (direction == 'right' && !this.lockRight) {
+        } else if (direction == 'right' && !this.isCollidingWithBarrierRight) {
             this.x += this.speed;
             this.imgMirrored = false;
-        } else if (direction == 'down' && !this.lockDown) {
+        } else if (direction == 'down' && !this.isCollidingWithBarrierDown) {
             this.y += this.speed;
-        } else if (direction == 'left' && !this.lockLeft) {
+        } else if (direction == 'left' && !this.isCollidingWithBarrierLeft) {
             this.x -= this.speed;
             this.imgMirrored = true;
         }
+    }
 
-        if (direction == 'up' && this.isCollidingWithBarrier && !this.isCollidingRight && !this.isCollidingDown && !this.isCollidingLeft) {
-            this.isCollidingUp = true;
-            this.isCollidingRight = false;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = false;
+    /**
+     * Detects collisions with barriers and saves from which direction the collision occurs
+     * @param {string} direction 'up', 'right', 'down', 'left'
+     */
+    checkBarrierCollisions(direction) {
+        let collidingWithBarrier = this.world.level.barriers.find(barrier => this.isColliding(barrier));
+        let collidingWithBarrierX = this.world.level.barriers.find(barrier => this.isCollidingX(barrier));
+        let collidingWithBarrierY = this.world.level.barriers.find(barrier => this.isCollidingY(barrier));
 
-            this.lockUp = true;
-            this.lockRight = false;
-            this.lockDown = false;
-            this.lockLeft = false;
-        } else if (direction == 'up' && this.isCollidingWithBarrier && this.isCollidingRight && !this.isCollidingDown && !this.isCollidingLeft) {
-            this.isCollidingUp = true;
-            this.isCollidingRight = true;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = false;
+        // Detect if character collides with a barrier
+        if (collidingWithBarrier) {
+            this.isCollidingWithBarrier = true;
+        } else {
+            this.isCollidingWithBarrier = false;
+            this.isCollidingWithBarrierUp = false;
+            this.isCollidingWithBarrierRight = false;
+            this.isCollidingWithBarrierDown = false;
+            this.isCollidingWithBarrierLeft = false;
+        }
 
-            this.lockUp = true;
-            this.lockRight = true;
-            this.lockDown = false;
-            this.lockLeft = false;
-        } else if (direction == 'up' && this.isCollidingWithBarrier && !this.isCollidingRight && !this.isCollidingDown && this.isCollidingLeft) {
-            this.isCollidingUp = true;
-            this.isCollidingRight = false;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = true;
-
-            this.lockUp = true;
-            this.lockRight = false;
-            this.lockDown = false;
-            this.lockLeft = true;
-        } else if (direction == 'right' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingDown && !this.isCollidingLeft) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = true;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = false;
-
-            this.lockUp = false;
-            this.lockRight = true;
-            this.lockDown = false;
-            this.lockLeft = false;
-        } else if (direction == 'right' && this.isCollidingWithBarrier && this.isCollidingUp && !this.isCollidingDown && !this.isCollidingLeft) {
-            this.isCollidingUp = true;
-            this.isCollidingRight = true;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = false;
-
-            this.lockUp = true;
-            this.lockRight = true;
-            this.lockDown = false;
-            this.lockLeft = false;
-        } else if (direction == 'right' && this.isCollidingWithBarrier && !this.isCollidingUp && this.isCollidingDown && !this.isCollidingLeft) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = true;
-            this.isCollidingDown = true;
-            this.isCollidingLeft = false;
-
-            this.lockUp = false;
-            this.lockRight = true;
-            this.lockDown = true;
-            this.lockLeft = false;
-        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && !this.isCollidingLeft) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = false;
-            this.isCollidingDown = true;
-            this.isCollidingLeft = false;
-
-            this.lockUp = false;
-            this.lockRight = false;
-            this.lockDown = true;
-            this.lockLeft = false;
-        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && this.isCollidingRight && !this.isCollidingLeft) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = true;
-            this.isCollidingDown = true;
-            this.isCollidingLeft = false;
-
-            this.lockUp = false;
-            this.lockRight = true;
-            this.lockDown = true;
-            this.lockLeft = false;
-        } else if (direction == 'down' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && this.isCollidingLeft) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = false;
-            this.isCollidingDown = true;
-            this.isCollidingLeft = true;
-
-            this.lockUp = false;
-            this.lockRight = false;
-            this.lockDown = true;
-            this.lockLeft = true;
-        } else if (direction == 'left' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && !this.isCollidingDown) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = false;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = true;
-
-            this.lockUp = false;
-            this.lockRight = false;
-            this.lockDown = false;
-            this.lockLeft = true;
-        } else if (direction == 'left' && this.isCollidingWithBarrier && this.isCollidingUp && !this.isCollidingRight && !this.isCollidingDown) {
-            this.isCollidingUp = true;
-            this.isCollidingRight = false;
-            this.isCollidingDown = false;
-            this.isCollidingLeft = true;
-
-            this.lockUp = true;
-            this.lockRight = false;
-            this.lockDown = false;
-            this.lockLeft = true;
-        } else if (direction == 'left' && this.isCollidingWithBarrier && !this.isCollidingUp && !this.isCollidingRight && this.isCollidingDown) {
-            this.isCollidingUp = false;
-            this.isCollidingRight = false;
-            this.isCollidingDown = true;
-            this.isCollidingLeft = true;
-
-            this.lockUp = false;
-            this.lockRight = false;
-            this.lockDown = true;
-            this.lockLeft = true;
+        // Check collisions with barriers and save from which direction the collision occurs
+        if (direction == 'right' && collidingWithBarrierX && !this.isCollidingWithBarrierLeft) {
+            this.isCollidingWithBarrierRight = true;
+            // console.log('Collision with Barrier from R - L');
+        } else if (direction == 'left' && collidingWithBarrierX && !this.isCollidingWithBarrierRight) {
+            this.isCollidingWithBarrierLeft = true;
+            // console.log('Collision with Barrier from L - R');
+        } else if (direction == 'up' && collidingWithBarrierY && !this.isCollidingWithBarrierDown) {
+            this.isCollidingWithBarrierUp = true;
+            // console.log('Collision with Barrier from D - U');
+        } else if (direction == 'down' && collidingWithBarrierY && !this.isCollidingWithBarrierUp) {
+            this.isCollidingWithBarrierDown = true;
+            // console.log('Collision with Barrier from U - D');
         }
     }
 
