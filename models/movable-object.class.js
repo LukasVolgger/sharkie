@@ -16,13 +16,7 @@ class MovableObject extends DrawableObject {
     animationStarted = false;
     animationFinished = false;
     waypointReached = false;
-
-    /**
-     * Function to move objects right
-     */
-    moveRight() {
-        console.log('Moving right');
-    };
+    stopMovement = false;
 
     /**
      * Function to move objects left

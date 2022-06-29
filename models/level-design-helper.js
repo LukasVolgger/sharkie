@@ -12,9 +12,7 @@ class LevelDesignHelper extends MovableObject {
         x: 0,
         y: 0,
         width: 0,
-        height: 0,
-        bubbleX: 50,
-        bubbleY: 0
+        height: 0
     }
     speed = 4;
 
