@@ -201,7 +201,8 @@ class World {
                 if (this.bubble) {
                     if (this.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous) {
                         enemy.hit(this.bubble.attack);
-                        enemy.speed = 2;
+                        enemy.stopMovement = true;
+                        enemy.speed = 1;
                         enemy.floatAwayUp();
                         this.bubble = undefined; // Reset the bubble to undefined to make the bubble disappear when colliding with an enemy
                         console.log('Bubble colliding with: ', enemy, 'Energy: ', enemy.energy);

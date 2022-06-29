@@ -29,31 +29,33 @@ class MovableObject extends DrawableObject {
      */
     move(direction, startPoint, endPoint, speed) {
         setInterval(() => {
-            if (direction == 'horizontal') {
-                if (this.x > endPoint) {
-                    this.waypointReached = true;
-                    this.imgMirrored = false;
-                } else if (this.x < startPoint) {
-                    this.waypointReached = false;
-                    this.imgMirrored = true;
-                }
+            if (!this.stopMovement) {
+                if (direction == 'horizontal') {
+                    if (this.x > endPoint) {
+                        this.waypointReached = true;
+                        this.imgMirrored = false;
+                    } else if (this.x < startPoint) {
+                        this.waypointReached = false;
+                        this.imgMirrored = true;
+                    }
 
-                if (this.waypointReached) {
-                    this.x -= speed;
-                } else if (!this.waypointReached) {
-                    this.x += speed;
-                }
-            } else if (direction == 'vertical') {
-                if (this.y > endPoint) {
-                    this.waypointReached = true;
-                } else if (this.y < startPoint) {
-                    this.waypointReached = false;
-                }
+                    if (this.waypointReached) {
+                        this.x -= speed;
+                    } else if (!this.waypointReached) {
+                        this.x += speed;
+                    }
+                } else if (direction == 'vertical') {
+                    if (this.y > endPoint) {
+                        this.waypointReached = true;
+                    } else if (this.y < startPoint) {
+                        this.waypointReached = false;
+                    }
 
-                if (this.waypointReached) {
-                    this.y -= speed;
-                } else if (!this.waypointReached) {
-                    this.y += speed;
+                    if (this.waypointReached) {
+                        this.y -= speed;
+                    } else if (!this.waypointReached) {
+                        this.y += speed;
+                    }
                 }
             }
         }, 1000 / 60);
