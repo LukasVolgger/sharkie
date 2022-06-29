@@ -15,11 +15,7 @@ let debugLevelDesignHelper = false;
  * Initializing function when loading the HTML page
  */
 function init() {
-    // Get the canvas element from document
-    canvas = document.getElementById('canvas');
-
-    // Passing the canvas into the world object
-    world = new World(canvas, keyboard);
+	renderStartScreen();
 }
 
 // ################################################### Keyboard ###################################################
@@ -85,3 +81,21 @@ window.addEventListener('keyup', (e) => {
             break;
     }
 });
+
+// ################################################### Main Functions ###################################################
+
+function startGame() {
+	document.getElementById('content');
+	content.innerHTML = generateGameHTML();
+	
+	// Get the canvas element from document
+    canvas = document.getElementById('canvas');
+	
+	// Passing the canvas into the world object
+    world = new World(canvas, keyboard);
+}
+
+function renderStartScreen() {
+	document.getElementById('content');
+	content.innerHTML = generateStaticStartScreenHTML();
+}
