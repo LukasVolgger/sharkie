@@ -191,6 +191,7 @@ class World {
             this.level.enemies.forEach(enemy => {
                 if (this.character.isColliding(enemy) && this.character.isFinSlapping && enemy instanceof PufferFish) {
                     enemy.hit(this.character.attack);
+                    enemy.stopMovement = true;
                     enemy.floatAway(this.character.imgMirrored);
                     console.log('Fin slap attack to: ', enemy, 'Energy: ', enemy.energy);
                 }
