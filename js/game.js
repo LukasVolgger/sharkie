@@ -8,6 +8,7 @@ let world;
 let keyboard = new Keyboard();
 let debugMode = true;
 let debugLevelDesignHelper = false;
+let debugLogStatements = true;
 
 // ################################################### Init game ###################################################
 

@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
-class Character extends MovableObject {
+ class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -231,7 +231,9 @@ class Character extends MovableObject {
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
     moveCharacter(direction) {
-        // console.log('Character position: ', this.x, ', ', this.y);
+        if (debugLogStatements) {
+			console.log('Character position: ', this.x, ', ', this.y);
+		}
         this.lastMove = new Date().getTime();
 
         this.checkBarrierCollisions(direction);
@@ -273,16 +275,28 @@ class Character extends MovableObject {
         // Check collisions with barriers and save from which direction the collision occurs
         if (direction == 'right' && collidingWithBarrierX && !this.isCollidingWithBarrierLeft) {
             this.isCollidingWithBarrierRight = true;
-            // console.log('Collision with Barrier from R - L');
+            
+			if (debugLogStatements) {
+				console.log('Collision with Barrier from R - L');
+			}
         } else if (direction == 'left' && collidingWithBarrierX && !this.isCollidingWithBarrierRight) {
             this.isCollidingWithBarrierLeft = true;
-            // console.log('Collision with Barrier from L - R');
+            
+			if (debugLogStatements) {
+				console.log('Collision with Barrier from L - R');
+			}
         } else if (direction == 'up' && collidingWithBarrierY && !this.isCollidingWithBarrierDown) {
             this.isCollidingWithBarrierUp = true;
-            // console.log('Collision with Barrier from D - U');
+            
+			if (debugLogStatements) {
+				console.log('Collision with Barrier from D - U');
+			}
         } else if (direction == 'down' && collidingWithBarrierY && !this.isCollidingWithBarrierUp) {
             this.isCollidingWithBarrierDown = true;
-            // console.log('Collision with Barrier from U - D');
+            
+			if (debugLogStatements) {
+				console.log('Collision with Barrier from U - D');
+			}
         }
     }
 
