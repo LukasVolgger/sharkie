@@ -2,7 +2,7 @@ class PoisonBubble extends MovableObject {
     width = 60;
     height = 60;
     speed = 1.02;
-    attack = 50;
+    attack = 30;
 
     constructor(startX, startY, otherDirection) {
         super().loadImage('img/1._Sharkie/4._Attack/Bubble_Trap/Poisoned_Bubble_(For_Whale).png');

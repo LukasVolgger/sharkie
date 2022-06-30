@@ -5,7 +5,7 @@
     world;
     width = 300;
     height = 300;
-    energy = 200;
+    energy = 100;
     attack = 20;
     speed = 8;
     endBossTriggered = false;
