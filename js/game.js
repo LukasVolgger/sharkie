@@ -9,6 +9,7 @@ let keyboard = new Keyboard();
 let debugMode = true;
 let debugLevelDesignHelper = false;
 let debugLogStatements = true;
+let debugSkipStartScreen = true;
 
 // ################################################### Init game ###################################################
 
@@ -16,7 +17,11 @@ let debugLogStatements = true;
  * Initializing function when loading the HTML page
  */
 function init() {
-	renderStartScreen();
+	if (debugSkipStartScreen) {
+		startGame();
+	} else {
+		renderStartScreen();
+	}
 }
 
 // ################################################### Keyboard ###################################################
@@ -25,7 +30,9 @@ function init() {
  * Detects when a key is pressed and updates the boolean in keyboard.class.js
  */
 window.addEventListener('keydown', (e) => {
-    // console.log(e);
+    if (debugMode && debugLogStatements) {
+		console.log('Keydown: ', e);
+	}
 
     switch (e.keyCode) {
         case 32:
@@ -56,7 +63,9 @@ window.addEventListener('keydown', (e) => {
  * Detects when a key is released and updates the boolean in keyboard.class.js
  */
 window.addEventListener('keyup', (e) => {
-    // console.log(e);
+    if (debugMode && debugLogStatements) {
+		console.log('Keyup: ', e);
+	}
 
     switch (e.keyCode) {
         case 32:

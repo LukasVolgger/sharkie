@@ -60,7 +60,7 @@
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
     moveCharacter(direction) {
-        if (debugLogStatements) {
+        if (debugMode && debugLogStatements) {
 			console.log('Position: ', this.x, ', ', this.y);
 		}
 

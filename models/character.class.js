@@ -231,7 +231,7 @@
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
     moveCharacter(direction) {
-        if (debugLogStatements) {
+        if (debugMode && debugLogStatements) {
 			console.log('Character position: ', this.x, ', ', this.y);
 		}
         this.lastMove = new Date().getTime();
@@ -276,25 +276,25 @@
         if (direction == 'right' && collidingWithBarrierX && !this.isCollidingWithBarrierLeft) {
             this.isCollidingWithBarrierRight = true;
             
-			if (debugLogStatements) {
+			if (debugMode && debugLogStatements) {
 				console.log('Collision with Barrier from R - L');
 			}
         } else if (direction == 'left' && collidingWithBarrierX && !this.isCollidingWithBarrierRight) {
             this.isCollidingWithBarrierLeft = true;
             
-			if (debugLogStatements) {
+			if (debugMode && debugLogStatements) {
 				console.log('Collision with Barrier from L - R');
 			}
         } else if (direction == 'up' && collidingWithBarrierY && !this.isCollidingWithBarrierDown) {
             this.isCollidingWithBarrierUp = true;
             
-			if (debugLogStatements) {
+			if (debugMode && debugLogStatements) {
 				console.log('Collision with Barrier from D - U');
 			}
         } else if (direction == 'down' && collidingWithBarrierY && !this.isCollidingWithBarrierUp) {
             this.isCollidingWithBarrierDown = true;
             
-			if (debugLogStatements) {
+			if (debugMode && debugLogStatements) {
 				console.log('Collision with Barrier from U - D');
 			}
         }
