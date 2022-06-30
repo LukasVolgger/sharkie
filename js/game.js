@@ -8,8 +8,10 @@ let world;
 let keyboard = new Keyboard();
 let debugMode = true;
 let debugLevelDesignHelper = false;
-let debugLogStatements = true;
+let debugLogStatements = false;
 let debugSkipStartScreen = true;
+let endBossKilled = false;
+let levelEnded = false;
 
 // ################################################### Init game ###################################################
 
@@ -22,6 +24,8 @@ function init() {
 	} else {
 		renderStartScreen();
 	}
+	
+	checkForLevelWin();
 }
 
 // ################################################### Keyboard ###################################################
@@ -94,6 +98,9 @@ window.addEventListener('keyup', (e) => {
 
 // ################################################### Main Functions ###################################################
 
+/**
+ * Starts the game
+ */
 function startGame() {
 	document.getElementById('content');
 	content.innerHTML = generateGameHTML();
@@ -105,7 +112,25 @@ function startGame() {
     world = new World(canvas, keyboard);
 }
 
+/**
+ * Display start screen
+ */
 function renderStartScreen() {
 	document.getElementById('content');
-	content.innerHTML = generateStaticStartScreenHTML();
+	content.innerHTML = generateStartScreenHTML();
+}
+
+/**
+ * Checks if the EndBoss has been killed and then shows the end screen
+ */
+function checkForLevelWin() {
+	setInterval(() => {
+		if (endBossKilled && !levelEnded) {
+			setTimeout(() => {
+				document.getElementById('content');
+				content.innerHTML = generateEndScreenHTML();
+				levelEnded = true;
+			}, 1000);
+		}
+	}, 250)
 }

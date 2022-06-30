@@ -110,6 +110,7 @@
                 this.playAnimation(this.IMAGES_HURT, 1);
             } else if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD, 0);
+				endBossKilled = true;
             } else if (this.endBossTriggered) {
                 this.introduceEndBoss();
             } else if (this.isCollidingWithCharacter) {

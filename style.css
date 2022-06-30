@@ -18,9 +18,20 @@ body {
 }
 
 .btn {
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: 'LuckiestGuy';
+    font-size: 32px;
+    background-color: rgba(83, 26, 130, 1);
+    border: 3px solid white;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.btn:hover {
+	 background-color: rgba(129, 37, 205, 1	);
 }
 
 .game-title {
@@ -67,7 +78,28 @@ canvas {
 	width: 224px;
 }
 
-.start-game-btn img {
+.end-screen-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
-	object-fit: cover;
+	height: 100%;
+}
+
+.end-screen-header {
+	margin: 0 0 64px 0;
+	width: 80%;
+	height: 50%;
+}
+
+.end-screen-img {
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+}
+
+.end-screen-body {
+	display: flex;
+	gap: 64px;
 }
