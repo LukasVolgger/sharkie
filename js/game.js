@@ -9,9 +9,20 @@ let keyboard = new Keyboard();
 let debugMode = true;
 let debugLevelDesignHelper = false;
 let debugLogStatements = false;
-let debugSkipStartScreen = true;
+let debugLevelNr = 0;
+let debugSkipStartScreen = false;
 let endBossKilled = false;
 let levelEnded = false;
+let levels = [
+	level_1,
+	level_2
+];
+let currentLevel;
+let maxLevelReached = false;
+
+if (debugSkipStartScreen) {
+	currentLevel = debugLevelNr;
+}
 
 // ################################################### Init game ###################################################
 
@@ -23,6 +34,15 @@ function init() {
 		startGame();
 	} else {
 		renderStartScreen();
+	}
+	
+	loadFromLocalStorage();
+	
+	// If no higher level is set in local storage, start from the first level
+	if (currentLevel == null) {
+		currentLevel = 0;
+	} else if (currentLevel >= levels.length -1) {
+		maxLevelReached = true;
 	}
 	
 	checkForLevelWin();
@@ -125,12 +145,53 @@ function renderStartScreen() {
  */
 function checkForLevelWin() {
 	setInterval(() => {
-		if (endBossKilled && !levelEnded) {
+		if (endBossKilled && !levelEnded && !maxLevelReached) {
 			setTimeout(() => {
 				document.getElementById('content');
 				content.innerHTML = generateEndScreenHTML();
 				levelEnded = true;
 			}, 1000);
+		} else if (endBossKilled && !levelEnded && maxLevelReached) {
+			setTimeout(() => {
+				document.getElementById('content');
+				content.innerHTML = generateMaxEndScreenHTML();
+				levelEnded = true;
+			}, 1000);
 		}
 	}, 250)
+}
+
+/**
+ * Saves variables to local storage
+ */
+function saveToLocalStorage() {
+	let currentLevelAsString = JSON.stringify(currentLevel);
+	localStorage.setItem('currentLevel', currentLevelAsString);
+}
+
+/**
+ * Loads variables from local storage
+ */
+function loadFromLocalStorage() {
+	let currentLevelAsString = localStorage.getItem('currentLevel');
+	currentLevel = JSON.parse(currentLevelAsString);
+}
+
+/**
+ * Restarts the current level
+ */
+function restartLevel() {
+	window.location.reload();
+}
+
+/**
+ * Goes to the next level
+ */
+function nextLevel() {
+	
+	if (currentLevel < levels.length && !maxLevelReached) {
+		currentLevel++;
+		saveToLocalStorage();
+		window.location.reload();		
+	} 
 }

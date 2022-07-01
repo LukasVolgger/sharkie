@@ -14,7 +14,7 @@
 
     character = new Character();
     levelDesignHelper = new LevelDesignHelper();
-    level = level_1; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
+    level = levels[currentLevel]; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
     statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
     statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);

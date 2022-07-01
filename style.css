@@ -102,4 +102,12 @@ canvas {
 .end-screen-body {
 	display: flex;
 	gap: 64px;
+	margin-top: 64px;
+}
+
+.max-level-heading {
+	font-size: 36px;
+	color: white;
+	margin: 0;
+	text-align: center;
 }

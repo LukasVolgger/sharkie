@@ -28,6 +28,10 @@ function generateGameHTML() {
 	`;
 }
 
+/**
+ * HTML template
+ * @returns HTML
+ */
 function generateEndScreenHTML() {
 	return `
 		<div class="end-screen-container">
@@ -35,8 +39,27 @@ function generateEndScreenHTML() {
 				<img src="img/6._Buttons/Titles/You_Win/Work_Table.png" class="end-screen-img" alt="End Screen Image">
 			</div>
 			<div class="end-screen-body">
-				<button class="restart-lvl-btn btn">RESTART LEVEL</button>
-				<button class="next-lvl-btn btn">NEXT LEVEL</button>
+				<button class="restart-lvl-btn btn" onclick="restartLevel()">RESTART LEVEL</button>
+				<button class="next-lvl-btn btn" onclick="nextLevel()">NEXT LEVEL</button>
+			</div>
+		</div>
+	`;
+}
+
+/**
+ * HTML template
+ * @returns HTML
+ */
+function generateMaxEndScreenHTML() {
+	return `
+		<div class="end-screen-container">
+			<div class="end-screen-header">
+				<img src="img/6._Buttons/Titles/You_Win/Work_Table.png" class="end-screen-img" alt="End Screen Image">
+			</div>
+			<h2 class="max-level-heading">Congratulations!</h2>
+			<h2 class="max-level-heading">You finished the last level!</h2>
+			<div class="end-screen-body">
+				<button class="restart-lvl-btn btn" onclick="restartLevel()">RESTART LEVEL</button>
 			</div>
 		</div>
 	`;
