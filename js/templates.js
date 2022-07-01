@@ -8,7 +8,8 @@ function generateStartScreenHTML() {
 	return `
 		<div class="start-screen-container">
 			<div class="start-screen-header">
-				<h1 class="game-title">Sharkie</h1>
+				<h1 class="start-screen-title">Sharkie</h1>
+				<h1 class="start-screen-title">Level ${currentLevel += 1}</h1>
 			</div>
 			<div class="start-screen-body">
 				<button class="start-game-btn btn" onclick="startGame()">START GAME</button>
@@ -60,6 +61,7 @@ function generateMaxEndScreenHTML() {
 			<h2 class="max-level-heading">You finished the last level!</h2>
 			<div class="end-screen-body">
 				<button class="restart-lvl-btn btn" onclick="restartLevel()">RESTART LEVEL</button>
+				<button class="restart-lvl-btn btn" onclick="restartGame()">RESTART GAME</button>
 			</div>
 		</div>
 	`;

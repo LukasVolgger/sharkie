@@ -24,6 +24,8 @@ if (debugSkipStartScreen) {
 	currentLevel = debugLevelNr;
 }
 
+loadFromLocalStorage();
+
 // ################################################### Init game ###################################################
 
 /**
@@ -194,4 +196,13 @@ function nextLevel() {
 		saveToLocalStorage();
 		window.location.reload();		
 	} 
+}
+
+/**
+ * Starts again at level 1
+ */
+function restartGame() {
+	currentLevel = 0;
+	saveToLocalStorage();
+	window.location.reload();
 }

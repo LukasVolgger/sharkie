@@ -65,7 +65,17 @@ canvas {
 
 .start-screen-header {
 	display: flex;
+	flex-direction: column;
     justify-content: center;
+	align-items: center;
+	margin: 0 0 64px 0;
+}
+.start-screen-title {
+	font-size: 72px;
+    color: white;
+    text-shadow: 0 0 8px #003eab;
+    margin: 0;
+    font-weight: 100;
 }
 
 .start-screen-body {
