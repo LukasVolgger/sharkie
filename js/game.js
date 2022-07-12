@@ -13,6 +13,7 @@ let debugLogStatements = false;
 let debugLevelNr = 0;
 let debugSkipStartScreen = false;
 let endBossKilled = false;
+let characterIsDead = false;
 let levelEnded = false;
 let levels = [
 	level_1,
@@ -147,19 +148,24 @@ function renderStartScreen() {
  * Checks if the EndBoss has been killed and then shows the end screen
  */
 function checkForLevelWin() {
+	document.getElementById('content');
+	
 	setInterval(() => {
 		if (endBossKilled && !levelEnded && !maxLevelReached) {
 			setTimeout(() => {
-				document.getElementById('content');
 				content.innerHTML = generateEndScreenHTML();
 				levelEnded = true;
-			}, 1000);
+			}, 3000);
 		} else if (endBossKilled && !levelEnded && maxLevelReached) {
 			setTimeout(() => {
-				document.getElementById('content');
 				content.innerHTML = generateMaxEndScreenHTML();
 				levelEnded = true;
-			}, 1000);
+			}, 3000);
+		} else if (characterIsDead && !levelEnded) {
+			setTimeout(() => {
+				content.innerHTML = generateGameOverScreenHTML();
+				levelEnded = true;
+			}, 3000);
 		}
 	}, 250)
 }

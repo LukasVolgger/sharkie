@@ -66,3 +66,20 @@ function generateMaxEndScreenHTML() {
 		</div>
 	`;
 }
+
+/**
+ * HTML template
+ * @returns HTML
+ */
+function generateGameOverScreenHTML() {
+	return `
+		<div class="end-screen-container">
+			<div>
+				<h2 class="game-over-screen-title">GAME OVER</h2>
+			</div>
+			<div class="end-screen-body">
+				<button class="restart-lvl-btn btn" onclick="restartLevel()">TRY AGAIN</button>
+			</div>
+		</div>
+	`;
+}

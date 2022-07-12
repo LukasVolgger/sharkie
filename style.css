@@ -121,3 +121,10 @@ canvas {
 	margin: 0;
 	text-align: center;
 }
+
+.game-over-screen-title {
+	color: white;
+	font-size: 72px;
+	text-align: center;
+	margin: 0;
+}
