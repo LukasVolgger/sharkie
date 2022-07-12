@@ -31,7 +31,35 @@ body {
 }
 
 .btn:hover {
-	 background-color: rgba(129, 37, 205, 1	);
+	background-color: rgba(129, 37, 205, 1);
+}
+
+.nav {
+	display: flex;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	gap: 8px;
+}
+
+.nav-icon {
+	width: 100%;
+}
+
+.nav-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+    cursor: pointer;
+	border: 3px solid;
+    border-radius: 8px;
+    padding: 4px;
+	width: 48px;
+}
+
+.nav-btn:hover {
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 .game-title {
