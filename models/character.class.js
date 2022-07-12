@@ -24,6 +24,7 @@
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
     hitBy;
+	isAlreadyDead;
     isFinSlapping = false;
     isBubbleTrapping = false;
     isCollidingWithBarrier = false;
@@ -133,7 +134,14 @@
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/7.png',
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/8.png'
     ];
-    swim_sound = new Audio('audio/swim.mp3');
+    SWIM_SOUND = new Audio('audio/swim.mp3');
+    DYING_SOUND = new Audio('audio/hurt_dying.mp3');
+    SLAP_SOUND = new Audio('audio/slap.mp3');
+    BUBBLE_SOUND = new Audio('audio/bubble.mp3');
+    HURT_SOUND = new Audio('audio/hurt.mp3');
+    ELECTRIC_ZAP_SOUND = new Audio('audio/electric_zap.mp3');
+    COIN_SOUND = new Audio('audio/coin.mp3');
+    COLLECT_SOUND = new Audio('audio/collect.mp3');
 
     constructor() {
         super();
@@ -150,6 +158,7 @@
             this.loadImages(this.IMAGES_BUBBLE_TRAP);
             this.animate();
             this.characterEvents();
+			this.characterSounds();
             this.triggerEndboss();
         }
     }
@@ -196,11 +205,6 @@
      */
     characterEvents() {
         setInterval(() => {
-            // Swim sound	
-            if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
-                // TODO Re-enable sound
-                // this.swim_sound.play();
-            }
 
             // Moving UP
             if (this.world.keyboard.UP && this.y > -135 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
@@ -223,6 +227,63 @@
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
+        }, 1000 / 60)
+    }
+	
+	/**
+     * Handle all character sounds
+     */
+    characterSounds() {
+        setInterval(() => {
+			if (soundOn) {
+				
+				// Swim sound	
+				if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+					this.SWIM_SOUND.pause();
+					this.SWIM_SOUND.play();
+				}
+				
+				// Dying sound
+				if (this.isDead() && !this.isAlreadyDead) {
+					this.DYING_SOUND.play();
+					this.isAlreadyDead = true;
+				}
+				
+				// Slap sound
+				if (this.isFinSlapping) {
+					this.SLAP_SOUND.play();
+				}
+				
+				// Bubble sound
+				if (this.isBubbleTrapping) {
+					this.BUBBLE_SOUND.play();
+				}
+				
+				// Hurt sounds
+				this.world.level.enemies.forEach(enemy => {
+					if (this.isColliding(enemy) && !this.isDead() && !enemy.isDead()) {
+						if (enemy instanceof PufferFish || enemy instanceof EndBoss) {
+							this.HURT_SOUND.play();
+						} else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
+							this.ELECTRIC_ZAP_SOUND.play();
+						} 
+					}
+				});
+				
+				// Coin sound
+				this.world.level.coins.forEach(coin => {
+					if (this.isColliding(coin)) {
+						this.COIN_SOUND.play();
+					}
+				});
+				
+				// Collect sound
+				this.world.level.poison.forEach(poison => {
+					if (this.isColliding(poison)) {
+						this.COLLECT_SOUND.play();
+					}
+				});
+			}
         }, 1000 / 60)
     }
 
