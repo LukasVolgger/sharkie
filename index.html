@@ -41,10 +41,17 @@
 
 <body onload="init()">
 	<nav class="nav">
-		<button class="nav-btn"><img src="img/icons/settings.svg" alt="Settings" class="nav-icon"></button>
+		<button class="nav-btn" onclick="toggleSettingsMenu()"><img src="img/icons/settings.svg" alt="Settings" class="nav-icon"></button>
 		<button class="nav-btn"><img src="img/icons/mute.svg" alt="Mute/Unmute" class="nav-icon"></button>
 		<button class="nav-btn"><img src="img/icons/help.svg" alt="Help" class="nav-icon"></button>
 	</nav>
+	<div class="settings-menu-container d-none" id="settings-menu-container">
+		<button class="nav-btn close-btn" onclick="toggleSettingsMenu()"><img src="img/icons/close.svg" alt="Close" class="nav-icon"></button>
+		<div class="settings-menu-header">
+			<h2 class="settings-menu-title">Settings</h2>
+		</div>
+		<div class="settings-menu-body"></div>
+	</div>
 	<main id="content" class="content"></main>
 </body>
 

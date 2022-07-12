@@ -213,3 +213,12 @@ function restartGame() {
 	saveToLocalStorage();
 	window.location.reload();
 }
+
+// ################################################### Nav-bar Functions ###################################################
+
+/**
+ * Toggles the settings menu
+ */
+function toggleSettingsMenu() {
+	document.getElementById('settings-menu-container').classList.toggle('d-none');
+}

@@ -12,6 +12,7 @@ body {
 .content {
 	display: flex;
     flex-direction: column;
+	justify-content: center;
     align-items: center;
 	width: 100%;
 	height: 100%;
@@ -34,6 +35,10 @@ body {
 	background-color: rgba(129, 37, 205, 1);
 }
 
+.d-none {
+	display: none;
+}
+
 .nav {
 	display: flex;
 	position: absolute;
@@ -50,16 +55,17 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: transparent;
+	background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-	border: 3px solid;
+	border: none;
     border-radius: 8px;
     padding: 4px;
 	width: 48px;
 }
 
-.nav-btn:hover {
-	background-color: rgba(255, 255, 255, 0.5);
+.nav-btn:hover,
+.close-btn:hover {
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .game-title {
@@ -155,4 +161,53 @@ canvas {
 	font-size: 72px;
 	text-align: center;
 	margin: 0;
+}
+/*
+.settings-menu-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	height: 60%;
+	border: 16px solid sandybrown;    
+	border-radius: 8px;
+	position: relative;
+}*/
+
+.settings-menu-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 16px solid sandybrown;    
+	border-radius: 8px;
+	background-color: rgba(195, 140, 95, 15);
+}
+
+.close-btn {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+.settings-menu-header {
+	display: flex;
+    justify-content: center;
+}
+
+.settings-menu-title {
+	font-size: 72px;
+    color: white;
+    margin: 0;
+}
+
+.settings-menu-body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
