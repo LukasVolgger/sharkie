@@ -134,6 +134,7 @@
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/7.png',
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/8.png'
     ];
+	
     SWIM_SOUND = new Audio('audio/swim.mp3');
     DYING_SOUND = new Audio('audio/hurt_dying.mp3');
     SLAP_SOUND = new Audio('audio/slap.mp3');
@@ -142,6 +143,8 @@
     ELECTRIC_ZAP_SOUND = new Audio('audio/electric_zap.mp3');
     COIN_SOUND = new Audio('audio/coin.mp3');
     COLLECT_SOUND = new Audio('audio/collect.mp3');
+	BUBBLING_SOUND = new Audio('audio/bubbling.mp3');
+	LIFE_SOUND = new Audio('audio/health.mp3');
 
     constructor() {
         super();
@@ -261,9 +264,19 @@
 					this.BUBBLE_SOUND.play();
 				}
 				
+				// Bubbling sound
+				this.world.level.enemies.forEach(enemy => {
+					if (this.world.bubble) {
+						if (this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous || this.world.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+							this.BUBBLING_SOUND.currentTime = 0;
+							this.BUBBLING_SOUND.play();
+						}
+					}
+				});
+				
 				// Hurt sounds
 				this.world.level.enemies.forEach(enemy => {
-					if (this.isColliding(enemy) && !this.isDead() && !enemy.isDead()) {
+					if (this.isColliding(enemy) && !this.isDead() && !enemy.isDead() && !this.isFinSlapping) {
 						if (enemy instanceof PufferFish || enemy instanceof EndBoss) {
 							this.HURT_SOUND.play();
 						} else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
@@ -283,6 +296,13 @@
 				this.world.level.poison.forEach(poison => {
 					if (this.isColliding(poison)) {
 						this.COLLECT_SOUND.play();
+					}
+				});
+				
+				// Life sound
+				this.world.level.life.forEach(life => {
+					if (this.isColliding(life)) {
+						this.LIFE_SOUND.play();
 					}
 				});
 			}

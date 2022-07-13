@@ -80,6 +80,9 @@
         'img/2._Enemy/3._Final_Enemy/Attack/5.png',
         'img/2._Enemy/3._Final_Enemy/Attack/6.png'
     ];
+	
+	SPLASH_SOUND = new Audio('audio/splash.mp3');
+	BITE_SOUND = new Audio('audio/bite.mp3');
 
     constructor(x, y, startX, startY) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
@@ -211,7 +214,12 @@
      */
     attackAnimation() {
         if (!this.checkAlreadyRunning) {
-
+			
+			if (soundOn && !this.isDead() && !this.world.character.isDead()) {
+				this.BITE_SOUND.currentTime = 0;
+				this.BITE_SOUND.play();
+			}
+			
             this.currentImage = 0; // To start with the first img of the animation
 
             let spacePressed = setInterval(() => {
@@ -233,6 +241,10 @@
     introduceEndBoss() {
         this.playAnimation(this.IMAGES_INTRODUCE, 0);
         this.endBossAlreadyTriggered = true;
+		
+		if (soundOn) {
+			this.SPLASH_SOUND.play();
+		}
 
         setTimeout(() => {
             this.endBossTriggered = false;

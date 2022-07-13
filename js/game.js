@@ -21,6 +21,8 @@ let levels = [
 ];
 let currentLevel;
 let maxLevelReached = false;
+let WIN_SOUND = new Audio('audio/congrats.mp3');
+let GAME_OVER_SOUND = new Audio('audio/game_over.mp3');
 
 if (debugSkipStartScreen) {
 	currentLevel = debugLevelNr;
@@ -154,16 +156,31 @@ function checkForLevelWin() {
 		if (endBossKilled && !levelEnded && !maxLevelReached) {
 			setTimeout(() => {
 				content.innerHTML = generateEndScreenHTML();
+				
+				if (soundOn && !levelEnded) {
+					WIN_SOUND.play();
+				}
+				
 				levelEnded = true;
 			}, 3000);
 		} else if (endBossKilled && !levelEnded && maxLevelReached) {
 			setTimeout(() => {
 				content.innerHTML = generateMaxEndScreenHTML();
+				
+				if (soundOn && !levelEnded) {
+					WIN_SOUND.play();
+				}
+				
 				levelEnded = true;
 			}, 3000);
 		} else if (characterIsDead && !levelEnded) {
 			setTimeout(() => {
 				content.innerHTML = generateGameOverScreenHTML();
+				
+				if (soundOn && !levelEnded) {
+					GAME_OVER_SOUND.play();
+				}
+				
 				levelEnded = true;
 			}, 3000);
 		}
