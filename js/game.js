@@ -42,6 +42,13 @@ function init() {
 		renderStartScreen();
 	}
 	
+	// Set correct icon for sound settings
+	if (soundOn) {
+		document.getElementById('sound-img').src ='img/icons/speaker.svg';
+	} else {
+		document.getElementById('sound-img').src ='img/icons/mute.svg';
+	}
+	
 	loadFromLocalStorage();
 	
 	// If no higher level is set in local storage, start from the first level
@@ -193,6 +200,9 @@ function checkForLevelWin() {
 function saveToLocalStorage() {
 	let currentLevelAsString = JSON.stringify(currentLevel);
 	localStorage.setItem('currentLevel', currentLevelAsString);
+	
+	let soundOnAsString = JSON.stringify(soundOn);
+	localStorage.setItem('soundOn', soundOnAsString);
 }
 
 /**
@@ -201,6 +211,9 @@ function saveToLocalStorage() {
 function loadFromLocalStorage() {
 	let currentLevelAsString = localStorage.getItem('currentLevel');
 	currentLevel = JSON.parse(currentLevelAsString);
+	
+	let soundOnAsString = localStorage.getItem('soundOn');
+	soundOn = JSON.parse(soundOnAsString);
 }
 
 /**
@@ -238,4 +251,19 @@ function restartGame() {
  */
 function toggleSettingsMenu() {
 	document.getElementById('settings-menu-container').classList.toggle('d-none');
+}
+
+/**
+ * Toggles the sound OFF/ON
+ */
+function toggleSound() {
+	soundOn = !soundOn;
+	
+	if (soundOn) {
+		document.getElementById('sound-img').src ='img/icons/speaker.svg';
+	} else {
+		document.getElementById('sound-img').src ='img/icons/mute.svg';
+	}
+	
+	saveToLocalStorage();
 }
