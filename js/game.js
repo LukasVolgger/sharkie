@@ -42,14 +42,8 @@ function init() {
 		renderStartScreen();
 	}
 	
-	// Set correct icon for sound settings
-	if (soundOn) {
-		document.getElementById('sound-img').src ='img/icons/speaker.svg';
-	} else {
-		document.getElementById('sound-img').src ='img/icons/mute.svg';
-	}
-	
 	loadFromLocalStorage();
+	updateUI();
 	
 	// If no higher level is set in local storage, start from the first level
 	if (currentLevel == null) {
@@ -203,6 +197,21 @@ function saveToLocalStorage() {
 	
 	let soundOnAsString = JSON.stringify(soundOn);
 	localStorage.setItem('soundOn', soundOnAsString);
+	
+	let debugModeAsString = JSON.stringify(debugMode);
+	localStorage.setItem('debugMode', debugModeAsString);
+	
+	let debugLogStatementsAsString = JSON.stringify(debugLogStatements);
+	localStorage.setItem('debugLogStatements', debugLogStatementsAsString);
+	
+	let debugSkipStartScreenAsString = JSON.stringify(debugSkipStartScreen);
+	localStorage.setItem('debugSkipStartScreen', debugSkipStartScreenAsString);
+	
+	let debugLevelDesignHelperAsString = JSON.stringify(debugLevelDesignHelper);
+	localStorage.setItem('debugLevelDesignHelper', debugLevelDesignHelperAsString);
+	
+	let debugLevelNrAsString = JSON.stringify(debugLevelNr);
+	localStorage.setItem('debugLevelNr', debugLevelNrAsString);
 }
 
 /**
@@ -214,6 +223,21 @@ function loadFromLocalStorage() {
 	
 	let soundOnAsString = localStorage.getItem('soundOn');
 	soundOn = JSON.parse(soundOnAsString);
+	
+	let debugModeAsString = localStorage.getItem('debugMode');
+	debugMode = JSON.parse(debugModeAsString);
+	
+	let debugLogStatementsAsString = localStorage.getItem('debugLogStatements');
+	debugLogStatements = JSON.parse(debugLogStatementsAsString);
+	
+	let debugSkipStartScreenAsString = localStorage.getItem('debugSkipStartScreen');
+	debugSkipStartScreen = JSON.parse(debugSkipStartScreenAsString);
+	
+	let debugLevelDesignHelperAsString = localStorage.getItem('debugLevelDesignHelper');
+	debugLevelDesignHelper = JSON.parse(debugLevelDesignHelperAsString);
+	
+	let debugLevelNrAsString = localStorage.getItem('debugLevelNr');
+	debugLevelNr = JSON.parse(debugLevelNrAsString);
 }
 
 /**
@@ -254,7 +278,8 @@ function toggleSettingsMenu() {
 }
 
 /**
- * Toggles the sound OFF/ON
+ * Toggles menu options
+ * soundOn
  */
 function toggleSound() {
 	soundOn = !soundOn;
@@ -266,4 +291,131 @@ function toggleSound() {
 	}
 	
 	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Toggles menu options
+ * debugMode
+ */
+function toggleDebugMode() {
+	debugMode = !debugMode;
+	
+	if (debugMode) {
+		document.getElementById('debugMode-checkbox').checked = true;
+	} else {
+		document.getElementById('debugMode-checkbox').checked = false;
+	}
+	
+	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Toggles menu options
+ * debugLogStatements
+ */
+function toggleDebugLogStatements() {
+	debugLogStatements = !debugLogStatements;
+	
+	if (debugLogStatements) {
+		document.getElementById('debugLogStatements-checkbox').checked = true;
+	} else {
+		document.getElementById('debugLogStatements-checkbox').checked = false;
+	}
+	
+	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Toggles menu options
+ * debugSkipStartScreen
+ */
+function toggleDebugSkipStartScreen() {
+	debugSkipStartScreen = !debugSkipStartScreen;
+	
+	if (debugSkipStartScreen) {
+		document.getElementById('debugSkipStartScreen-checkbox').checked = true;
+	} else {
+		document.getElementById('debugSkipStartScreen-checkbox').checked = false;
+	}
+	
+	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Toggles menu options
+ * debugLevelDesignHelper
+ */
+function toggleDebugLevelDesignHelper() {
+	debugLevelDesignHelper = !debugLevelDesignHelper;
+	
+	if (debugLevelDesignHelper) {
+		document.getElementById('debugLevelDesignHelper-checkbox').checked = true;
+	} else {
+		document.getElementById('debugLevelDesignHelper-checkbox').checked = false;
+	}
+	
+	saveToLocalStorage();
+	updateUI();
+	window.location.reload(); // Necessary, otherwise the game will crash
+}
+
+/**
+ * Changes the level which should be debugged
+ */
+function selectDebugLevelNr() {
+	let levelNr = parseInt(document.getElementById('debugLevelNr-select').value);
+	debugLevelNr = levelNr;
+	
+	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Updated all UI icons depending on their status
+ */
+function updateUI() {
+	
+	// soundOn
+	if (soundOn) {
+		document.getElementById('sound-img').src ='img/icons/speaker.svg';
+		document.getElementById('sound-checkbox').checked = true;
+	} else {
+		document.getElementById('sound-img').src ='img/icons/mute.svg';
+		document.getElementById('sound-checkbox').checked = false;
+	}
+	
+	// debugMode
+	if (debugMode) {
+		document.getElementById('debugMode-checkbox').checked = true;
+	} else {
+		document.getElementById('debugMode-checkbox').checked = false;
+	}
+	
+	// debugLogStatements
+	if (debugLogStatements) {
+		document.getElementById('debugLogStatements-checkbox').checked = true;
+	} else {
+		document.getElementById('debugLogStatements-checkbox').checked = false;
+	}
+	
+	// debugSkipStartScreen
+	if (debugSkipStartScreen) {
+		document.getElementById('debugSkipStartScreen-checkbox').checked = true;
+	} else {
+		document.getElementById('debugSkipStartScreen-checkbox').checked = false;
+	}
+	
+	// debugLevelDesignHelper
+	if (debugLevelDesignHelper) {
+		document.getElementById('debugLevelDesignHelper-checkbox').checked = true;
+	} else {
+		document.getElementById('debugLevelDesignHelper-checkbox').checked = false;
+	}
+	
+	// debugLevelNr
+	document.getElementById('debugLevelNr-select').value = debugLevelNr; 
 }

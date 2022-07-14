@@ -53,30 +53,34 @@
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">SOUND ON</h2>
-				<input type="checkbox" class="settings-menu-checkbox">
+				<input type="checkbox" class="settings-menu-checkbox" id="sound-checkbox" onchange="toggleSound()">
 			</div>
 			<div class="settings-menu-heading">
 				<h2 class="settings-menu-title">Debugging</h2>
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">DEBUGMODE ON</h2>
-				<input type="checkbox" class="settings-menu-checkbox">
+				<input type="checkbox" class="settings-menu-checkbox" id="debugMode-checkbox" onchange="toggleDebugMode()">
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">CONSOLE LOGS ON</h2>
-				<input type="checkbox" class="settings-menu-checkbox">
+				<input type="checkbox" class="settings-menu-checkbox" id="debugLogStatements-checkbox" onchange="toggleDebugLogStatements()">
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">SKIP START SCREEN ON</h2>
-				<input type="checkbox" class="settings-menu-checkbox">
+				<input type="checkbox" class="settings-menu-checkbox" id="debugSkipStartScreen-checkbox" onchange="toggleDebugSkipStartScreen()">
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">LEVEL DESIGN HELPER ON</h2>
-				<input type="checkbox" class="settings-menu-checkbox">
+				<input type="checkbox" class="settings-menu-checkbox" id="debugLevelDesignHelper-checkbox" onchange="toggleDebugLevelDesignHelper()">
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">DEBUG LEVEL NR.</h2>
-				<input type="number" class="settings-menu-number" value="1">
+				<select class="debugLevelNr-select" id="debugLevelNr-select" onchange="selectDebugLevelNr()">
+					<option value="">---</option>
+					<option value="0">1</option>
+					<option value="1">2</option>
+				</select>
 			</div>
 		</div>
     </div>
