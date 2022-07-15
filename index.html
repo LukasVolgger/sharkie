@@ -43,13 +43,13 @@
     <nav class="nav">
         <button class="nav-btn" onclick="toggleSettingsMenu()" title="Settings"><img src="img/icons/settings.svg" alt="Settings" class="nav-icon"></button>
         <button class="nav-btn" onclick="toggleSound()" title="Mute/Unmute"><img src="img/icons/speaker.svg" alt="Mute/Unmute" class="nav-icon" id="sound-img"></button>
-        <button class="nav-btn" title="Help"><img src="img/icons/help.svg" alt="Help" class="nav-icon"></button>
+        <button class="nav-btn" onclick="toggleHelpSite()" title="Help"><img src="img/icons/help.svg" alt="Help" class="nav-icon"></button>
     </nav>
     <div class="settings-menu-container d-none" id="settings-menu-container">
         <button class="nav-btn close-btn" onclick="toggleSettingsMenu()"><img src="img/icons/close.svg" alt="Close" class="nav-icon"></button>
         <div class="settings-menu-body">
 			<div class="settings-menu-heading">
-				<h2 class="settings-menu-title">Settings</h2>
+				<h2 class="settings-menu-title">SETTINGS</h2>
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">SOUND ON</h2>
@@ -60,7 +60,7 @@
 				<input type="checkbox" class="settings-menu-checkbox" id="fullscreen-checkbox" onchange="toggleFullscreen()">
 			</div>
 			<div class="settings-menu-heading">
-				<h2 class="settings-menu-title">Debugging</h2>
+				<h2 class="settings-menu-title">DEBUGGING</h2>
 			</div>
 			<div class="settings-menu-row">
 				<h2 class="settings-menu-row-title">DEBUGMODE ON</h2>
@@ -88,7 +88,39 @@
 			</div>
 		</div>
     </div>
-    <main id="content" class="content"></main>
+	<div class="help-container d-none" id="help-container">
+	<button class="nav-btn close-btn" onclick="toggleHelpSite()"><img src="img/icons/close.svg" alt="Close" class="nav-icon"></button>
+		<div class="help-header">
+			<h2 class="settings-menu-title">HELP</h2> 
+		</div>
+		<div class="help-body">
+			<div class="help-row">
+				<img src="img/6._Buttons/Keys/Arrow_Keys.png" alt="Movement Keys" class="help-img">
+				<h2 class="help-instruction">MOVE SHARKIE</h2>
+				<img src="img/1._Sharkie/1._Idle/1.png" alt="Sharkie" class="help-img-sharkie">
+			</div>
+			<div class="help-row">
+				<img src="img/6._Buttons/Keys/Space_Bar_Key.png" alt="Space Bar Key" class="help-img">
+				<h2 class="help-instruction">FIN-SLAP ATTACK</h2>
+				<img src="img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_1.png" alt="Puffer-Fish" class="help-img-puffer-fish">
+				<img src="img/2._Enemy/3._Final_Enemy/2._Floating/1.png" alt="Final Enemy" class="help-img-endboss">
+			</div>
+			<div class="help-row">
+				<img src="img/6._Buttons/Keys/D_Key.png" alt="D Key" class="help-img-key">
+				<h2 class="help-instruction">BUBBLE TRAP ATTACK</h2>
+				<img src="img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_1.png" alt="Jellyfish" class="help-img-jellyfish">
+				<img src="img/2._Enemy/3._Final_Enemy/2._Floating/1.png" alt="Final Enemy" class="help-img-endboss">
+			</div>
+			<div class="help-row">
+				<img src="img/6._Buttons/Keys/F_Key.png" alt="F Key" class="help-img-key">
+				<h2 class="help-instruction">POISON BUBBLE TRAP ATTACK</h2>
+				<img src="img/2._Enemy/3._Final_Enemy/2._Floating/1.png" alt="Final Enemy" class="help-img-endboss">
+			</div>
+		</div>
+	</div>
+    <main id="content" class="content">
+		<!-- Content is presented here -->
+	</main>
 </body>
 
 </html>

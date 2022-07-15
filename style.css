@@ -4,6 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url(img/3._Background/Layers/5._Water/D1.png);
+	background-size: cover;
     font-family: LuckiestGuy;
     margin: 0;
     overflow: hidden;
@@ -232,4 +233,74 @@ canvas {
 .debugLevelNr-select {
 	width: 36px;
 	height: 36px;
+}
+
+.help-container {
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 16px solid sandybrown;
+    border-radius: 8px;
+    background-color: rgba(195, 140, 95, 15);
+}
+
+.help-header {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 32px;
+}
+
+.help-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.help-row {
+	display: flex;
+    align-items: center;
+    gap: 32px;
+	margin: 0 32px 32px 32px;
+	width: 800px;
+	padding: 0 16px 0 16px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.help-instruction {
+	font-size: 32px;
+    color: white;
+	text-shadow: 0 0 2px #000000;
+}
+
+.help-img {
+	width: 140px;
+}
+
+.help-img-key {
+	width: 64px;
+}
+
+.help-img-sharkie {
+	width: 132px;
+	margin-top: -32px;
+}
+
+.help-img-puffer-fish {
+	width: 96px;
+	margin-top: 13px;
+}
+
+.help-img-jellyfish {
+	width: 64px;
+}
+.help-img-endboss {
+	width: 120px;
+	margin-top: -48px;
 }

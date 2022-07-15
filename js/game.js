@@ -279,6 +279,13 @@ function toggleSettingsMenu() {
 }
 
 /**
+ * Toggles the help site
+ */
+function toggleHelpSite() {
+	document.getElementById('help-container').classList.toggle('d-none');
+}
+
+/**
  * Toggles menu options
  * soundOn
  */
