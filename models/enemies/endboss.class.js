@@ -132,7 +132,7 @@
 
             if (this.x <= this.startX - this.wanderDistance) {
                 this.waypoint1 = true;
-                if  (debugMode && debugLogStatements) {
+                if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint1');
 				}
             }
@@ -141,7 +141,7 @@
 
             if (this.x > this.startX) {
                 this.waypoint2 = true;
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint2');
 				}
             }
@@ -150,7 +150,7 @@
 
             if (this.y >= 150) {
                 this.waypoint3 = true;
-			    if  (debugMode && debugLogStatements) {
+			    if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint3');
 				}
             }
@@ -159,7 +159,7 @@
 
             if (this.x <= this.startX - this.wanderDistance) {
                 this.waypoint4 = true;
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint4');
 				}
             }
@@ -168,7 +168,7 @@
 
             if (this.x > this.startX) {
                 this.waypoint5 = true;
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint5');
 				}
             }
@@ -177,7 +177,7 @@
 
             if (this.y < 0) {
                 this.waypoint6 = true;
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint6');
 				}
             }
@@ -186,7 +186,7 @@
 
             if (this.x <= this.startX - this.wanderDistance) {
                 this.waypoint7 = true;
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached waypoint7');
 				}
             }
@@ -202,7 +202,7 @@
                 this.waypoint6 = false;
                 this.waypoint7 = false;
 				
-				if  (debugMode && debugLogStatements) {
+				if  (debugLogStatements) {
 					console.log('EndBoss reached last waypoint');
 				}
             }
