@@ -225,14 +225,21 @@ canvas {
 	text-shadow: 0 0 2px #000000;
 }
 
+.settings-annotation {
+	color: #420078;
+	text-shadow: none;
+}
+
 .settings-menu-checkbox {
 	width: 32px;
 	height: 32px;
 }
 
 .debugLevelNr-select {
-	width: 36px;
-	height: 36px;
+	width: 48px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
 }
 
 .help-container {

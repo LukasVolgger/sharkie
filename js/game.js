@@ -335,6 +335,7 @@ function toggleDebugMode() {
 	
 	saveToLocalStorage();
 	updateUI();
+	window.location.reload();
 }
 
 /**
