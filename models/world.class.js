@@ -68,7 +68,9 @@
 
         if (debugMode && !debugLevelDesignHelper) {
             this.addToWorld(this.character);
-        } else if (debugMode && debugLevelDesignHelper) {
+        } else if (!debugMode && !debugLevelDesignHelper) {
+            this.addToWorld(this.character);
+        } else if (debugLevelDesignHelper) {
             this.addToWorld(this.levelDesignHelper);
         } else {
             this.addToWorld(this.character);

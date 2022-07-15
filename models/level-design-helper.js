@@ -18,7 +18,7 @@
 
     constructor() {
         super();
-        if (debugMode && debugLevelDesignHelper) { // Is required because otherwise this.world.camera_x will be set incorrectly when debug mode not acitvated
+        if (debugLevelDesignHelper) { // Is required because otherwise this.world.camera_x will be set incorrectly when debug mode not acitvated
             this.loadImage('img/1._Sharkie/1._Idle/1.png');
             this.characterEvents();
         }
@@ -60,7 +60,7 @@
      * @param {string} direction 'up', 'right', 'down', 'left'
      */
     moveCharacter(direction) {
-        if (debugMode && debugLogStatements) {
+        if (debugLogStatements) {
 			console.log('Position: ', this.x, ', ', this.y);
 		}
 

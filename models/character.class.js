@@ -148,7 +148,7 @@
 
     constructor() {
         super();
-        if (!debugMode || debugMode && !debugLevelDesignHelper) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
+        if (debugMode && !debugLevelDesignHelper || !debugMode && !debugLevelDesignHelper) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
             this.loadImage('img/1._Sharkie/1._Idle/1.png');
             this.loadImages(this.IMAGES_IDLE);
             this.loadImages(this.IMAGES_LONG_IDLE);
