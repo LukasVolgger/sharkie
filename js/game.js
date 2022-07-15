@@ -7,6 +7,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let soundOn = true;
+let fullscreen = false;
 let debugMode = true;
 let debugLevelDesignHelper = false;
 let debugLogStatements = false;
@@ -296,6 +297,24 @@ function toggleSound() {
 
 /**
  * Toggles menu options
+ * fullscreen
+ */
+function toggleFullscreen() {
+	fullscreen = !fullscreen;
+	
+	if (fullscreen) {
+		document.getElementById('canvas').requestFullscreen();
+		fullscreen = true;
+	} else {
+		fullscreen = false;
+	}
+	
+	saveToLocalStorage();
+	updateUI();
+}
+
+/**
+ * Toggles menu options
  * debugMode
  */
 function toggleDebugMode() {
@@ -418,4 +437,22 @@ function updateUI() {
 	
 	// debugLevelNr
 	document.getElementById('debugLevelNr-select').value = debugLevelNr; 
+	
+	// fullscreen
+	setInterval(() => {
+		function fs_status() { // https://stackoverflow.com/questions/28595686/how-can-i-check-if-an-element-is-in-fullscreen-with-the-fullscreen-api-for-html5
+			if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement)
+				return true;
+			else {
+				return false;
+			}
+		}
+		
+		if (fs_status()) {
+			document.getElementById('fullscreen-checkbox').checked = true;
+		} else {
+			document.getElementById('fullscreen-checkbox').checked = false;
+			fullscreen = false;
+		}		
+	}, 250)
 }
