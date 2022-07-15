@@ -78,7 +78,7 @@ const level_2 = new Level(
     // #######################################################################################################
 
     [
-        new Poison('dark_left', 924, 404),
+		new Poison('dark_right', 96, 412),
         new Poison('animated', 1128, 412),
         new Poison('dark_right', 1588, 404)
     ],
@@ -133,7 +133,7 @@ const level_2 = new Level(
         new PufferFish('red', 1420, 352, 'horizontal', 1420, 1644, 1.5, 1),
         new PufferFish('green', 1924, 184, 'horizontal', 1924, 2396, 2.5, 1),
 		new JellyFishDangerous('pink', 2572, 52, 'vertical', 52, 332, 1.5, 0),
-        new EndBoss(3000, 50, 2000, 50)
+        new EndBoss(3000, 50, 3000, 50)
     ],
 
     // ############################################### Barriers ###############################################
