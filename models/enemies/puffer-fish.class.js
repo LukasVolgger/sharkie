@@ -1,7 +1,7 @@
 /**
  * Puffer fish enemy object
  */
- class PufferFish extends MovableObject {
+class PufferFish extends MovableObject {
     width = 100;
     height = 100;
     energy = 5;

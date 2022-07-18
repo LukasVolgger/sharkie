@@ -1,7 +1,7 @@
 /**
  * Poison object
  */
- class Poison extends MovableObject {
+class Poison extends MovableObject {
 
     constructor(type, x, y) {
         super().loadImage('img/4._Marks/Poison/Light_Left.png');

@@ -5,7 +5,7 @@
  * @returns HTML
  */
 function generateStartScreenHTML() {
-	return `
+    return `
 		<div class="start-screen-container">
 			<div class="start-screen-header">
 				<h1 class="start-screen-title">Sharkie</h1>
@@ -23,7 +23,7 @@ function generateStartScreenHTML() {
  * @returns HTML
  */
 function generateGameHTML() {
-	return `
+    return `
 		<h1 class="game-title">Sharkie</h1>
 		<canvas id="canvas" width="720" height="480"></canvas>
 	`;
@@ -34,7 +34,7 @@ function generateGameHTML() {
  * @returns HTML
  */
 function generateEndScreenHTML() {
-	return `
+    return `
 		<div class="end-screen-container">
 			<div class="end-screen-header">
 				<img src="img/6._Buttons/Titles/You_Win/Work_Table.png" class="end-screen-img" alt="End Screen Image">
@@ -52,7 +52,7 @@ function generateEndScreenHTML() {
  * @returns HTML
  */
 function generateMaxEndScreenHTML() {
-	return `
+    return `
 		<div class="end-screen-container">
 			<div class="end-screen-header">
 				<img src="img/6._Buttons/Titles/You_Win/Work_Table.png" class="end-screen-img" alt="End Screen Image">
@@ -72,7 +72,7 @@ function generateMaxEndScreenHTML() {
  * @returns HTML
  */
 function generateGameOverScreenHTML() {
-	return `
+    return `
 		<div class="end-screen-container">
 			<div>
 				<h2 class="game-over-screen-title">GAME OVER</h2>

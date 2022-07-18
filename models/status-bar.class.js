@@ -1,9 +1,9 @@
 /**
  * Status bars for the game
  */
- class StatusBar extends DrawableObject {
+class StatusBar extends DrawableObject {
     percentage;
-    
+
     constructor(type, color, percentage, x, y) {
         super();
         this.loadImages(STATUS_BAR_IMAGES.IMAGES[type][color]);

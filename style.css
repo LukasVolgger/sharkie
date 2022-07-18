@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url(img/3._Background/Layers/5._Water/D1.png);
-	background-size: cover;
+    background-size: cover;
     font-family: LuckiestGuy;
     margin: 0;
     overflow: hidden;
@@ -188,73 +188,73 @@ canvas {
 .settings-menu-heading {
     display: flex;
     justify-content: center;
-	margin-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .settings-menu-title {
     font-size: 56px;
     color: white;
     margin: 0;
-	padding: 0 32px 0 32px;
-	border-bottom: 6px solid white;
-	text-shadow: 0 0 2px #000000;
+    padding: 0 32px 0 32px;
+    border-bottom: 6px solid white;
+    text-shadow: 0 0 2px #000000;
 }
 
 .settings-menu-body {
     display: flex;
     flex-direction: column;
     height: 100%;
-	padding-top: 32px;
+    padding-top: 32px;
 }
 
 .settings-menu-row {
-	display: flex;
+    display: flex;
     align-items: center;
     gap: 16px;
     margin: 0 16px 0 16px;
     padding: 0 16px 0 16px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-	margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .doubled-row {
-	flex-direction: column;
-	align-items: unset;
+    flex-direction: column;
+    align-items: unset;
 }
 
 .settings-menu-sub-row {
-	display: flex;
+    display: flex;
     gap: 16px;
 }
 
 .settings-menu-row-title {
-	color: white;
-	font-size: 36px;
-	margin: 0;
-	text-shadow: 0 0 2px #000000;
+    color: white;
+    font-size: 36px;
+    margin: 0;
+    text-shadow: 0 0 2px #000000;
 }
 
 .settings-annotation {
-	color: #494949;
-	text-shadow: none;
+    color: #494949;
+    text-shadow: none;
 }
 
 .settings-menu-checkbox {
-	width: 32px;
-	height: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 .debugLevelNr-select {
-	width: 48px;
+    width: 48px;
     height: 36px;
     font-weight: 700;
     font-size: 24px;
-	color: #494949;
+    color: #494949;
 }
 
 .help-container {
-	position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -268,158 +268,149 @@ canvas {
 }
 
 .help-header {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
 }
 
 .help-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .help-row {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-	flex-wrap: wrap;
-	width: -webkit-fill-available;
+    flex-wrap: wrap;
+    width: -webkit-fill-available;
     gap: 16px;
-	margin: 0 32px 32px 32px;
-	padding: 0 16px 0 16px;
+    margin: 0 32px 32px 32px;
+    padding: 0 16px 0 16px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
 .help-sub-row {
-	display: flex;
+    display: flex;
     gap: 16px;
 }
 
 .help-instruction {
-	font-size: 32px;
+    font-size: 32px;
     color: white;
-	text-shadow: 0 0 2px #000000;
+    text-shadow: 0 0 2px #000000;
 }
 
 .help-img {
-	width: 140px;
-	object-fit: contain;
+    width: 140px;
+    object-fit: contain;
 }
 
 .help-img-key {
-	width: 64px;
-	object-fit: contain;
+    width: 64px;
+    object-fit: contain;
 }
 
 .help-img-sharkie {
-	width: 132px;
-	margin-top: -32px;
+    width: 132px;
+    margin-top: -32px;
 }
 
 .help-img-puffer-fish {
-	width: 96px;
-	margin-top: 13px;
+    width: 96px;
+    margin-top: 13px;
 }
 
 .help-img-jellyfish {
-	width: 64px;
-	object-fit: contain;
+    width: 64px;
+    object-fit: contain;
 }
 
 .help-img-endboss {
-	width: 120px;
-	margin-top: -48px;
-	object-fit: contain;
+    width: 120px;
+    margin-top: -48px;
+    object-fit: contain;
 }
 
 @media only screen and (max-width: 900px) {
-	#canvas {
-		width: 80%;
-	}
+    #canvas {
+        width: 80%;
+    }
 }
+
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-	
-}
+
+@media only screen and (max-width: 600px) {}
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) {
-	.settings-menu-title {
-		font-size: 48px;
-	}
-	
-	.settings-menu-row-title {
-		font-size: 28px;
-	}
-	
-	.debugLevelNr-select {
-		height: 28px;
-		font-size: 18px;
-	}
-	
-	.help-img {
-		width: 120px;
-	}
-	
-	.help-img-key {
-		width: 48px;
-	}
-	
-	.help-img-puffer-fish {
-		width: 64px;
-	}
-	
-	.help-img-endboss {
-		width: 100px;
-	}
-	
-	.help-img-jellyfish {
-		width: 46px;
-	}
-	
-	.help-instruction {
-		font-size: 20px;
-	}
+    .settings-menu-title {
+        font-size: 48px;
+    }
+    .settings-menu-row-title {
+        font-size: 28px;
+    }
+    .debugLevelNr-select {
+        height: 28px;
+        font-size: 18px;
+    }
+    .help-img {
+        width: 120px;
+    }
+    .help-img-key {
+        width: 48px;
+    }
+    .help-img-puffer-fish {
+        width: 64px;
+    }
+    .help-img-endboss {
+        width: 100px;
+    }
+    .help-img-jellyfish {
+        width: 46px;
+    }
+    .help-instruction {
+        font-size: 20px;
+    }
 }
+
 
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 768px) {
-	.settings-menu-title {
-		font-size: 56px;
-	}
-	
-	.settings-menu-row-title {
-		font-size: 36px;
-	}
-	
-	.debugLevelNr-select {
-		height: 36px;
-		font-size: 24px;
-	}
-	
-	.help-img {
-		width: 140px;
-	}
-	
-	.help-img-key {
-		width: 64px;
-	}
-	
-	.help-instruction {
-		font-size: 32px;
-	}
+    .settings-menu-title {
+        font-size: 56px;
+    }
+    .settings-menu-row-title {
+        font-size: 36px;
+    }
+    .debugLevelNr-select {
+        height: 36px;
+        font-size: 24px;
+    }
+    .help-img {
+        width: 140px;
+    }
+    .help-img-key {
+        width: 64px;
+    }
+    .help-instruction {
+        font-size: 32px;
+    }
 }
+
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-	
-}
+
+@media only screen and (min-width: 992px) {}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-	
-}
+
+@media only screen and (min-width: 1200px) {}

@@ -42,14 +42,15 @@ const level_1 = new Level(
     // ### x = coordinate
     // ### y = coordinate
     // #####################################################################################################
+
     [
-		new Coin(312, 192),
-		new Coin(508, 88),
-		new Coin(724, 28),
-		new Coin(1068, 244),
-		new Coin(1184, 184),
-		new Coin(1292, 120),
-		new Coin(1748, 276),
+        new Coin(312, 192),
+        new Coin(508, 88),
+        new Coin(724, 28),
+        new Coin(1068, 244),
+        new Coin(1184, 184),
+        new Coin(1292, 120),
+        new Coin(1748, 276),
     ],
 
     // ############################################### Life ###############################################
@@ -60,9 +61,9 @@ const level_1 = new Level(
     // ####################################################################################################
 
     [
-		new Life(544, 364),
-		new Life(1552, 388),
-		new Life(1988, 364)
+        new Life(544, 364),
+        new Life(1552, 388),
+        new Life(1988, 364)
     ],
 
     // ############################################### Poison ###############################################
@@ -74,9 +75,9 @@ const level_1 = new Level(
     // #######################################################################################################
 
     [
-		new Poison('animated', 308, 388),
-		new Poison('animated', 952, 392),	
-		new Poison('dark_right', 1916, 400)
+        new Poison('animated', 308, 388),
+        new Poison('animated', 952, 392),
+        new Poison('dark_right', 1916, 400)
     ],
 
     // ############################################### Enemies ###############################################
@@ -122,13 +123,13 @@ const level_1 = new Level(
     // ### startY = starting point Y for ai movement
     // #######################################################################################################
 
-    [,
-		new PufferFish('red', 244, 24, 'horizontal', 244, 600, 1.3, 1),
-		new PufferFish('green', 224, 380, 'horizontal', 224, 540, 1, 1),
-		new JellyFishRegular('lila', 860, 16, 'vertical', 16, 280, 1.5, 0),
-		new PufferFish('orange', 988, 20, 'horizontal', 988, 1296, 1.2, 1),
-		new PufferFish('green', 1064, 312, 'horizontal', 1064, 1360, 1.8, 1),
-		new JellyFishRegular('yellow', 1412, 52, 'vertical', 52, 250, 1.2, 0),
+    [
+        new PufferFish('red', 244, 24, 'horizontal', 244, 600, 1.3, 1),
+        new PufferFish('green', 224, 380, 'horizontal', 224, 540, 1, 1),
+        new JellyFishRegular('lila', 860, 16, 'vertical', 16, 280, 1.5, 0),
+        new PufferFish('orange', 988, 20, 'horizontal', 988, 1296, 1.2, 1),
+        new PufferFish('green', 1064, 312, 'horizontal', 1064, 1360, 1.8, 1),
+        new JellyFishRegular('yellow', 1412, 52, 'vertical', 52, 250, 1.2, 0),
         new EndBoss(2000, 50, 2000, 50)
     ],
 
@@ -146,7 +147,7 @@ const level_1 = new Level(
     // ########################################################################################################
 
     [
-		new BarrierWall(640, 120)
+        new BarrierWall(640, 120)
     ],
 
     // ############################################### level_end_x ###############################################

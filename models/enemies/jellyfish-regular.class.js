@@ -1,7 +1,7 @@
 /**
  * Jellyfish enemy object
  */
- class JellyFishRegular extends MovableObject {
+class JellyFishRegular extends MovableObject {
     width = 100;
     height = 100;
     energy = 5;

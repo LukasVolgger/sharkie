@@ -1,7 +1,7 @@
 /**
  * Game character object
  */
- class Character extends MovableObject {
+class Character extends MovableObject {
     world;
     width = 300;
     height = 300;
@@ -24,7 +24,7 @@
     lastMove = new Date().getTime();
     secondsUntilLongIdle = 10;
     hitBy;
-	isAlreadyDead;
+    isAlreadyDead;
     isFinSlapping = false;
     isBubbleTrapping = false;
     isCollidingWithBarrier = false;
@@ -40,8 +40,8 @@
     ELECTRIC_ZAP_SOUND = new Audio('audio/electric_zap.mp3');
     COIN_SOUND = new Audio('audio/coin.mp3');
     COLLECT_SOUND = new Audio('audio/collect.mp3');
-	BUBBLING_SOUND = new Audio('audio/bubbling.mp3');
-	LIFE_SOUND = new Audio('audio/health.mp3');
+    BUBBLING_SOUND = new Audio('audio/bubbling.mp3');
+    LIFE_SOUND = new Audio('audio/health.mp3');
 
     constructor() {
         super();
@@ -58,7 +58,7 @@
             this.loadImages(SHARKIE_IMAGES.BUBBLE_TRAP);
             this.animate();
             this.characterEvents();
-			this.characterSounds();
+            this.characterSounds();
             this.triggerEndboss();
         }
     }
@@ -70,10 +70,10 @@
         setInterval(() => {
             if (this.isDead() && this.hitBy == 'PufferFish' || this.isDead() && this.hitBy == 'EndBoss') {
                 this.playAnimation(SHARKIE_IMAGES.DIE_POISONED, 0);
-				characterIsDead = true;
+                characterIsDead = true;
             } else if (this.isDead() && this.hitBy == 'JellyFish') {
                 this.playAnimation(SHARKIE_IMAGES.DIE_ELECTRIC_SHOCK, 0);
-				characterIsDead = true;
+                characterIsDead = true;
             } else if (this.isHurt() && this.hitBy == 'PufferFish' || this.isHurt() && this.hitBy == 'EndBoss') {
                 this.playAnimation(SHARKIE_IMAGES.HURT_POISONED, 1);
             } else if (this.isHurt() && this.hitBy == 'JellyFish') {
@@ -90,7 +90,7 @@
         setInterval(() => {
             if (this.world.keyboard.SPACE && !this.isDead()) {
                 this.finSlapAttack();
-			this.playAnimation(SHARKIE_IMAGES.FIN_SLAP, 0);
+                this.playAnimation(SHARKIE_IMAGES.FIN_SLAP, 0);
             } else if (this.world.keyboard.D && !this.isDead()) {
                 this.bubbleTrapAttack();
                 this.playAnimation(SHARKIE_IMAGES.BUBBLE_TRAP, 0);
@@ -131,78 +131,78 @@
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
         }, 1000 / 60)
     }
-	
-	/**
+
+    /**
      * Handle all character sounds
      */
     characterSounds() {
         setInterval(() => {
-			if (soundOn) {
-				
-				// Swim sound	
-				if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
-					this.SWIM_SOUND.pause();
-					this.SWIM_SOUND.play();
-				}
-				
-				// Dying sound
-				if (this.isDead() && !this.isAlreadyDead) {
-					this.DYING_SOUND.play();
-					this.isAlreadyDead = true;
-				}
-				
-				// Slap sound
-				if (this.isFinSlapping) {
-					this.SLAP_SOUND.play();
-				}
-				
-				// Bubble sound
-				if (this.isBubbleTrapping) {
-					this.BUBBLE_SOUND.play();
-				}
-				
-				// Bubbling sound
-				this.world.level.enemies.forEach(enemy => {
-					if (this.world.bubble) {
-						if (this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous || this.world.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
-							this.BUBBLING_SOUND.currentTime = 0;
-							this.BUBBLING_SOUND.play();
-						}
-					}
-				});
-				
-				// Hurt sounds
-				this.world.level.enemies.forEach(enemy => {
-					if (this.isColliding(enemy) && !this.isDead() && !enemy.isDead() && !this.isFinSlapping) {
-						if (enemy instanceof PufferFish || enemy instanceof EndBoss) {
-							this.HURT_SOUND.play();
-						} else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
-							this.ELECTRIC_ZAP_SOUND.play();
-						} 
-					}
-				});
-				
-				// Coin sound
-				this.world.level.coins.forEach(coin => {
-					if (this.isColliding(coin)) {
-						this.COIN_SOUND.play();
-					}
-				});
-				
-				// Collect sound
-				this.world.level.poison.forEach(poison => {
-					if (this.isColliding(poison)) {
-						this.COLLECT_SOUND.play();
-					}
-				});
-				
-				// Life sound
-				this.world.level.life.forEach(life => {
-					if (this.isColliding(life)) {
-						this.LIFE_SOUND.play();
-					}
-				});
-			}
+            if (soundOn) {
+
+                // Swim sound	
+                if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+                    this.SWIM_SOUND.pause();
+                    this.SWIM_SOUND.play();
+                }
+
+                // Dying sound
+                if (this.isDead() && !this.isAlreadyDead) {
+                    this.DYING_SOUND.play();
+                    this.isAlreadyDead = true;
+                }
+
+                // Slap sound
+                if (this.isFinSlapping) {
+                    this.SLAP_SOUND.play();
+                }
+
+                // Bubble sound
+                if (this.isBubbleTrapping) {
+                    this.BUBBLE_SOUND.play();
+                }
+
+                // Bubbling sound
+                this.world.level.enemies.forEach(enemy => {
+                    if (this.world.bubble) {
+                        if (this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishRegular || this.world.bubble.isColliding(enemy) && enemy instanceof JellyFishDangerous || this.world.bubble.isColliding(enemy) && enemy instanceof EndBoss) {
+                            this.BUBBLING_SOUND.currentTime = 0;
+                            this.BUBBLING_SOUND.play();
+                        }
+                    }
+                });
+
+                // Hurt sounds
+                this.world.level.enemies.forEach(enemy => {
+                    if (this.isColliding(enemy) && !this.isDead() && !enemy.isDead() && !this.isFinSlapping) {
+                        if (enemy instanceof PufferFish || enemy instanceof EndBoss) {
+                            this.HURT_SOUND.play();
+                        } else if (enemy instanceof JellyFishRegular || enemy instanceof JellyFishDangerous) {
+                            this.ELECTRIC_ZAP_SOUND.play();
+                        }
+                    }
+                });
+
+                // Coin sound
+                this.world.level.coins.forEach(coin => {
+                    if (this.isColliding(coin)) {
+                        this.COIN_SOUND.play();
+                    }
+                });
+
+                // Collect sound
+                this.world.level.poison.forEach(poison => {
+                    if (this.isColliding(poison)) {
+                        this.COLLECT_SOUND.play();
+                    }
+                });
+
+                // Life sound
+                this.world.level.life.forEach(life => {
+                    if (this.isColliding(life)) {
+                        this.LIFE_SOUND.play();
+                    }
+                });
+            }
         }, 1000 / 60)
     }
 
@@ -212,8 +212,8 @@
      */
     moveCharacter(direction) {
         if (debugLogStatements) {
-			console.log('Character position: ', this.x, ', ', this.y);
-		}
+            console.log('Character position: ', this.x, ', ', this.y);
+        }
         this.lastMove = new Date().getTime();
 
         this.checkBarrierCollisions(direction);
@@ -255,28 +255,28 @@
         // Check collisions with barriers and save from which direction the collision occurs
         if (direction == 'right' && collidingWithBarrierX && !this.isCollidingWithBarrierLeft) {
             this.isCollidingWithBarrierRight = true;
-            
-			if (debugLogStatements) {
-				console.log('Collision with Barrier from R - L');
-			}
+
+            if (debugLogStatements) {
+                console.log('Collision with Barrier from R - L');
+            }
         } else if (direction == 'left' && collidingWithBarrierX && !this.isCollidingWithBarrierRight) {
             this.isCollidingWithBarrierLeft = true;
-            
-			if (debugLogStatements) {
-				console.log('Collision with Barrier from L - R');
-			}
+
+            if (debugLogStatements) {
+                console.log('Collision with Barrier from L - R');
+            }
         } else if (direction == 'up' && collidingWithBarrierY && !this.isCollidingWithBarrierDown) {
             this.isCollidingWithBarrierUp = true;
-            
-			if (debugLogStatements) {
-				console.log('Collision with Barrier from D - U');
-			}
+
+            if (debugLogStatements) {
+                console.log('Collision with Barrier from D - U');
+            }
         } else if (direction == 'down' && collidingWithBarrierY && !this.isCollidingWithBarrierUp) {
             this.isCollidingWithBarrierDown = true;
-            
-			if (debugLogStatements) {
-				console.log('Collision with Barrier from U - D');
-			}
+
+            if (debugLogStatements) {
+                console.log('Collision with Barrier from U - D');
+            }
         }
     }
 

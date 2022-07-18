@@ -1,5 +1,5 @@
 let SHARKIE_IMAGES = {
-	'IDLE': [
+    'IDLE': [
         'img/1._Sharkie/1._Idle/1.png',
         'img/1._Sharkie/1._Idle/2.png',
         'img/1._Sharkie/1._Idle/3.png',
@@ -19,8 +19,8 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/1._Idle/17.png',
         'img/1._Sharkie/1._Idle/18.png'
     ],
-	
-	'LONG_IDLE': [
+
+    'LONG_IDLE': [
         'img/1._Sharkie/2._Long_Idle/1.png',
         'img/1._Sharkie/2._Long_Idle/2.png',
         'img/1._Sharkie/2._Long_Idle/3.png',
@@ -36,8 +36,8 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/2._Long_Idle/13.png',
         'img/1._Sharkie/2._Long_Idle/14.png'
     ],
-	
-	'SWIM': [
+
+    'SWIM': [
         'img/1._Sharkie/3._Swim/1.png',
         'img/1._Sharkie/3._Swim/2.png',
         'img/1._Sharkie/3._Swim/3.png',
@@ -45,21 +45,21 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/3._Swim/5.png',
         'img/1._Sharkie/3._Swim/6.png'
     ],
-	
-	'HURT_POISONED': [
+
+    'HURT_POISONED': [
         'img/1._Sharkie/5._Hurt/1._Poisoned/1.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/2.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/3.png',
         'img/1._Sharkie/5._Hurt/1._Poisoned/4.png'
     ],
-	
-	'HURT_ELECTRIC_SHOCK': [
+
+    'HURT_ELECTRIC_SHOCK': [
         'img/1._Sharkie/5._Hurt/2._Electric_Shock/1.png',
         'img/1._Sharkie/5._Hurt/2._Electric_Shock/2.png',
         'img/1._Sharkie/5._Hurt/2._Electric_Shock/3.png'
     ],
-	
-	'DIE_POISONED': [
+
+    'DIE_POISONED': [
         'img/1._Sharkie/6._Dead/1._Poisoned/1.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/2.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/3.png',
@@ -73,8 +73,8 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/6._Dead/1._Poisoned/11.png',
         'img/1._Sharkie/6._Dead/1._Poisoned/12.png'
     ],
-	
-	'DIE_ELECTRIC_SHOCK': [
+
+    'DIE_ELECTRIC_SHOCK': [
         'img/1._Sharkie/6._Dead/2._Electric_Shock/1.png',
         'img/1._Sharkie/6._Dead/2._Electric_Shock/2.png',
         'img/1._Sharkie/6._Dead/2._Electric_Shock/3.png',
@@ -86,8 +86,8 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/6._Dead/2._Electric_Shock/9.png',
         'img/1._Sharkie/6._Dead/2._Electric_Shock/10.png'
     ],
-	
-	'FIN_SLAP': [
+
+    'FIN_SLAP': [
         'img/1._Sharkie/4._Attack/Fin_Slap/1.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/2.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/3.png',
@@ -97,8 +97,8 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/4._Attack/Fin_Slap/7.png',
         'img/1._Sharkie/4._Attack/Fin_Slap/8.png'
     ],
-	
-	'BUBBLE_TRAP': [
+
+    'BUBBLE_TRAP': [
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/1.png',
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/2.png',
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/3.png',
@@ -111,7 +111,7 @@ let SHARKIE_IMAGES = {
 };
 
 let ENDBOSS_IMAGES = {
-	'INTRODUCE': [
+    'INTRODUCE': [
         'img/2._Enemy/3._Final_Enemy/1._Introduce/1.png',
         'img/2._Enemy/3._Final_Enemy/1._Introduce/2.png',
         'img/2._Enemy/3._Final_Enemy/1._Introduce/3.png',
@@ -167,7 +167,7 @@ let ENDBOSS_IMAGES = {
 };
 
 let JELLYFISH_DANGEROUS_IMAGES = {
-	'SWIM': {
+    'SWIM': {
         'green': [
             'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_1.png',
             'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_2.png',
@@ -199,7 +199,7 @@ let JELLYFISH_DANGEROUS_IMAGES = {
 };
 
 let JELLYFISH_REGULAR_IMAGES = {
-	'SWIM': {
+    'SWIM': {
         'lila': [
             'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png',
             'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_2.png',
@@ -231,7 +231,7 @@ let JELLYFISH_REGULAR_IMAGES = {
 };
 
 let PUFFER_FISH_IMAGES = {
-	'SWIM': {
+    'SWIM': {
         'green': [
             'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png',
             'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_2.png',
@@ -284,7 +284,7 @@ let PUFFER_FISH_IMAGES = {
             'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
         ]
     },
-	
+
     'DEAD': {
         'green': [
             'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/1._Dead_1.png'
@@ -298,8 +298,8 @@ let PUFFER_FISH_IMAGES = {
     }
 };
 
-let STATUS_BAR_IMAGES  = {
-	'IMAGES': {
+let STATUS_BAR_IMAGES = {
+    'IMAGES': {
         'coins': {
             'green': [
                 'img/4._Marks/Status_Bars/Coins/Green/0.png',
@@ -326,7 +326,7 @@ let STATUS_BAR_IMAGES  = {
                 'img/4._Marks/Status_Bars/Coins/Purple/100.png'
             ]
         },
-		
+
         'life': {
             'green': [
                 'img/4._Marks/Status_Bars/Life/Green/0.png',
@@ -353,7 +353,7 @@ let STATUS_BAR_IMAGES  = {
                 'img/4._Marks/Status_Bars/Life/Purple/100.png'
             ]
         },
-		
+
         'poison': {
             'green': [
                 'img/4._Marks/Status_Bars/Poison/Green/0.png',
@@ -384,7 +384,7 @@ let STATUS_BAR_IMAGES  = {
 };
 
 let BACKGROUND_IMAGES = {
-	'IMAGES': {
+    'IMAGES': {
         'light': {
             1: [
                 'img/3._Background/Layers/5._Water/L1.png',
@@ -422,7 +422,7 @@ let BACKGROUND_IMAGES = {
 };
 
 let POISON_IMAGES = {
-	'IMAGES': {
+    'IMAGES': {
         'animated': [
             'img/4._Marks/Poison/Animated/1.png',
             'img/4._Marks/Poison/Animated/2.png',

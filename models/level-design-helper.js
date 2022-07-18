@@ -2,7 +2,7 @@
  * Debug character object
  * Used to be able to position objects more precisely in the world for level design
  */
- class LevelDesignHelper extends MovableObject {
+class LevelDesignHelper extends MovableObject {
     world;
     width = 50;
     height = 50;
@@ -61,8 +61,8 @@
      */
     moveCharacter(direction) {
         if (debugLogStatements) {
-			console.log('Position: ', this.x, ', ', this.y);
-		}
+            console.log('Position: ', this.x, ', ', this.y);
+        }
 
         if (direction == 'up') {
             this.y -= this.speed;

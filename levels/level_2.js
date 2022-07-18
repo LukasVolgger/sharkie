@@ -34,8 +34,8 @@ const level_2 = new Level(
         new BackgroundObject('dark', 2, 2, 3),
         new BackgroundObject('dark', 2, 3, 3),
         new BackgroundObject('dark', 2, 4, 3),
-		
-		new BackgroundObject('dark', 1, 0, 4),
+
+        new BackgroundObject('dark', 1, 0, 4),
         new BackgroundObject('dark', 1, 1, 4),
         new BackgroundObject('dark', 1, 2, 4),
         new BackgroundObject('dark', 1, 3, 4),
@@ -48,6 +48,7 @@ const level_2 = new Level(
     // ### x = coordinate
     // ### y = coordinate
     // #####################################################################################################
+
     [
         new Coin(548, 252),
         new Coin(612, 180),
@@ -78,7 +79,7 @@ const level_2 = new Level(
     // #######################################################################################################
 
     [
-		new Poison('dark_right', 96, 412),
+        new Poison('dark_right', 96, 412),
         new Poison('animated', 1128, 412),
         new Poison('dark_right', 1588, 404)
     ],
@@ -132,7 +133,7 @@ const level_2 = new Level(
         new JellyFishDangerous('green', 1172, 64, 'vertical', 64, 300, 2, 0),
         new PufferFish('red', 1420, 352, 'horizontal', 1420, 1644, 1.5, 1),
         new PufferFish('green', 1924, 184, 'horizontal', 1924, 2396, 2.5, 1),
-		new JellyFishDangerous('pink', 2572, 52, 'vertical', 52, 332, 1.5, 0),
+        new JellyFishDangerous('pink', 2572, 52, 'vertical', 52, 332, 1.5, 0),
         new EndBoss(3000, 50, 3000, 50)
     ],
 
@@ -149,11 +150,11 @@ const level_2 = new Level(
     // ### y = coordinate (y = 290 is on floor)
     // ########################################################################################################
 
-    [	
-		new BarrierRock(300, 290),
-		new BarrierWall(1380, -250),
-		new BarrierTunnelAbove(1800, 0),
-		new BarrierTunnelBelow(1800, 290)
+    [
+        new BarrierRock(300, 290),
+        new BarrierWall(1380, -250),
+        new BarrierTunnelAbove(1800, 0),
+        new BarrierTunnelBelow(1800, 290)
     ],
 
     // ############################################### level_end_x ###############################################
