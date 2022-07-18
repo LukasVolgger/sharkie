@@ -1,7 +1,7 @@
 /**
  * Jellyfish enemy object
  */
-class JellyFishDangerous extends MovableObject {
+ class JellyFishDangerous extends MovableObject {
     width = 100;
     height = 100;
     energy = 5;
@@ -12,40 +12,11 @@ class JellyFishDangerous extends MovableObject {
         width: 0,
         height: 8
     }
-    IMAGES = {
-        'green': [
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_1.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_2.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_3.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_4.png'
-        ],
-        'pink': [
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_1.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_2.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_3.png',
-            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_4.png'
-        ]
-    };
-
-    IMAGES_DEAD = {
-        'green': [
-            'img/2._Enemy/2._Jellyfish/Dead/Green/G1.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Green/G2.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Green/G3.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Green/G4.png'
-        ],
-        'pink': [
-            'img/2._Enemy/2._Jellyfish/Dead/Pink/P1.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Pink/P2.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Pink/P3.png',
-            'img/2._Enemy/2._Jellyfish/Dead/Pink/P4.png'
-        ]
-    };
 
     constructor(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         super().loadImage('img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png');
-        this.loadImages(this.IMAGES[color]);
-        this.loadImages(this.IMAGES_DEAD[color]);
+        this.loadImages(JELLYFISH_DANGEROUS_IMAGES.SWIM[color]);
+        this.loadImages(JELLYFISH_DANGEROUS_IMAGES.DEAD[color]);
         this.x = x;
         this.y = y;
 
@@ -72,9 +43,9 @@ class JellyFishDangerous extends MovableObject {
 
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD[color], 1);
+                this.playAnimation(JELLYFISH_DANGEROUS_IMAGES.DEAD[color], 1);
             } else {
-                this.playAnimation(this.IMAGES[color], 1);
+                this.playAnimation(JELLYFISH_DANGEROUS_IMAGES.SWIM[color], 1);
             }
         }, 250)
     }

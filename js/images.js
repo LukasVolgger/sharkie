@@ -165,3 +165,135 @@ let ENDBOSS_IMAGES = {
         'img/2._Enemy/3._Final_Enemy/Attack/6.png'
     ]
 };
+
+let JELLYFISH_DANGEROUS_IMAGES = {
+	'SWIM': {
+        'green': [
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_1.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_2.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_3.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Green_4.png'
+        ],
+        'pink': [
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_1.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_2.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_3.png',
+            'img/2._Enemy/2._Jellyfish/Super_Dangerous/Pink_4.png'
+        ]
+    },
+
+    'DEAD': {
+        'green': [
+            'img/2._Enemy/2._Jellyfish/Dead/Green/G1.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Green/G2.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Green/G3.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Green/G4.png'
+        ],
+        'pink': [
+            'img/2._Enemy/2._Jellyfish/Dead/Pink/P1.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Pink/P2.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Pink/P3.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Pink/P4.png'
+        ]
+    }
+};
+
+let JELLYFISH_REGULAR_IMAGES = {
+	'SWIM': {
+        'lila': [
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_2.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_3.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_4.png'
+        ],
+        'yellow': [
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_1.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_2.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_3.png',
+            'img/2._Enemy/2._Jellyfish/Regular_Damage/Yellow_4.png'
+        ]
+    },
+
+    'DEAD': {
+        'lila': [
+            'img/2._Enemy/2._Jellyfish/Dead/Lila/L1.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Lila/L2.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Lila/L3.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Lila/L4.png'
+        ],
+        'yellow': [
+            'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y1.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y2.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y3.png',
+            'img/2._Enemy/2._Jellyfish/Dead/Yellow/Y4.png'
+        ]
+    }
+};
+
+let PUFFER_FISH_IMAGES = {
+	'SWIM': {
+        'green': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_1.png',
+        ],
+        'orange': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_1.png',
+        ],
+        'red': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_5.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_4.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_3.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_2.png',
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
+        ]
+    },
+	
+    'DEAD': {
+        'green': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/1._Dead_1.png'
+        ],
+        'orange': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/2._Dead_1.png'
+        ],
+        'red': [
+            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/3._Dead_1.png'
+        ]
+    }
+};

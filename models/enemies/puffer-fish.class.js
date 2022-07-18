@@ -1,7 +1,7 @@
 /**
  * Puffer fish enemy object
  */
-class PufferFish extends MovableObject {
+ class PufferFish extends MovableObject {
     width = 100;
     height = 100;
     energy = 5;
@@ -13,75 +13,11 @@ class PufferFish extends MovableObject {
         width: 5,
         height: 24
     }
-    IMAGES_SWIM = {
-        'green': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/1._Transition_1.png',
-        ],
-        'orange': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/2._Swim_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/2._Transition_1.png',
-        ],
-        'red': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/3._Swim_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_5.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_4.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_3.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_2.png',
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/2._Transition/3._Transition_1.png',
-        ]
-    };
-    IMAGES_DEAD = {
-        'green': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/1._Dead_1.png'
-        ],
-        'orange': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/2._Dead_1.png'
-        ],
-        'red': [
-            'img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/4._Dead/3._Dead_1.png'
-        ]
-    };
 
     constructor(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
         super().loadImage('img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
-        this.loadImages(this.IMAGES_SWIM[color]);
-        this.loadImages(this.IMAGES_DEAD[color]);
+        this.loadImages(PUFFER_FISH_IMAGES.SWIM[color]);
+        this.loadImages(PUFFER_FISH_IMAGES.DEAD[color]);
         this.x = x;
         this.y = y;
 
@@ -107,9 +43,9 @@ class PufferFish extends MovableObject {
 
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD[color], 0);
+                this.playAnimation(PUFFER_FISH_IMAGES.DEAD[color], 0);
             } else {
-                this.playAnimation(this.IMAGES_SWIM[color], 1);
+                this.playAnimation(PUFFER_FISH_IMAGES.SWIM[color], 1);
             }
         }, 250)
     }
