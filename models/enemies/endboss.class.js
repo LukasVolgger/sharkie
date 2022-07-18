@@ -27,70 +27,16 @@
         width: 20,
         height: 45
     }
-    IMAGES_INTRODUCE = [
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/1.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/2.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/3.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/4.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/5.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/6.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/7.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/8.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/9.png',
-        'img/2._Enemy/3._Final_Enemy/1._Introduce/10.png'
-    ];
-
-    IMAGES_FLOATING = [
-        'img/2._Enemy/3._Final_Enemy/2._Floating/1.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/2.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/3.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/4.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/5.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/6.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/7.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/8.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/9.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/10.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/11.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/12.png',
-        'img/2._Enemy/3._Final_Enemy/2._Floating/13.png'
-    ];
-
-    IMAGES_HURT = [
-        'img/2._Enemy/3._Final_Enemy/Hurt/1.png',
-        'img/2._Enemy/3._Final_Enemy/Hurt/2.png',
-        'img/2._Enemy/3._Final_Enemy/Hurt/3.png',
-        'img/2._Enemy/3._Final_Enemy/Hurt/4.png'
-    ];
-
-    IMAGES_DEAD = [
-        'img/2._Enemy/3._Final_Enemy/Dead/1.png',
-        'img/2._Enemy/3._Final_Enemy/Dead/2.png',
-        'img/2._Enemy/3._Final_Enemy/Dead/3.png',
-        'img/2._Enemy/3._Final_Enemy/Dead/4.png',
-        'img/2._Enemy/3._Final_Enemy/Dead/5.png',
-        'img/2._Enemy/3._Final_Enemy/Dead/6.png'
-    ];
-
-    IMAGES_ATTACK = [
-        'img/2._Enemy/3._Final_Enemy/Attack/1.png',
-        'img/2._Enemy/3._Final_Enemy/Attack/2.png',
-        'img/2._Enemy/3._Final_Enemy/Attack/3.png',
-        'img/2._Enemy/3._Final_Enemy/Attack/4.png',
-        'img/2._Enemy/3._Final_Enemy/Attack/5.png',
-        'img/2._Enemy/3._Final_Enemy/Attack/6.png'
-    ];
-	
 	SPLASH_SOUND = new Audio('audio/splash.mp3');
 	BITE_SOUND = new Audio('audio/bite.mp3');
 
     constructor(x, y, startX, startY) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently
-        this.loadImages(this.IMAGES_FLOATING);
-        this.loadImages(this.IMAGES_INTRODUCE);
-        this.loadImages(this.IMAGES_HURT);
-        this.loadImages(this.IMAGES_DEAD);
-        this.loadImages(this.IMAGES_ATTACK);
+        this.loadImages(ENDBOSS_IMAGES.FLOATING);
+        this.loadImages(ENDBOSS_IMAGES.INTRODUCE);
+        this.loadImages(ENDBOSS_IMAGES.HURT);
+        this.loadImages(ENDBOSS_IMAGES.DEAD);
+        this.loadImages(ENDBOSS_IMAGES.ATTACK);
         this.animate();
         this.x = x;
         this.y = y;
@@ -104,21 +50,21 @@
     animate() {
         setInterval(() => {
             if (this.endBossIntroduced && !this.isHurt() && !this.isDead() && !this.isCollidingWithCharacter) {
-                this.playAnimation(this.IMAGES_FLOATING, 1);
+                this.playAnimation(ENDBOSS_IMAGES.FLOATING, 1);
 
                 if (!this.world.character.isDead()) {
                     this.aiMovement();
                 }
             } else if (this.isHurt() && !this.isDead()) {
-                this.playAnimation(this.IMAGES_HURT, 1);
+                this.playAnimation(ENDBOSS_IMAGES.HURT, 1);
             } else if (this.isDead()) {
-                this.playAnimation(this.IMAGES_DEAD, 0);
+                this.playAnimation(ENDBOSS_IMAGES.DEAD, 0);
 				endBossKilled = true;
             } else if (this.endBossTriggered) {
                 this.introduceEndBoss();
             } else if (this.isCollidingWithCharacter) {
                 this.attackAnimation();
-                this.playAnimation(this.IMAGES_ATTACK, 0);
+                this.playAnimation(ENDBOSS_IMAGES.ATTACK, 0);
             }
         }, 150)
     }
@@ -239,7 +185,7 @@
      * EndBoss introduce animation
      */
     introduceEndBoss() {
-        this.playAnimation(this.IMAGES_INTRODUCE, 0);
+        this.playAnimation(ENDBOSS_IMAGES.INTRODUCE, 0);
         this.endBossAlreadyTriggered = true;
 		
 		if (soundOn) {

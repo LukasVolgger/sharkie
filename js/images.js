@@ -109,3 +109,59 @@ let SHARKIE_IMAGES = {
         'img/1._Sharkie/4._Attack/Bubble_Trap/Op1_(With_Bubble_Formation)/8.png'
     ]
 };
+
+let ENDBOSS_IMAGES = {
+	'INTRODUCE': [
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/1.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/2.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/3.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/4.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/5.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/6.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/7.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/8.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/9.png',
+        'img/2._Enemy/3._Final_Enemy/1._Introduce/10.png'
+    ],
+
+    'FLOATING': [
+        'img/2._Enemy/3._Final_Enemy/2._Floating/1.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/2.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/3.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/4.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/5.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/6.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/7.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/8.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/9.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/10.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/11.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/12.png',
+        'img/2._Enemy/3._Final_Enemy/2._Floating/13.png'
+    ],
+
+    'HURT': [
+        'img/2._Enemy/3._Final_Enemy/Hurt/1.png',
+        'img/2._Enemy/3._Final_Enemy/Hurt/2.png',
+        'img/2._Enemy/3._Final_Enemy/Hurt/3.png',
+        'img/2._Enemy/3._Final_Enemy/Hurt/4.png'
+    ],
+
+    'DEAD': [
+        'img/2._Enemy/3._Final_Enemy/Dead/1.png',
+        'img/2._Enemy/3._Final_Enemy/Dead/2.png',
+        'img/2._Enemy/3._Final_Enemy/Dead/3.png',
+        'img/2._Enemy/3._Final_Enemy/Dead/4.png',
+        'img/2._Enemy/3._Final_Enemy/Dead/5.png',
+        'img/2._Enemy/3._Final_Enemy/Dead/6.png'
+    ],
+
+    'ATTACK': [
+        'img/2._Enemy/3._Final_Enemy/Attack/1.png',
+        'img/2._Enemy/3._Final_Enemy/Attack/2.png',
+        'img/2._Enemy/3._Final_Enemy/Attack/3.png',
+        'img/2._Enemy/3._Final_Enemy/Attack/4.png',
+        'img/2._Enemy/3._Final_Enemy/Attack/5.png',
+        'img/2._Enemy/3._Final_Enemy/Attack/6.png'
+    ]
+};
