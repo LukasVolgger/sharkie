@@ -1,39 +1,11 @@
 /**
  * Poison object
  */
-class Poison extends MovableObject {
-    IMAGES = {
-        'animated': [
-            'img/4._Marks/Poison/Animated/1.png',
-            'img/4._Marks/Poison/Animated/2.png',
-            'img/4._Marks/Poison/Animated/3.png',
-            'img/4._Marks/Poison/Animated/4.png',
-            'img/4._Marks/Poison/Animated/5.png',
-            'img/4._Marks/Poison/Animated/6.png',
-            'img/4._Marks/Poison/Animated/7.png',
-            'img/4._Marks/Poison/Animated/8.png'
-        ],
-
-        'light_left': [
-            'img/4._Marks/Poison/Light_Left.png'
-        ],
-
-        'light_right': [
-            'img/4._Marks/Poison/Light_Right.png'
-        ],
-
-        'dark_left': [
-            'img/4._Marks/Poison/Dark_Left.png'
-        ],
-
-        'dark_right': [
-            'img/4._Marks/Poison/Dark_Right.png'
-        ]
-    }
+ class Poison extends MovableObject {
 
     constructor(type, x, y) {
         super().loadImage('img/4._Marks/Poison/Light_Left.png');
-        this.loadImages(this.IMAGES[type]);
+        this.loadImages(POISON_IMAGES.IMAGES[type]);
         this.width = 50;
         this.height = 50;
         this.x = x;
@@ -48,7 +20,7 @@ class Poison extends MovableObject {
      */
     animate(type) {
         setInterval(() => {
-            this.playAnimation(this.IMAGES[type], 1);
+            this.playAnimation(POISON_IMAGES.IMAGES[type], 1);
         }, 250)
     }
 }

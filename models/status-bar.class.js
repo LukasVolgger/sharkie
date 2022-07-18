@@ -1,92 +1,12 @@
 /**
  * Status bars for the game
  */
-class StatusBar extends DrawableObject {
+ class StatusBar extends DrawableObject {
     percentage;
-    IMAGES = {
-        'coins': {
-            'green': [
-                'img/4._Marks/Status_Bars/Coins/Green/0.png',
-                'img/4._Marks/Status_Bars/Coins/Green/20.png',
-                'img/4._Marks/Status_Bars/Coins/Green/40.png',
-                'img/4._Marks/Status_Bars/Coins/Green/60.png',
-                'img/4._Marks/Status_Bars/Coins/Green/80.png',
-                'img/4._Marks/Status_Bars/Coins/Green/100.png'
-            ],
-            'orange': [
-                'img/4._Marks/Status_Bars/Coins/Orange/0.png',
-                'img/4._Marks/Status_Bars/Coins/Orange/20.png',
-                'img/4._Marks/Status_Bars/Coins/Orange/40.png',
-                'img/4._Marks/Status_Bars/Coins/Orange/60.png',
-                'img/4._Marks/Status_Bars/Coins/Orange/80.png',
-                'img/4._Marks/Status_Bars/Coins/Orange/100.png'
-            ],
-            'purple': [
-                'img/4._Marks/Status_Bars/Coins/Purple/0.png',
-                'img/4._Marks/Status_Bars/Coins/Purple/20.png',
-                'img/4._Marks/Status_Bars/Coins/Purple/40.png',
-                'img/4._Marks/Status_Bars/Coins/Purple/60.png',
-                'img/4._Marks/Status_Bars/Coins/Purple/80.png',
-                'img/4._Marks/Status_Bars/Coins/Purple/100.png'
-            ]
-        },
-        'life': {
-            'green': [
-                'img/4._Marks/Status_Bars/Life/Green/0.png',
-                'img/4._Marks/Status_Bars/Life/Green/20.png',
-                'img/4._Marks/Status_Bars/Life/Green/40.png',
-                'img/4._Marks/Status_Bars/Life/Green/60.png',
-                'img/4._Marks/Status_Bars/Life/Green/80.png',
-                'img/4._Marks/Status_Bars/Life/Green/100.png'
-            ],
-            'orange': [
-                'img/4._Marks/Status_Bars/Life/Orange/0.png',
-                'img/4._Marks/Status_Bars/Life/Orange/20.png',
-                'img/4._Marks/Status_Bars/Life/Orange/40.png',
-                'img/4._Marks/Status_Bars/Life/Orange/60.png',
-                'img/4._Marks/Status_Bars/Life/Orange/80.png',
-                'img/4._Marks/Status_Bars/Life/Orange/100.png'
-            ],
-            'purple': [
-                'img/4._Marks/Status_Bars/Life/Purple/0.png',
-                'img/4._Marks/Status_Bars/Life/Purple/20.png',
-                'img/4._Marks/Status_Bars/Life/Purple/40.png',
-                'img/4._Marks/Status_Bars/Life/Purple/60.png',
-                'img/4._Marks/Status_Bars/Life/Purple/80.png',
-                'img/4._Marks/Status_Bars/Life/Purple/100.png'
-            ]
-        },
-        'poison': {
-            'green': [
-                'img/4._Marks/Status_Bars/Poison/Green/0.png',
-                'img/4._Marks/Status_Bars/Poison/Green/20.png',
-                'img/4._Marks/Status_Bars/Poison/Green/40.png',
-                'img/4._Marks/Status_Bars/Poison/Green/60.png',
-                'img/4._Marks/Status_Bars/Poison/Green/80.png',
-                'img/4._Marks/Status_Bars/Poison/Green/100.png'
-            ],
-            'orange': [
-                'img/4._Marks/Status_Bars/Poison/Orange/0.png',
-                'img/4._Marks/Status_Bars/Poison/Orange/20.png',
-                'img/4._Marks/Status_Bars/Poison/Orange/40.png',
-                'img/4._Marks/Status_Bars/Poison/Orange/60.png',
-                'img/4._Marks/Status_Bars/Poison/Orange/80.png',
-                'img/4._Marks/Status_Bars/Poison/Orange/100.png'
-            ],
-            'purple': [
-                'img/4._Marks/Status_Bars/Poison/Purple/0.png',
-                'img/4._Marks/Status_Bars/Poison/Purple/20.png',
-                'img/4._Marks/Status_Bars/Poison/Purple/40.png',
-                'img/4._Marks/Status_Bars/Poison/Purple/60.png',
-                'img/4._Marks/Status_Bars/Poison/Purple/80.png',
-                'img/4._Marks/Status_Bars/Poison/Purple/100.png'
-            ]
-        }
-    };
-
+    
     constructor(type, color, percentage, x, y) {
         super();
-        this.loadImages(this.IMAGES[type][color]);
+        this.loadImages(STATUS_BAR_IMAGES.IMAGES[type][color]);
         this.setPercentage(percentage, type, color);
         this.x = x;
         this.y = y;
@@ -104,7 +24,7 @@ class StatusBar extends DrawableObject {
      */
     setPercentage(percentage, type, color) {
         this.percentage = percentage;
-        let path = this.IMAGES[type][color][this.resolveImageIndex()];
+        let path = STATUS_BAR_IMAGES.IMAGES[type][color][this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
@@ -128,5 +48,4 @@ class StatusBar extends DrawableObject {
             return 0;
         }
     }
-
 }

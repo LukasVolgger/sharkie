@@ -297,3 +297,157 @@ let PUFFER_FISH_IMAGES = {
         ]
     }
 };
+
+let STATUS_BAR_IMAGES  = {
+	'IMAGES': {
+        'coins': {
+            'green': [
+                'img/4._Marks/Status_Bars/Coins/Green/0.png',
+                'img/4._Marks/Status_Bars/Coins/Green/20.png',
+                'img/4._Marks/Status_Bars/Coins/Green/40.png',
+                'img/4._Marks/Status_Bars/Coins/Green/60.png',
+                'img/4._Marks/Status_Bars/Coins/Green/80.png',
+                'img/4._Marks/Status_Bars/Coins/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Coins/Orange/0.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/20.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/40.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/60.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/80.png',
+                'img/4._Marks/Status_Bars/Coins/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Coins/Purple/0.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/20.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/40.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/60.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/80.png',
+                'img/4._Marks/Status_Bars/Coins/Purple/100.png'
+            ]
+        },
+		
+        'life': {
+            'green': [
+                'img/4._Marks/Status_Bars/Life/Green/0.png',
+                'img/4._Marks/Status_Bars/Life/Green/20.png',
+                'img/4._Marks/Status_Bars/Life/Green/40.png',
+                'img/4._Marks/Status_Bars/Life/Green/60.png',
+                'img/4._Marks/Status_Bars/Life/Green/80.png',
+                'img/4._Marks/Status_Bars/Life/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Life/Orange/0.png',
+                'img/4._Marks/Status_Bars/Life/Orange/20.png',
+                'img/4._Marks/Status_Bars/Life/Orange/40.png',
+                'img/4._Marks/Status_Bars/Life/Orange/60.png',
+                'img/4._Marks/Status_Bars/Life/Orange/80.png',
+                'img/4._Marks/Status_Bars/Life/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Life/Purple/0.png',
+                'img/4._Marks/Status_Bars/Life/Purple/20.png',
+                'img/4._Marks/Status_Bars/Life/Purple/40.png',
+                'img/4._Marks/Status_Bars/Life/Purple/60.png',
+                'img/4._Marks/Status_Bars/Life/Purple/80.png',
+                'img/4._Marks/Status_Bars/Life/Purple/100.png'
+            ]
+        },
+		
+        'poison': {
+            'green': [
+                'img/4._Marks/Status_Bars/Poison/Green/0.png',
+                'img/4._Marks/Status_Bars/Poison/Green/20.png',
+                'img/4._Marks/Status_Bars/Poison/Green/40.png',
+                'img/4._Marks/Status_Bars/Poison/Green/60.png',
+                'img/4._Marks/Status_Bars/Poison/Green/80.png',
+                'img/4._Marks/Status_Bars/Poison/Green/100.png'
+            ],
+            'orange': [
+                'img/4._Marks/Status_Bars/Poison/Orange/0.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/20.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/40.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/60.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/80.png',
+                'img/4._Marks/Status_Bars/Poison/Orange/100.png'
+            ],
+            'purple': [
+                'img/4._Marks/Status_Bars/Poison/Purple/0.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/20.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/40.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/60.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/80.png',
+                'img/4._Marks/Status_Bars/Poison/Purple/100.png'
+            ]
+        }
+    }
+};
+
+let BACKGROUND_IMAGES = {
+	'IMAGES': {
+        'light': {
+            1: [
+                'img/3._Background/Layers/5._Water/L1.png',
+                'img/3._Background/Layers/4._Background_2/L1.png',
+                'img/3._Background/Layers/3._Background_1/L1.png',
+                'img/3._Background/Layers/2._Floor/L1.png',
+                'img/3._Background/Layers/1._Light/1.png'
+            ],
+            2: [
+                'img/3._Background/Layers/5._Water/L2.png',
+                'img/3._Background/Layers/4._Background_2/L2.png',
+                'img/3._Background/Layers/3._Background_1/L2.png',
+                'img/3._Background/Layers/2._Floor/L2.png',
+                'img/3._Background/Layers/1._Light/2.png'
+            ]
+        },
+
+        'dark': {
+            1: [
+                'img/3._Background/Layers/5._Water/D1.png',
+                'img/3._Background/Layers/4._Background_2/D1.png',
+                'img/3._Background/Layers/3._Background_1/D1.png',
+                'img/3._Background/Layers/2._Floor/D1.png',
+                'img/3._Background/Layers/1._Light/1.png'
+            ],
+            2: [
+                'img/3._Background/Layers/5._Water/D2.png',
+                'img/3._Background/Layers/4._Background_2/D2.png',
+                'img/3._Background/Layers/3._Background_1/D2.png',
+                'img/3._Background/Layers/2._Floor/D2.png',
+                'img/3._Background/Layers/1._Light/2.png'
+            ]
+        }
+    }
+};
+
+let POISON_IMAGES = {
+	'IMAGES': {
+        'animated': [
+            'img/4._Marks/Poison/Animated/1.png',
+            'img/4._Marks/Poison/Animated/2.png',
+            'img/4._Marks/Poison/Animated/3.png',
+            'img/4._Marks/Poison/Animated/4.png',
+            'img/4._Marks/Poison/Animated/5.png',
+            'img/4._Marks/Poison/Animated/6.png',
+            'img/4._Marks/Poison/Animated/7.png',
+            'img/4._Marks/Poison/Animated/8.png'
+        ],
+
+        'light_left': [
+            'img/4._Marks/Poison/Light_Left.png'
+        ],
+
+        'light_right': [
+            'img/4._Marks/Poison/Light_Right.png'
+        ],
+
+        'dark_left': [
+            'img/4._Marks/Poison/Dark_Left.png'
+        ],
+
+        'dark_right': [
+            'img/4._Marks/Poison/Dark_Right.png'
+        ]
+    }
+};
