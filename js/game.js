@@ -305,11 +305,13 @@ function toggleSound() {
 function toggleFullscreen() {
 	fullscreen = !fullscreen;
 	
-	if (fullscreen) {
-		document.getElementById('canvas').requestFullscreen();
-		fullscreen = true;
-	} else {
-		fullscreen = false;
+	if (document.getElementById('canvas')) { // Required because the canvas does not exist before the game starts, but the user can switch on fullscreen
+		if (fullscreen) {
+			document.getElementById('canvas').requestFullscreen();
+			fullscreen = true;
+		} else {
+			fullscreen = false;
+		}
 	}
 	
 	saveToLocalStorage();
