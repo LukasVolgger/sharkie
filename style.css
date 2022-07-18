@@ -218,6 +218,16 @@ canvas {
 	margin-bottom: 16px;
 }
 
+.doubled-row {
+	flex-direction: column;
+	align-items: unset;
+}
+
+.settings-menu-sub-row {
+	display: flex;
+    gap: 16px;
+}
+
 .settings-menu-row-title {
 	color: white;
 	font-size: 36px;
@@ -226,7 +236,7 @@ canvas {
 }
 
 .settings-annotation {
-	color: #420078;
+	color: #494949;
 	text-shadow: none;
 }
 
@@ -240,6 +250,7 @@ canvas {
     height: 36px;
     font-weight: 700;
     font-size: 24px;
+	color: #494949;
 }
 
 .help-container {

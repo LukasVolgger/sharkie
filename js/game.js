@@ -25,10 +25,6 @@ let maxLevelReached = false;
 let WIN_SOUND = new Audio('audio/congrats.mp3');
 let GAME_OVER_SOUND = new Audio('audio/game_over.mp3');
 
-if (debugSkipStartScreen) {
-	currentLevel = debugLevelNr;
-}
-
 loadFromLocalStorage();
 
 // ################################################### Init game ###################################################
@@ -397,8 +393,13 @@ function selectDebugLevelNr() {
 	let levelNr = parseInt(document.getElementById('debugLevelNr-select').value);
 	debugLevelNr = levelNr;
 	
+	if (debugSkipStartScreen) {
+		currentLevel = debugLevelNr;
+	}
+	
 	saveToLocalStorage();
 	updateUI();
+	window.location.reload();
 }
 
 /**
