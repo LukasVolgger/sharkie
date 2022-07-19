@@ -55,7 +55,6 @@ This is an overview of the already known problems and bugs as well as a collecti
 :white_large_square: Add better sounds for Sharkie swimming for example <br>
 :white_large_square: Optimization of the game for devices with a resolution of less than 600px <br>
 :white_large_square: Add touch controls for smartphones <br>
-:white_large_square: <br>
 
 </details>
 
