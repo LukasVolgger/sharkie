@@ -1,7 +1,6 @@
 ﻿<h1>Sharkie</h1>
 
 Sharkie is a small browser game to learn the concept and basic knowledge of object orientation in JavaScript. It is a project of the frontend web developer course at the <a href="https://developerakademie.com/">Developer Akademie</a>.<br>
-<br>
 
 <b>IMPORTANT:</b> Please note that learning projects focus on the given tasks. It is therefore possible that some functions do not work or are not scripted.
 <h3>Table of Contents</h3>
@@ -50,8 +49,6 @@ This is an overview of the already known problems and bugs as well as a collecti
 
 </details>
 
-<br>
-
 <h2 id="preview">Preview</h2>
 
 ![This is an image](/img/preview/start_screen.png)
@@ -98,13 +95,6 @@ Download the source code or clone the repository on your local computer by click
 
 
 <h3>3. Start the Project</h3>
-Navigate to the location on your computer where you downloaded/cloned the code. In the project directory, open the <b>index.html</b> file with a web browser.
-<br>
-<br>
-
-![readme_installation_2](https://user-images.githubusercontent.com/55922592/161733187-a9ca556c-d21e-4f74-b96d-015082da85d5.png)
-
-<h3>4. Start the Project</h3>
 Navigate to the location on your computer where you downloaded/cloned the code. In the project directory, open the <b>index.html</b> file with a web browser.
 <br>
 <br>
