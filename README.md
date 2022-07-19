@@ -55,6 +55,7 @@ This is an overview of the already known problems and bugs as well as a collecti
 :white_large_square: Add better sounds for Sharkie swimming for example <br>
 :white_large_square: Optimization of the game for devices with a resolution of less than 600px <br>
 :white_large_square: Add touch controls for smartphones <br>
+:white_large_square: <br>
 
 </details>
 
@@ -115,3 +116,5 @@ Navigate to the location on your computer where you downloaded/cloned the code. 
 All game graphics are property of the <a href="https://developerakademie.com/">Developer Akademie</a>. The graphics are left to the participants of the course for learning purposes for use in the projects and are subject to the copyright of the <a href="https://developerakademie.com/">Developer Akademie</a>.
 
 The source code is subject to the following license:
+
+<a href="https://github.com/LukasVolgger/sharkie/blob/main/LICENSE">![APM](https://img.shields.io/apm/l/vim-mode?label=License&style=for-the-badge)</a>
