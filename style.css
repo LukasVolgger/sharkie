@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-image: url(img/3._Background/Layers/5._Water/D1.png);
+    background-image: url('./img/background/underwater_bg.jpg');
     background-size: cover;
     font-family: LuckiestGuy;
     margin: 0;
@@ -85,14 +85,14 @@ canvas {
 
 @font-face {
     font-family: LuckiestGuy;
-    src: url(img/5._Font/Luckiest_Guy_Regular.ttf);
+    src: url('./img/5._Font/Luckiest_Guy_Regular.ttf');
 }
 
 .start-screen-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(img/3._Background/Layers/5._Water/D1.png);
+    background-image: url('./img/background/underwater_bg.jpg');
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -176,7 +176,10 @@ canvas {
     align-items: center;
     border: 16px solid sandybrown;
     border-radius: 8px;
-    background-color: rgba(195, 140, 95, 15);
+    /* background-color: rgba(195, 140, 95, 15); */
+    background-image: url('./img/background/wood_bg.svg');
+    background-size: cover;
+    background-position: center;
 }
 
 .close-btn {
@@ -236,7 +239,8 @@ canvas {
 }
 
 .settings-annotation {
-    color: #494949;
+    color: #2E1AB1;
+    font-size: 22px;
     text-shadow: none;
 }
 
@@ -264,7 +268,9 @@ canvas {
     align-items: center;
     border: 16px solid sandybrown;
     border-radius: 8px;
-    background-color: rgba(195, 140, 95, 15);
+    background-image: url('./img/background/wood_bg.svg');
+    background-size: cover;
+    background-position: center;
 }
 
 .help-header {
@@ -333,6 +339,16 @@ canvas {
     width: 120px;
     margin-top: -48px;
     object-fit: contain;
+}
+
+.img-attribution {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}
+
+.img-attribution a {
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 900px) {

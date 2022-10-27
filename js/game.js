@@ -272,6 +272,7 @@ function restartGame() {
  */
 function toggleSettingsMenu() {
     document.getElementById('settings-menu-container').classList.toggle('d-none');
+    document.getElementById('img-attribution').classList.toggle('d-none');
 }
 
 /**
@@ -279,6 +280,7 @@ function toggleSettingsMenu() {
  */
 function toggleHelpSite() {
     document.getElementById('help-container').classList.toggle('d-none');
+    document.getElementById('img-attribution').classList.toggle('d-none');
 }
 
 /**
