@@ -61,27 +61,27 @@ This is an overview of the already known problems and bugs as well as a collecti
 
 <h2 id="preview">Preview</h2>
 
-![This is an image](/img/preview/start_screen.png)
+![This is an image](./assets/img/preview/start_screen.png)
 
 ---
 
-![This is an image](/img/preview/level_1.png)
+![This is an image](./assets/img/preview/level_1.png)
 
 ---
 
-![This is an image](/img/preview/level_2.png)
+![This is an image](./assets/img/preview/level_2.png)
 
 ---
 
-![This is an image](/img/preview/endboss.png)
+![This is an image](./assets/img/preview/endboss.png)
 
 ---
 
-![This is an image](/img/preview/settings_menu.png)
+![This is an image](./assets/img/preview/settings_menu.png)
 
 ---
 
-![This is an image](/img/preview/help.png)
+![This is an image](./assets/img/preview/help.png)
 
 
 <h2 id="installation">Installation</h2>
