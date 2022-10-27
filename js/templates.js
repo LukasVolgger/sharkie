@@ -25,7 +25,7 @@ function generateStartScreenHTML() {
 function generateGameHTML() {
     return `
 		<h1 class="game-title">Sharkie</h1>
-		<div class="canvas-frame">
+		<div class="canvas-wrapper">
 			<img src="./assets/img/background/water_frame.png" class="canvas-frame-img">
 			<canvas id="canvas" width="720" height="480"></canvas>
 		</div>
