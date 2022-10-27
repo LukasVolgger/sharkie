@@ -77,6 +77,21 @@ body {
     font-weight: 100;
 }
 
+.canvas-frame {
+    position: relative;
+}
+
+.canvas-frame-img {
+    position: absolute;
+    top: -70px;
+    right: 0px;
+    bottom: 0;
+    left: -47px;
+    z-index: 1;
+    width: 847px;
+    height: 643px;
+}
+
 canvas {
     background-color: black;
     border: 16px solid sandybrown;
@@ -352,9 +367,9 @@ canvas {
 }
 
 @media only screen and (max-width: 900px) {
-    #canvas {
+    /* #canvas {
         width: 80%;
-    }
+    } */
 }
 
 
