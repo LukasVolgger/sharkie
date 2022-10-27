@@ -5,7 +5,7 @@ class PoisonBubble extends MovableObject {
     attack = 30;
 
     constructor(startX, startY, otherDirection) {
-        super().loadImage('img/1._Sharkie/4._Attack/Bubble_Trap/Poisoned_Bubble_(For_Whale).png');
+        super().loadImage('./assets/img/1._Sharkie/4._Attack/Bubble_Trap/Poisoned_Bubble_(For_Whale).png');
         this.x = startX;
         this.y = startY;
         this.otherDirection = otherDirection;

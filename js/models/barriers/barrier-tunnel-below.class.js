@@ -13,7 +13,7 @@ class BarrierTunnelBelow extends Barrier {
 
     constructor(x, y) {
         super();
-        this.loadImage('img/3._Background/Barrier/1.2.png');
+        this.loadImage('./assets/img/3._Background/Barrier/1.2.png');
         this.x = x;
         this.y = y;
     }

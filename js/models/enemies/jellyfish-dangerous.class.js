@@ -14,7 +14,7 @@ class JellyFishDangerous extends MovableObject {
     }
 
     constructor(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
-        super().loadImage('img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png');
+        super().loadImage('./assets/img/2._Enemy/2._Jellyfish/Regular_Damage/Lila_1.png');
         this.loadImages(JELLYFISH_DANGEROUS_IMAGES.SWIM[color]);
         this.loadImages(JELLYFISH_DANGEROUS_IMAGES.DEAD[color]);
         this.x = x;

@@ -27,8 +27,8 @@ class EndBoss extends MovableObject {
         width: 20,
         height: 45
     }
-    SPLASH_SOUND = new Audio('audio/splash.mp3');
-    BITE_SOUND = new Audio('audio/bite.mp3');
+    SPLASH_SOUND = new Audio('./assets/audio/splash.mp3');
+    BITE_SOUND = new Audio('./assets/audio/bite.mp3');
 
     constructor(x, y, startX, startY) {
         super().loadImage(''); // Empty because EndBoss has introduce animation. Otherwise an image would be displayed permanently

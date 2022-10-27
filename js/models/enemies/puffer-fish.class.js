@@ -15,7 +15,7 @@ class PufferFish extends MovableObject {
     }
 
     constructor(color, x, y, direction, startPoint, endPoint, speed, imgInitiallyMirrored) {
-        super().loadImage('img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
+        super().loadImage('./assets/img/2._Enemy/1._Puffer_Fish_(3_Color_Options)/1._Swim/1._Swim_1.png');
         this.loadImages(PUFFER_FISH_IMAGES.SWIM[color]);
         this.loadImages(PUFFER_FISH_IMAGES.DEAD[color]);
         this.x = x;

@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-image: url('./img/background/underwater_bg.jpg');
+    background-image: url('./assets/img/background/underwater_bg.jpg');
     background-size: cover;
     font-family: LuckiestGuy;
     margin: 0;
@@ -85,14 +85,14 @@ canvas {
 
 @font-face {
     font-family: LuckiestGuy;
-    src: url('./img/5._Font/Luckiest_Guy_Regular.ttf');
+    src: url('./assets/fonts/Luckiest_Guy_Regular.ttf');
 }
 
 .start-screen-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url('./img/background/underwater_bg.jpg');
+    background-image: url('./assets/img/background/underwater_bg.jpg');
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -177,7 +177,7 @@ canvas {
     border: 16px solid sandybrown;
     border-radius: 8px;
     /* background-color: rgba(195, 140, 95, 15); */
-    background-image: url('./img/background/wood_bg.svg');
+    background-image: url('./assets/img/background/wood_bg.svg');
     background-size: cover;
     background-position: center;
 }
@@ -268,7 +268,7 @@ canvas {
     align-items: center;
     border: 16px solid sandybrown;
     border-radius: 8px;
-    background-image: url('./img/background/wood_bg.svg');
+    background-image: url('./assets/img/background/wood_bg.svg');
     background-size: cover;
     background-position: center;
 }

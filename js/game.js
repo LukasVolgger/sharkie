@@ -22,8 +22,8 @@ let levels = [
 ];
 let currentLevel;
 let maxLevelReached = false;
-let WIN_SOUND = new Audio('audio/congrats.mp3');
-let GAME_OVER_SOUND = new Audio('audio/game_over.mp3');
+let WIN_SOUND = new Audio('./assets/audio/congrats.mp3');
+let GAME_OVER_SOUND = new Audio('./assets/audio/game_over.mp3');
 
 loadFromLocalStorage();
 
@@ -291,9 +291,9 @@ function toggleSound() {
     soundOn = !soundOn;
 
     if (soundOn) {
-        document.getElementById('sound-img').src = 'img/icons/speaker.svg';
+        document.getElementById('sound-img').src = './assets/img/icons/speaker.svg';
     } else {
-        document.getElementById('sound-img').src = 'img/icons/mute.svg';
+        document.getElementById('sound-img').src = './assets/img/icons/mute.svg';
     }
 
     saveToLocalStorage();
@@ -413,10 +413,10 @@ function updateUI() {
 
     // soundOn
     if (soundOn) {
-        document.getElementById('sound-img').src = 'img/icons/speaker.svg';
+        document.getElementById('sound-img').src = './assets/img/icons/speaker.svg';
         document.getElementById('sound-checkbox').checked = true;
     } else {
-        document.getElementById('sound-img').src = 'img/icons/mute.svg';
+        document.getElementById('sound-img').src = './assets/img/icons/mute.svg';
         document.getElementById('sound-checkbox').checked = false;
     }
 

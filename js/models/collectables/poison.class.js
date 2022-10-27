@@ -4,7 +4,7 @@
 class Poison extends MovableObject {
 
     constructor(type, x, y) {
-        super().loadImage('img/4._Marks/Poison/Light_Left.png');
+        super().loadImage('./assets/img/4._Marks/Poison/Light_Left.png');
         this.loadImages(POISON_IMAGES.IMAGES[type]);
         this.width = 50;
         this.height = 50;

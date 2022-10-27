@@ -32,21 +32,21 @@ class Character extends MovableObject {
     isCollidingWithBarrierRight = false;
     isCollidingWithBarrierDown = false;
     isCollidingWithBarrierLeft = false;
-    SWIM_SOUND = new Audio('audio/swim.mp3');
-    DYING_SOUND = new Audio('audio/hurt_dying.mp3');
-    SLAP_SOUND = new Audio('audio/slap.mp3');
-    BUBBLE_SOUND = new Audio('audio/bubble.mp3');
-    HURT_SOUND = new Audio('audio/hurt.mp3');
-    ELECTRIC_ZAP_SOUND = new Audio('audio/electric_zap.mp3');
-    COIN_SOUND = new Audio('audio/coin.mp3');
-    COLLECT_SOUND = new Audio('audio/collect.mp3');
-    BUBBLING_SOUND = new Audio('audio/bubbling.mp3');
-    LIFE_SOUND = new Audio('audio/health.mp3');
+    SWIM_SOUND = new Audio('./assets/audio/swim.mp3');
+    DYING_SOUND = new Audio('./assets/audio/hurt_dying.mp3');
+    SLAP_SOUND = new Audio('./assets/audio/slap.mp3');
+    BUBBLE_SOUND = new Audio('./assets/audio/bubble.mp3');
+    HURT_SOUND = new Audio('./assets/audio/hurt.mp3');
+    ELECTRIC_ZAP_SOUND = new Audio('./assets/audio/electric_zap.mp3');
+    COIN_SOUND = new Audio('./assets/audio/coin.mp3');
+    COLLECT_SOUND = new Audio('./assets/audio/collect.mp3');
+    BUBBLING_SOUND = new Audio('./assets/audio/bubbling.mp3');
+    LIFE_SOUND = new Audio('./assets/audio/health.mp3');
 
     constructor() {
         super();
         if (debugMode && !debugLevelDesignHelper || !debugMode && !debugLevelDesignHelper) { // Is required because in debugMode Character and DebugCharacter are created and otherwise collisions are triggered
-            this.loadImage('img/1._Sharkie/1._Idle/1.png');
+            this.loadImage('./assets/img/1._Sharkie/1._Idle/1.png');
             this.loadImages(SHARKIE_IMAGES.IDLE);
             this.loadImages(SHARKIE_IMAGES.LONG_IDLE);
             this.loadImages(SHARKIE_IMAGES.SWIM);

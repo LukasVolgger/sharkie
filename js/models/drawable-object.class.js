@@ -22,7 +22,7 @@ class DrawableObject {
 
     /**
      * Load all images in Json imageCache for animation 
-     * The array looks like this: ['img/1._Sharkie/1._IDLE/1.png','img/1._Sharkie/1._IDLE/2.png', ...]
+     * The array looks like this: ['./assets/img/1._Sharkie/1._IDLE/1.png','./assets/img/1._Sharkie/1._IDLE/2.png', ...]
      * @param {array} array Image paths from an array 
      */
     loadImages(array) {

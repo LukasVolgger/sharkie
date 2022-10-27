@@ -5,7 +5,7 @@ class Bubble extends MovableObject {
     attack = 10;
 
     constructor(startX, startY, otherDirection) {
-        super().loadImage('img/1._Sharkie/4._Attack/Bubble_Trap/Bubble.png');
+        super().loadImage('./assets/img/1._Sharkie/4._Attack/Bubble_Trap/Bubble.png');
         this.x = startX;
         this.y = startY;
         this.otherDirection = otherDirection;

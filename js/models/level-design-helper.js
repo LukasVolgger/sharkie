@@ -19,7 +19,7 @@ class LevelDesignHelper extends MovableObject {
     constructor() {
         super();
         if (debugLevelDesignHelper) { // Is required because otherwise this.world.camera_x will be set incorrectly when debug mode not acitvated
-            this.loadImage('img/1._Sharkie/1._Idle/1.png');
+            this.loadImage('./assets/img/1._Sharkie/1._Idle/1.png');
             this.characterEvents();
         }
     }
