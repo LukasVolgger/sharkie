@@ -40,6 +40,10 @@ body {
     display: none !important;
 }
 
+.scroll-enabled {
+    overflow: auto !important;
+}
+
 .nav {
     display: flex;
     position: absolute;
@@ -246,9 +250,6 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 16px solid sandybrown;
-    border-radius: 8px;
-    /* background-color: rgba(195, 140, 95, 15); */
     background-image: url('./assets/img/background/wood_bg.jpg');
     background-size: cover;
     background-position: center;
@@ -339,8 +340,6 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 16px solid sandybrown;
-    border-radius: 8px;
     background-image: url('./assets/img/background/wood_bg.jpg');
     background-size: cover;
     background-position: center;
@@ -424,10 +423,27 @@ canvas {
     text-decoration: none;
 }
 
+@media only screen and (max-width: 480px) {
+    .end-screen-header {
+        height: unset;
+    }
+    .end-screen-body {
+        flex-direction: column;
+    }
+}
 
-/* Extra small devices (phones, 600px and down) */
-
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 900px) {
+    .btn {
+        font-size: 24px;
+    }
+    .end-screen-header {
+        margin: 0 0 32px 0;
+    }
+    .end-screen-body {
+        margin-top: 32px;
+        gap: 32px;
+    }
+}
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

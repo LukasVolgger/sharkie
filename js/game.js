@@ -49,6 +49,12 @@ function init() {
         maxLevelReached = true;
     }
 
+    // Enable scrolling on settings and help menu
+    if (mobileAndTabletCheck()) {
+        document.getElementById('settings-menu-container').classList.add('scroll-enabled');
+        document.getElementById('help-container').classList.add('scroll-enabled');
+    }
+
     checkForLevelWin();
 }
 
