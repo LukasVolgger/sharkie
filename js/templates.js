@@ -27,7 +27,22 @@ function generateGameHTML() {
 		<h1 class="game-title">Sharkie</h1>
 		<div class="canvas-wrapper">
 			<img src="./assets/img/background/water_frame.png" class="canvas-frame-img">
-			<canvas id="canvas" width="720" height="480"></canvas>
+			<div id="fullscreen-container" class="fullscreen-container">
+				<canvas id="canvas" width="720" height="480"></canvas>
+				<div id="mobile-ctrl-left" class="mobile-controller-container-left d-none">
+					<button id="ctrl-btn-up" class="mobile-ctrl-btn">Up</button>
+					<div class="mobile-controller-x-control">
+						<button id="ctrl-btn-left" class="mobile-ctrl-btn">Left</button>
+						<button id="ctrl-btn-right" class="mobile-ctrl-btn">Right</button>
+					</div>
+					<button id="ctrl-btn-down" class="mobile-ctrl-btn">Down</button>
+				</div>	
+				<div id="mobile-ctrl-right" class="mobile-controller-container-right d-none">
+					<button id="ctrl-btn-fin-slap" class="mobile-ctrl-btn">Fin Slap</button>
+					<button id="ctrl-btn-bubble-trap" class="mobile-ctrl-btn">Bubble</button>
+					<button id="ctrl-btn-poison-bubble-trap" class="mobile-ctrl-btn">Poison Bubble</button>
+				</div>
+			</div>
 		</div>
 	`;
 }

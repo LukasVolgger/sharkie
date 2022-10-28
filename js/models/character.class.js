@@ -32,6 +32,20 @@ class Character extends MovableObject {
     isCollidingWithBarrierRight = false;
     isCollidingWithBarrierDown = false;
     isCollidingWithBarrierLeft = false;
+    touchCtrlUpStart = false;
+    touchCtrlUpEnd = false;
+    touchCtrlRightStart = false;
+    touchCtrlRightEnd = false;
+    touchCtrlDownStart = false;
+    touchCtrlDownEnd = false;
+    touchCtrlLeftStart = false;
+    touchCtrlLeftEnd = false;
+    touchCtrlFinSlapStart = false;
+    touchCtrlFinSlapEnd = false;
+    touchCtrlBubbleTrapStart = false;
+    touchCtrlBubbleTrapEnd = false;
+    touchCtrlPoisonBubbleTrapStart = false;
+    touchCtrlPoisonBubbleTrapEnd = false;
     SWIM_SOUND = new Audio('./assets/audio/swim.mp3');
     DYING_SOUND = new Audio('./assets/audio/hurt_dying.mp3');
     SLAP_SOUND = new Audio('./assets/audio/slap.mp3');
@@ -60,6 +74,7 @@ class Character extends MovableObject {
             this.characterEvents();
             this.characterSounds();
             this.triggerEndboss();
+            this.touchEvents();
         }
     }
 
@@ -88,6 +103,7 @@ class Character extends MovableObject {
         }, 200);
 
         setInterval(() => {
+            // Keyboard controls
             if (this.world.keyboard.SPACE && !this.isDead()) {
                 this.finSlapAttack();
                 this.playAnimation(SHARKIE_IMAGES.FIN_SLAP, 0);
@@ -95,6 +111,18 @@ class Character extends MovableObject {
                 this.bubbleTrapAttack();
                 this.playAnimation(SHARKIE_IMAGES.BUBBLE_TRAP, 0);
             } else if (this.world.keyboard.F && this.poison > 0 && !this.isDead()) {
+                this.bubbleTrapAttackPoison();
+                this.playAnimation(SHARKIE_IMAGES.BUBBLE_TRAP, 0);
+            }
+
+            // Touch controls
+            if (this.touchCtrlFinSlapStart && !this.isDead()) {
+                this.finSlapAttack();
+                this.playAnimation(SHARKIE_IMAGES.FIN_SLAP, 0);
+            } else if (this.touchCtrlBubbleTrapStart && !this.isDead()) {
+                this.bubbleTrapAttack();
+                this.playAnimation(SHARKIE_IMAGES.BUBBLE_TRAP, 0);
+            } else if (this.touchCtrlPoisonBubbleTrapStart && this.poison > 0 && !this.isDead()) {
                 this.bubbleTrapAttackPoison();
                 this.playAnimation(SHARKIE_IMAGES.BUBBLE_TRAP, 0);
             }
@@ -108,28 +136,195 @@ class Character extends MovableObject {
     characterEvents() {
         setInterval(() => {
 
-            // Moving UP
+            // Keyboard control - UP
             if (this.world.keyboard.UP && this.y > -135 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('up');
             }
 
-            // Moving RIGHT
+            // Touch control - UP
+            if (this.touchCtrlUpStart && this.y > -135 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
+                this.moveCharacter('up');
+            }
+
+            // Keyboard control - RIGHT
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('right');
             }
 
-            // Moving DOWN
+            // Touch control - RIGHT
+            if (this.touchCtrlRightStart && this.x < this.world.level.level_end_x && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
+                this.moveCharacter('right');
+            }
+
+            // Keyboard control - DOWN
             if (this.world.keyboard.DOWN && this.y < 240 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('down');
             }
 
-            // Moving LEFT
+            // Touch control - DOWN
+            if (this.touchCtrlDownStart && this.y < 240 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
+                this.moveCharacter('down');
+            }
+
+            // Keyboard control - LEFT
             if (this.world.keyboard.LEFT && this.x > 0 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
+                this.moveCharacter('left');
+            }
+
+            // Touch control - LEFT
+            if (this.touchCtrlLeftStart && this.x > 0 && !this.isDead() && !this.world.level.getEndBoss().isDead()) {
                 this.moveCharacter('left');
             }
 
             this.world.camera_x = -this.x; // Sets the camera of the world object to the negative character's x coordinate
         }, 1000 / 60)
+    }
+
+    /**
+     * Handle all touch events of the mobile controller buttons
+     */
+    touchEvents() {
+        const ctrlUp = document.getElementById('ctrl-btn-up');
+        const ctrlRight = document.getElementById('ctrl-btn-right');
+        const ctrlDown = document.getElementById('ctrl-btn-down');
+        const ctrlLeft = document.getElementById('ctrl-btn-left');
+        const ctrlFinSlap = document.getElementById('ctrl-btn-fin-slap');
+        const ctrlBubbleTrap = document.getElementById('ctrl-btn-bubble-trap');
+        const ctrlPoisonBubbleTrap = document.getElementById('ctrl-btn-poison-bubble-trap');
+
+        // .bind(this) is needed because this.handleStart is a parameter of a callback function and this is not reachable in it
+        ctrlUp.addEventListener('touchstart', this.ctrlUpStart.bind(this));
+        ctrlUp.addEventListener('touchend', this.ctrlUpEnd.bind(this));
+
+        ctrlRight.addEventListener('touchstart', this.ctrlRightStart.bind(this));
+        ctrlRight.addEventListener('touchend', this.ctrlRightEnd.bind(this));
+
+        ctrlDown.addEventListener('touchstart', this.ctrlDownStart.bind(this));
+        ctrlDown.addEventListener('touchend', this.ctrlDownEnd.bind(this));
+
+        ctrlLeft.addEventListener('touchstart', this.ctrlLeftStart.bind(this));
+        ctrlLeft.addEventListener('touchend', this.ctrlLeftEnd.bind(this));
+
+        ctrlFinSlap.addEventListener('touchstart', this.ctrlFinSlapStart.bind(this));
+        ctrlFinSlap.addEventListener('touchend', this.ctrlFinSlapEnd.bind(this));
+
+        ctrlBubbleTrap.addEventListener('touchstart', this.ctrlBubbleTrapStart.bind(this));
+        ctrlBubbleTrap.addEventListener('touchend', this.ctrlBubbleTrapEnd.bind(this));
+
+        ctrlPoisonBubbleTrap.addEventListener('touchstart', this.ctrlPoisonBubbleTrapStart.bind(this));
+        ctrlPoisonBubbleTrap.addEventListener('touchend', this.ctrlPoisonBubbleTrapEnd.bind(this));
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlUpStart() {
+        this.touchCtrlUpStart = true;
+        this.touchCtrlUpEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlUpEnd() {
+        this.touchCtrlUpEnd = true;
+        this.touchCtrlUpStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlRightStart() {
+        this.touchCtrlRightStart = true;
+        this.touchCtrlRightEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlRightEnd() {
+        this.touchCtrlRightEnd = true;
+        this.touchCtrlRightStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlDownStart() {
+        this.touchCtrlDownStart = true;
+        this.touchCtrlDownEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlDownEnd() {
+        this.touchCtrlDownEnd = true;
+        this.touchCtrlDownStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlLeftStart() {
+        this.touchCtrlLeftStart = true;
+        this.touchCtrlLeftEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlLeftEnd() {
+        this.touchCtrlLeftEnd = true;
+        this.touchCtrlLeftStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlFinSlapStart() {
+        this.touchCtrlFinSlapStart = true;
+        this.touchCtrlFinSlapEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlFinSlapEnd() {
+        this.touchCtrlFinSlapEnd = true;
+        this.touchCtrlFinSlapStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlBubbleTrapStart() {
+        this.touchCtrlBubbleTrapStart = true;
+        this.touchCtrlBubbleTrapEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlBubbleTrapEnd() {
+        this.touchCtrlBubbleTrapEnd = true;
+        this.touchCtrlBubbleTrapStart = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlPoisonBubbleTrapStart() {
+        this.touchCtrlPoisonBubbleTrapStart = true;
+        this.touchCtrlPoisonBubbleTrapEnd = false;
+    }
+
+    /**
+     * Help function to update the touch activity
+     */
+    ctrlPoisonBubbleTrapEnd() {
+        this.touchCtrlPoisonBubbleTrapEnd = true;
+        this.touchCtrlPoisonBubbleTrapStart = false;
     }
 
     /**
