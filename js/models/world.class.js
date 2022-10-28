@@ -16,8 +16,8 @@ class World {
     levelDesignHelper = new LevelDesignHelper();
     level = levels[currentLevel]; // level_x is an instance of the Level class. Here the variable level of the world class is assigned to this instance
     statusBarLife = new StatusBar('life', 'green', 100, 20, 0);
-    statusBarCoins = new StatusBar('coins', 'green', 0, 240, 0);
-    statusBarPoison = new StatusBar('poison', 'green', 0, 460, 0);
+    statusBarCoins = new StatusBar('coins', 'green', 0, 20, 40);
+    statusBarPoison = new StatusBar('poison', 'green', 0, 20, 80);
     statusBarEndBoss = new StatusBar('life', 'orange', 100, 460, 400);
 
     // The canvas was passed from init() in game.js
