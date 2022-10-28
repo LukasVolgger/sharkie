@@ -73,7 +73,7 @@ body {
     font-size: 72px;
     color: white;
     text-shadow: 0 0 8px #003eab;
-    margin: 32px 0 32px 0;
+    margin-bottom: 52px;
     font-weight: 100;
 }
 
@@ -145,6 +145,13 @@ canvas {
 .mobile-controller-x-control {
     display: flex;
     gap: 48px;
+}
+
+#mobile-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 999;
 }
 
 @font-face {
@@ -415,12 +422,6 @@ canvas {
 
 .img-attribution a {
     text-decoration: none;
-}
-
-@media only screen and (max-width: 900px) {
-    /* #canvas {
-        width: 80%;
-    } */
 }
 
 

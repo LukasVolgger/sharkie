@@ -143,6 +143,9 @@ function startGame() {
 
     // Passing the canvas into the world object
     world = new World(canvas, keyboard);
+
+    // Show fullscreen button only when the game is started
+    document.getElementById('toggle-fullscreen-btn').classList.remove('d-none');
 }
 
 /**
