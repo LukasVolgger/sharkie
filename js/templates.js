@@ -30,12 +30,12 @@ function generateGameHTML() {
 			<div id="fullscreen-container" class="fullscreen-container">
 				<canvas id="canvas" width="720" height="480"></canvas>
 				<div id="mobile-ctrl-left" class="mobile-controller-container-left d-none">
-					<button id="ctrl-btn-up" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_up.svg" class="ctrl-arrow-img"></button>
+					<button id="ctrl-btn-up" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_up.svg" class="ctrl-arrow-img" oncontextmenu="return false;";></button>
 					<div class="mobile-controller-x-control">
-						<button id="ctrl-btn-left" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_left.svg" class="ctrl-arrow-img"></button>
-						<button id="ctrl-btn-right" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_right.svg" class="ctrl-arrow-img"></button>
+						<button id="ctrl-btn-left" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_left.svg" class="ctrl-arrow-img" oncontextmenu="return false;";></button>
+						<button id="ctrl-btn-right" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_right.svg" class="ctrl-arrow-img" oncontextmenu="return false;";></button>
 					</div>
-					<button id="ctrl-btn-down" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_down.svg" class="ctrl-arrow-img"></button>
+					<button id="ctrl-btn-down" class="mobile-ctrl-btn"><img src="./assets/img/icons/arrow_down.svg" class="ctrl-arrow-img" oncontextmenu="return false;";></button>
 				</div>	
 				<div id="mobile-ctrl-right" class="mobile-controller-container-right d-none">
 					<button id="ctrl-btn-fin-slap" class="mobile-ctrl-btn">Fin Slap</button>

@@ -30,6 +30,20 @@ body {
     border: 3px solid white;
     border-radius: 16px;
     padding: 16px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .btn:hover {
@@ -141,11 +155,6 @@ canvas {
     background-color: rgb(255 255 255 / 40%);
     color: white;
     text-shadow: -1px 1px 2px black;
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .mobile-controller-x-control {
