@@ -39,6 +39,7 @@ function init() {
         renderStartScreen();
     }
 
+    preload();
     loadFromLocalStorage();
     updateUI();
 
@@ -56,6 +57,79 @@ function init() {
     }
 
     checkForLevelWin();
+}
+
+// ################################################### Preload ###################################################
+
+/**
+ * Calls the other preload functions
+ */
+function preload() {
+    preloadImages(SHARKIE_IMAGES['IDLE']);
+    preloadImages(SHARKIE_IMAGES['LONG_IDLE']);
+    preloadImages(SHARKIE_IMAGES['SWIM']);
+    preloadImages(SHARKIE_IMAGES['HURT_POISONED']);
+    preloadImages(SHARKIE_IMAGES['HURT_ELECTRIC_SHOCK']);
+    preloadImages(SHARKIE_IMAGES['DIE_POISONED']);
+    preloadImages(SHARKIE_IMAGES['DIE_ELECTRIC_SHOCK']);
+    preloadImages(SHARKIE_IMAGES['FIN_SLAP']);
+    preloadImages(SHARKIE_IMAGES['BUBBLE_TRAP']);
+    preloadImages(ENDBOSS_IMAGES['INTRODUCE']);
+    preloadImages(ENDBOSS_IMAGES['FLOATING']);
+    preloadImages(ENDBOSS_IMAGES['HURT']);
+    preloadImages(ENDBOSS_IMAGES['DEAD']);
+    preloadImages(ENDBOSS_IMAGES['ATTACK']);
+    preloadImages(JELLYFISH_DANGEROUS_IMAGES['SWIM']['green']);
+    preloadImages(JELLYFISH_DANGEROUS_IMAGES['SWIM']['pink']);
+    preloadImages(JELLYFISH_DANGEROUS_IMAGES['DEAD']['green']);
+    preloadImages(JELLYFISH_DANGEROUS_IMAGES['DEAD']['pink']);
+    preloadImages(JELLYFISH_REGULAR_IMAGES['SWIM']['lila']);
+    preloadImages(JELLYFISH_REGULAR_IMAGES['SWIM']['yellow']);
+    preloadImages(JELLYFISH_REGULAR_IMAGES['DEAD']['lila']);
+    preloadImages(JELLYFISH_REGULAR_IMAGES['DEAD']['yellow']);
+    preloadImages(PUFFER_FISH_IMAGES['SWIM']['green']);
+    preloadImages(PUFFER_FISH_IMAGES['SWIM']['orange']);
+    preloadImages(PUFFER_FISH_IMAGES['SWIM']['red']);
+    preloadImages(PUFFER_FISH_IMAGES['DEAD']['green']);
+    preloadImages(PUFFER_FISH_IMAGES['DEAD']['orange']);
+    preloadImages(PUFFER_FISH_IMAGES['DEAD']['red']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['coins']['green']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['coins']['orange']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['coins']['purple']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['life']['green']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['life']['orange']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['life']['purple']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['poison']['green']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['poison']['orange']);
+    preloadImages(STATUS_BAR_IMAGES['IMAGES']['poison']['purple']);
+    preloadImages(BACKGROUND_IMAGES['IMAGES']['light'][1]);
+    preloadImages(BACKGROUND_IMAGES['IMAGES']['light'][2]);
+    preloadImages(BACKGROUND_IMAGES['IMAGES']['dark'][1]);
+    preloadImages(BACKGROUND_IMAGES['IMAGES']['dark'][2]);
+    preloadImages(POISON_IMAGES['IMAGES']['animated']);
+    preloadImages(POISON_IMAGES['IMAGES']['light_left']);
+    preloadImages(POISON_IMAGES['IMAGES']['light_right']);
+    preloadImages(POISON_IMAGES['IMAGES']['dark_left']);
+    preloadImages(POISON_IMAGES['IMAGES']['dark_right']);
+}
+
+/**
+ * Iterates through the given array and calls the subfunction to load the images for each individual image collection
+ * @param {Array} array The array with the image URLs
+ */
+function preloadImages(array) {
+    for (let i = 0; i < array.length; i++) {
+        preloadImage(array[i]);
+    }
+}
+
+/**
+ * Creates a new object for the passed image
+ * @param {string} url The path of the single image
+ */
+function preloadImage(url) {
+    const img = new Image();
+    img.src = url;
 }
 
 // ################################################### Keyboard ###################################################
