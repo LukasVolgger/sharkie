@@ -395,6 +395,12 @@ canvas {
     gap: 16px;
 }
 
+.help-last-row {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
 .help-instruction {
     display: flex;
     justify-content: center;
@@ -402,6 +408,7 @@ canvas {
     font-size: 32px;
     color: white;
     text-shadow: 0 0 2px #000000;
+    text-align: center;
 }
 
 .help-img {
@@ -431,6 +438,12 @@ canvas {
 
 .help-img-endboss {
     width: 120px;
+    margin-top: -48px;
+    object-fit: contain;
+}
+
+.help-img-poison {
+    width: 64px;
     margin-top: -48px;
     object-fit: contain;
 }
@@ -476,6 +489,9 @@ canvas {
     }
     .help-instruction {
         font-size: 24px;
+    }
+    .help-img-poison {
+        margin-top: -32px;
     }
 }
 
