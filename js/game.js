@@ -24,6 +24,7 @@ let currentLevel;
 let maxLevelReached = false;
 let WIN_SOUND = new Audio('./assets/audio/congrats.mp3');
 let GAME_OVER_SOUND = new Audio('./assets/audio/game_over.mp3');
+let loading = true;
 
 loadFromLocalStorage();
 
@@ -58,6 +59,23 @@ function init() {
 
     checkForLevelWin();
 }
+
+// ################################################### Loading Screen ###################################################
+
+document.onreadystatechange = () => {
+    let state = document.readyState;
+
+    if (state == 'interactive') {
+        loading = true;
+        document.getElementById('loading-screen').classList.remove('d-none');
+    } else if (state == 'complete') {
+        setTimeout(function() {
+            loading = false;
+            document.getElementById('loading-screen').classList.add('d-none');
+        }, 5000);
+    }
+}
+
 
 // ################################################### Preload ###################################################
 
