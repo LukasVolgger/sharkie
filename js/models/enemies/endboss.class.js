@@ -27,6 +27,7 @@ class EndBoss extends MovableObject {
         width: 20,
         height: 45
     }
+    BOSS_THEME_SOUND = new Audio('./assets/audio/boss_theme.mp3');
     SPLASH_SOUND = new Audio('./assets/audio/splash.mp3');
     BITE_SOUND = new Audio('./assets/audio/bite.mp3');
 
@@ -54,12 +55,15 @@ class EndBoss extends MovableObject {
 
                 if (!this.world.character.isDead()) {
                     this.aiMovement();
+                } else {
+                    this.BOSS_THEME_SOUND.pause();
                 }
             } else if (this.isHurt() && !this.isDead()) {
                 this.playAnimation(ENDBOSS_IMAGES.HURT, 1);
             } else if (this.isDead()) {
                 this.playAnimation(ENDBOSS_IMAGES.DEAD, 0);
                 endBossKilled = true;
+                this.BOSS_THEME_SOUND.pause();
             } else if (this.endBossTriggered) {
                 this.introduceEndBoss();
             } else if (this.isCollidingWithCharacter) {
@@ -191,6 +195,23 @@ class EndBoss extends MovableObject {
         if (soundOn) {
             this.SPLASH_SOUND.play();
         }
+
+        // Handle BOSS_THEME_SOUND
+        // Check if soundOn is changed
+        setInterval(() => {
+            if (soundOn && !this.world.character.isDead() && !this.isDead()) {
+                this.BOSS_THEME_SOUND.play();
+                this.world.MAIN_SOUND.pause();
+
+                this.BOSS_THEME_SOUND.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+            } else {
+                this.BOSS_THEME_SOUND.pause();
+                this.BOSS_THEME_SOUND.currentTime = 0;
+            }
+        }, 1000 / 60)
 
         setTimeout(() => {
             this.endBossTriggered = false;

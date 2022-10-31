@@ -48,7 +48,7 @@ class Character extends MovableObject {
     touchCtrlPoisonBubbleTrapEnd = false;
     SWIM_SOUND = new Audio('./assets/audio/swim.mp3');
     DYING_SOUND = new Audio('./assets/audio/hurt_dying.mp3');
-    SLAP_SOUND = new Audio('./assets/audio/slap.mp3');
+    SLAP_SOUND = new Audio('./assets/audio/punch.mp3');
     BUBBLE_SOUND = new Audio('./assets/audio/bubble.mp3');
     HURT_SOUND = new Audio('./assets/audio/hurt.mp3');
     ELECTRIC_ZAP_SOUND = new Audio('./assets/audio/electric_zap.mp3');

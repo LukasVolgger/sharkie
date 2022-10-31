@@ -9,6 +9,7 @@ class World {
     camera_x = 0;
     keyboard;
     bubble;
+    MAIN_SOUND = new Audio('./assets/audio/main_theme.mp3')
 
     // ################################################### Create objects ###################################################
 
@@ -40,6 +41,23 @@ class World {
             document.getElementById('mobile-ctrl-right').classList.remove('d-none');
             toggleFullscreen();
         }
+
+        // Handle MAIN_THEME_SOUND
+        // Check if soundOn is changed
+        setInterval(() => {
+            if (soundOn && !this.level.getEndBoss().endBossAlreadyTriggered && !levelEnded) {
+                this.MAIN_SOUND.play();
+
+                // Repeats the sound
+                this.MAIN_SOUND.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+            } else {
+                this.MAIN_SOUND.pause();
+                this.MAIN_SOUND.currentTime = 0;
+            }
+        }, 1000 / 60)
     }
 
     /**
