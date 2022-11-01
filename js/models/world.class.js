@@ -42,6 +42,7 @@ class World {
             document.getElementById('img-attribution').classList.add('d-none');
 
             // Show elements on mobile devices
+            document.getElementById('mobile-fullscreen-btn').classList.remove('d-none');
             document.getElementById('mobile-mute-btn').classList.remove('d-none');
             document.getElementById('mobile-close-btn').classList.remove('d-none');
             document.getElementById('mobile-ctrl-left').classList.remove('d-none');
