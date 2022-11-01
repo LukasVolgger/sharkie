@@ -527,9 +527,11 @@ function updateUI() {
     // soundOn
     if (soundOn) {
         document.getElementById('sound-img').src = './assets/img/icons/speaker.svg';
+        document.getElementById('sound-img-mobile').src = './assets/img/icons/speaker.svg';
         document.getElementById('sound-checkbox').checked = true;
     } else {
         document.getElementById('sound-img').src = './assets/img/icons/mute.svg';
+        document.getElementById('sound-img-mobile').src = './assets/img/icons/mute.svg';
         document.getElementById('sound-checkbox').checked = false;
     }
 

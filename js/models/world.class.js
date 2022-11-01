@@ -36,6 +36,7 @@ class World {
 
         // Switch to fullscreen if user is on mobile device
         if (mobileAndTabletCheck()) {
+            document.getElementById('mobile-mute-btn').classList.remove('d-none');
             document.getElementById('mobile-close-btn').classList.remove('d-none');
             document.getElementById('mobile-ctrl-left').classList.remove('d-none');
             document.getElementById('mobile-ctrl-right').classList.remove('d-none');

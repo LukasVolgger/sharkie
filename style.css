@@ -189,6 +189,13 @@ canvas {
     opacity: 0.8;
 }
 
+#mobile-mute-btn {
+    position: absolute;
+    top: 8px;
+    right: 64px;
+    z-index: 999;
+}
+
 #mobile-close-btn {
     position: absolute;
     top: 8px;
@@ -470,6 +477,7 @@ canvas {
     position: absolute;
     right: 8px;
     bottom: 8px;
+    z-index: 9999;
 }
 
 .img-attribution a {

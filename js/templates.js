@@ -42,6 +42,7 @@ function generateGameHTML() {
 					<button id="ctrl-btn-bubble-trap" class="mobile-ctrl-btn">Bubble</button>
 					<button id="ctrl-btn-poison-bubble-trap" class="mobile-ctrl-btn">Poison Bubble</button>
 				</div>
+				<button id="mobile-mute-btn" class="nav-btn d-none" onclick="toggleSound()" title="Mute/Unmute"><img src="./assets/img/icons/speaker.svg" alt="Mute/Unmute" class="nav-icon" id="sound-img-mobile"></button>
 				<button id="mobile-close-btn" class="nav-btn d-none" onclick="restartLevel()" title="Exit Game"><img src="./assets/img/icons/close.svg" alt="Close" class="nav-icon"></button>
 			</div>
 		</div>
