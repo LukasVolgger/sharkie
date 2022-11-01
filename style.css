@@ -516,7 +516,19 @@ canvas {
     text-decoration: none;
 }
 
-@media screen and (orientation:portrait) and (hover: none) and (pointer: coarse) {
+
+/* Hide message when on desktops */
+
+@media (hover: hover) {
+    #landscape-message {
+        display: none !important;
+    }
+}
+
+
+/* Show message when on mobile devices */
+
+@media (orientation: portrait) and (hover: none) {
     #landscape-message {
         display: flex !important;
         padding: 16px;
