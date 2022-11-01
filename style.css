@@ -528,7 +528,7 @@ canvas {
 
 /* Show message when on mobile devices */
 
-@media (orientation: portrait) and (hover: none) {
+@media (orientation: portrait) and (max-width: 900px) {
     #landscape-message {
         display: flex !important;
         padding: 16px;
