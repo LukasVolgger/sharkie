@@ -536,6 +536,9 @@ canvas {
 }
 
 @media only screen and (max-width: 480px) {
+    .btn {
+        font-size: 18px !important;
+    }
     .end-screen-header {
         height: unset;
     }
@@ -546,7 +549,7 @@ canvas {
 
 @media only screen and (max-width: 900px) {
     .btn {
-        font-size: 18px;
+        font-size: 24px;
     }
     .end-screen-header {
         margin: 0 0 16px 0;
