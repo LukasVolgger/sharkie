@@ -69,8 +69,7 @@ img {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 9999;
-    /* background-color: #005E9D; */
+    z-index: 99999;
     background-image: url('./assets/img/background/underwater_bg.jpg');
     background-size: cover;
     display: flex;

@@ -64,10 +64,12 @@ class World {
                 document.getElementById('canvas').classList.remove('fullscreen');
             }
 
-            if (!mobileAndTabletCheck() && window.innerWidth <= 900) {
+            if (!mobileAndTabletCheck() && window.innerWidth <= 992) {
                 document.getElementById('fullscreen-message').classList.remove('d-none');
+                document.getElementById('landscape-message').style = "opacity: 0";
             } else {
                 document.getElementById('fullscreen-message').classList.add('d-none');
+                document.getElementById('landscape-message').style = "opacity: 1";
             }
         }, 1000 / 60)
 
