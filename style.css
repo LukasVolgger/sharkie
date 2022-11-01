@@ -141,12 +141,16 @@ canvas {
     background-color: black;
 }
 
+.fullscreen-container {
+    position: relative;
+}
+
 .fullscreen {
     width: 100% !important;
     height: 100% !important;
 }
 
-.fullscreen-message {
+.screen-message {
     position: absolute;
     top: 0;
     right: 0;
@@ -155,8 +159,8 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     font-size: 64px;
     text-align: center;
@@ -510,6 +514,13 @@ canvas {
 
 .img-attribution a {
     text-decoration: none;
+}
+
+@media screen and (orientation:portrait) and (hover: none) and (pointer: coarse) {
+    #landscape-message {
+        display: flex !important;
+        padding: 16px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
