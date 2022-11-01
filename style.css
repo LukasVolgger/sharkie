@@ -136,6 +136,11 @@ canvas {
     background-color: black;
 }
 
+.fullscreen {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .mobile-controller-container-left {
     position: absolute;
     bottom: 32px;

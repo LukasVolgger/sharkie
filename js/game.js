@@ -420,8 +420,6 @@ function toggleFullscreen() {
     if (document.getElementById('fullscreen-container')) { // Required because the element does not exist before the game starts, but the user can switch on fullscreen
         if (fullscreen) {
             document.getElementById('fullscreen-container').requestFullscreen();
-            document.getElementById('canvas').style.width = '100%';
-            document.getElementById('canvas').style.height = '100%';
 
             fullscreen = true;
         } else {
@@ -527,12 +525,17 @@ function updateUI() {
     // soundOn
     if (soundOn) {
         document.getElementById('sound-img').src = './assets/img/icons/speaker.svg';
-        document.getElementById('sound-img-mobile').src = './assets/img/icons/speaker.svg';
         document.getElementById('sound-checkbox').checked = true;
     } else {
         document.getElementById('sound-img').src = './assets/img/icons/mute.svg';
-        document.getElementById('sound-img-mobile').src = './assets/img/icons/mute.svg';
         document.getElementById('sound-checkbox').checked = false;
+    }
+
+    // Requires its own query because the element exists only after the game start
+    if (soundOn && document.getElementById('sound-img-mobile')) {
+        document.getElementById('sound-img-mobile').src = './assets/img/icons/speaker.svg';
+    } else if (!soundOn && document.getElementById('sound-img-mobile')) {
+        document.getElementById('sound-img-mobile').src = './assets/img/icons/mute.svg';
     }
 
     // debugMode

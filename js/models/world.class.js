@@ -36,12 +36,33 @@ class World {
 
         // Switch to fullscreen if user is on mobile device
         if (mobileAndTabletCheck()) {
+            // Hide elements on mobile devices
+            document.getElementById('game-title').classList.add('d-none');
+            document.getElementById('canvas-frame-img').classList.add('d-none');
+            document.getElementById('img-attribution').classList.add('d-none');
+
+            // Show elements on mobile devices
             document.getElementById('mobile-mute-btn').classList.remove('d-none');
             document.getElementById('mobile-close-btn').classList.remove('d-none');
             document.getElementById('mobile-ctrl-left').classList.remove('d-none');
             document.getElementById('mobile-ctrl-right').classList.remove('d-none');
+
+            // Set fullscreen width and height to elements
+            document.getElementById('canvas-wrapper').classList.add('fullscreen');
+            document.getElementById('fullscreen-container').classList.add('fullscreen');
+            document.getElementById('canvas').style = 'width: 100%; height: 100%';
+
             toggleFullscreen();
         }
+
+        // Observe fullscreen settings for canvas
+        setInterval(() => {
+            if (fullscreen) {
+                document.getElementById('canvas').classList.add('fullscreen');
+            } else {
+                document.getElementById('canvas').classList.remove('fullscreen');
+            }
+        }, 1000 / 60)
 
         // Handle MAIN_THEME_SOUND
         // Check if soundOn is changed
