@@ -10,6 +10,11 @@ body {
     overflow: hidden;
 }
 
+@font-face {
+    font-family: LuckiestGuy;
+    src: url('./assets/fonts/Luckiest_Guy_Regular.ttf');
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -141,6 +146,22 @@ canvas {
     height: 100% !important;
 }
 
+.fullscreen-message {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 64px;
+    text-align: center;
+}
+
 .mobile-controller-container-left {
     position: absolute;
     bottom: 32px;
@@ -213,11 +234,6 @@ canvas {
     top: 8px;
     right: 8px;
     z-index: 999;
-}
-
-@font-face {
-    font-family: LuckiestGuy;
-    src: url('./assets/fonts/Luckiest_Guy_Regular.ttf');
 }
 
 .start-screen-container {

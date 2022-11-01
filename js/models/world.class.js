@@ -63,6 +63,12 @@ class World {
             } else {
                 document.getElementById('canvas').classList.remove('fullscreen');
             }
+
+            if (!mobileAndTabletCheck() && window.innerWidth <= 900) {
+                document.getElementById('fullscreen-message').classList.remove('d-none');
+            } else {
+                document.getElementById('fullscreen-message').classList.add('d-none');
+            }
         }, 1000 / 60)
 
         // Handle MAIN_THEME_SOUND
