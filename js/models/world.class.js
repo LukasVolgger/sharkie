@@ -58,18 +58,25 @@ class World {
 
         // Observe fullscreen settings for canvas
         setInterval(() => {
-            if (fullscreen) {
+            if (fullscreen && document.getElementById('canvas')) {
                 document.getElementById('canvas').classList.add('fullscreen');
-            } else {
+            } else if (!fullscreen && document.getElementById('canvas')) {
                 document.getElementById('canvas').classList.remove('fullscreen');
             }
 
             if (!mobileAndTabletCheck() && window.innerWidth <= 992) {
-                document.getElementById('fullscreen-message').classList.remove('d-none');
+                if (document.getElementById('fullscreen-message')) {
+                    document.getElementById('fullscreen-message').classList.remove('d-none');
+                }
                 document.getElementById('landscape-message').style = "opacity: 0";
             } else {
-                document.getElementById('fullscreen-message').classList.add('d-none');
-                document.getElementById('landscape-message').style = "opacity: 1";
+                if (document.getElementById('fullscreen-message')) {
+                    document.getElementById('fullscreen-message').classList.add('d-none');
+                }
+
+                if (document.getElementById('landscape-message')) {
+                    document.getElementById('landscape-message').style = "opacity: 1";
+                }
             }
         }, 1000 / 60)
 

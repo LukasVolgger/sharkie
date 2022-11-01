@@ -9,7 +9,7 @@ function generateStartScreenHTML() {
 		<div class="start-screen-container">
 			<div class="start-screen-header">
 				<h1 class="start-screen-title">Sharkie</h1>
-				<h1 class="start-screen-title">Level ${currentLevel += 1}</h1>
+				<h1 class="start-screen-title">Level ${currentLevel + 1}</h1>
 			</div>
 			<div class="start-screen-body">
 				<button class="start-game-btn btn" onclick="startGame()">START GAME</button>

@@ -12,7 +12,6 @@ let debugMode = true;
 let debugLevelDesignHelper = false;
 let debugLogStatements = false;
 let debugLevelNr = 0;
-let debugSkipStartScreen = false;
 let endBossKilled = false;
 let characterIsDead = false;
 let levelEnded = false;
@@ -34,12 +33,6 @@ loadFromLocalStorage();
  * Initializing function when loading the HTML page
  */
 function init() {
-    if (debugSkipStartScreen) {
-        startGame();
-    } else {
-        renderStartScreen();
-    }
-
     preload();
     loadFromLocalStorage();
     updateUI();
@@ -58,6 +51,7 @@ function init() {
     }
 
     checkForLevelWin();
+    renderStartScreen();
 }
 
 // ################################################### Loading Screen ###################################################
@@ -311,9 +305,6 @@ function saveToLocalStorage() {
     let debugLogStatementsAsString = JSON.stringify(debugLogStatements);
     localStorage.setItem('debugLogStatements', debugLogStatementsAsString);
 
-    let debugSkipStartScreenAsString = JSON.stringify(debugSkipStartScreen);
-    localStorage.setItem('debugSkipStartScreen', debugSkipStartScreenAsString);
-
     let debugLevelDesignHelperAsString = JSON.stringify(debugLevelDesignHelper);
     localStorage.setItem('debugLevelDesignHelper', debugLevelDesignHelperAsString);
 
@@ -337,9 +328,6 @@ function loadFromLocalStorage() {
     let debugLogStatementsAsString = localStorage.getItem('debugLogStatements');
     debugLogStatements = JSON.parse(debugLogStatementsAsString);
 
-    let debugSkipStartScreenAsString = localStorage.getItem('debugSkipStartScreen');
-    debugSkipStartScreen = JSON.parse(debugSkipStartScreenAsString);
-
     let debugLevelDesignHelperAsString = localStorage.getItem('debugLevelDesignHelper');
     debugLevelDesignHelper = JSON.parse(debugLevelDesignHelperAsString);
 
@@ -358,7 +346,6 @@ function restartLevel() {
  * Goes to the next level
  */
 function nextLevel() {
-
     if (currentLevel < levels.length && !maxLevelReached) {
         currentLevel++;
         saveToLocalStorage();
@@ -468,23 +455,6 @@ function toggleDebugLogStatements() {
 
 /**
  * Toggles menu options
- * debugSkipStartScreen
- */
-function toggleDebugSkipStartScreen() {
-    debugSkipStartScreen = !debugSkipStartScreen;
-
-    if (debugSkipStartScreen) {
-        document.getElementById('debugSkipStartScreen-checkbox').checked = true;
-    } else {
-        document.getElementById('debugSkipStartScreen-checkbox').checked = false;
-    }
-
-    saveToLocalStorage();
-    updateUI();
-}
-
-/**
- * Toggles menu options
  * debugLevelDesignHelper
  */
 function toggleDebugLevelDesignHelper() {
@@ -506,11 +476,9 @@ function toggleDebugLevelDesignHelper() {
  */
 function selectDebugLevelNr() {
     let levelNr = parseInt(document.getElementById('debugLevelNr-select').value);
-    debugLevelNr = levelNr;
 
-    if (debugSkipStartScreen) {
-        currentLevel = debugLevelNr;
-    }
+    debugLevelNr = levelNr;
+    currentLevel = debugLevelNr;
 
     saveToLocalStorage();
     updateUI();
@@ -550,13 +518,6 @@ function updateUI() {
         document.getElementById('debugLogStatements-checkbox').checked = true;
     } else {
         document.getElementById('debugLogStatements-checkbox').checked = false;
-    }
-
-    // debugSkipStartScreen
-    if (debugSkipStartScreen) {
-        document.getElementById('debugSkipStartScreen-checkbox').checked = true;
-    } else {
-        document.getElementById('debugSkipStartScreen-checkbox').checked = false;
     }
 
     // debugLevelDesignHelper
