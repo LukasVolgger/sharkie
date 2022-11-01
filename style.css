@@ -528,10 +528,28 @@ canvas {
 
 /* Show message when on mobile devices */
 
-@media (orientation: portrait) and (max-width: 900px) {
+@media (orientation: portrait) and (max-width: 992px) {
     #landscape-message {
         display: flex !important;
         padding: 16px;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 992px) {
+    .end-screen-header {
+        margin: 0 0 0 0;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 420px) {
+    .btn {
+        font-size: 16px !important;
+    }
+    .end-screen-header {
+        margin: 0 0 0 0;
+    }
+    .end-screen-body {
+        margin-top: 16px !important;
     }
 }
 
