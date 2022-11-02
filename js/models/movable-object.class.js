@@ -104,7 +104,7 @@ class MovableObject extends DrawableObject {
      * @returns true / false
      */
     isCollidingX(movableObject) {
-        if (this.y + this.height - this.offset.height - 10 > movableObject.y + movableObject.offset.y && this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height - 10) {
+        if (this.y + this.height - this.offset.height - 3 > movableObject.y + movableObject.offset.y && this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height - 3) {
             return this.x + this.width - this.offset.width > movableObject.x + movableObject.offset.x &&
                 this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width
         }
@@ -116,7 +116,7 @@ class MovableObject extends DrawableObject {
      * @returns true / false
      */
     isCollidingY(movableObject) {
-        if (this.x + this.width - this.offset.width - 10 > movableObject.x + movableObject.offset.x && this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width - 10) {
+        if (this.x + this.width - this.offset.width - 3 > movableObject.x + movableObject.offset.x && this.x + this.offset.x < movableObject.x + movableObject.width - movableObject.offset.width - 3) {
             return this.y + this.height - this.offset.height > movableObject.y + movableObject.offset.y &&
                 this.y + this.offset.y < movableObject.y + movableObject.height - movableObject.offset.height;
         }
